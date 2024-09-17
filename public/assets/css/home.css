@@ -1,0 +1,93 @@
+.offer-section h4{
+    color: #4E6BFF;
+    font-weight: 600;
+}
+
+
+.banner-blue-shadow::before{
+    position: absolute;
+    left: -30%;
+    top: -25%;
+    border-radius: 50%;
+    z-index: -1;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(50% 50% at 50% 50%, #dae0ff 0%, rgba(196, 196, 196, 0) 100%);
+}
+
+.banner-pink-shadow::before{
+    position: absolute;
+    top: -24%;
+    right: -10%;
+    border-radius: 50%;
+    z-index: -1;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(50% 50% at 50% 50%, #ffd5e9 0%, rgba(196, 196, 196, 0) 100%);
+}
+
+.profile-pic img{
+    width: 100% ;
+}
+
+
+@media screen and (max-width:768px) {
+    .profile-pic img{
+        width: 50% !important;
+    }
+}
+
+.offer-sec-blue-shadow::before{
+    position: absolute;
+    right: -10%;
+    border-radius: 50%;
+    z-index: -1;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(50% 50% at 50% 50%, #cffff9 0%, rgba(196, 196, 196, 0) 100%);
+}
+
+
+.choose-me-sec-pink-shadow::before{
+    position: absolute;
+    top: -10%;
+    left: -3%;
+    border-radius: 50%;
+    z-index: -1;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(50% 50% at 50% 50%, #ffd5e9 0%, rgba(196, 196, 196, 0) 100%);
+}
+.quality-services-sec h4{
+    font-weight: 600;
+}
+.quality-services-sec svg{
+    width: 40px;
+}
+
+
+.quality-servoices-sec-green-shadow::before{
+    position: absolute;
+    top: 35%;
+    right: 0%;
+    border-radius: 50%;
+    z-index: -1;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(223, 250, 223) 0%, rgba(196, 196, 196, 0) 100%);
+}
+.counter-section h1, .counter-section span{
+    color: #4E6BFF;
+}
+.contact-section label {
+    color: #fff;
+}
+.contact-section input, .contact-section input:focus, .contact-section textarea, .contact-section textarea::placeholder, .contact-section textarea:focus {
+    background-color: transparent;
+    color: #fff;
+}

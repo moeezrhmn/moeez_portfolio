@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+ul{
+    padding: 0;
+}
+
+ul li{
+    list-style: none;
+}
+
+nav .navbar-nav .nav-link {
+    font-weight: 700;
+}
+
+nav .navbar-nav  .active{
+    color:#4E6BFF !important ;
+    background-color: transparent;
+}
+
+.nav-contact-btn{
+    border-radius: 6px;
+    background: #5874FF;
+    color: #fff;
+    
+}
+p{
+    line-height: 1.8;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.754);
+}
+
+.theme-btn{
+    background: #5874FF;
+    border-radius: 10px;
+    color: #fff;
+    padding: 7px 30px;
+    border: 0;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    font-size: 13px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+.theme-btn-light{
+    background: #fff;
+    border-radius: 10px;
+    color: #4E6BFF;
+    padding: 7px 30px;
+    border: 1px solid #4E6BFF;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    font-size: 13px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+.theme-btn:hover, .theme-btn-light:hover{
+    transform: scale(1.05);
+}
+
+.sec-heading{
+    font-weight: 700;
+    font-size: 48px;
+    line-height:72px;
+    color: #4E6BFF;
+}
+@media screen and (max-width:768px) {
+    p{
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
+
+
+
+footer a{
+    color: black;
+    font-size: 13px;
+    /* text-decoration: none; */
+}
+
+footer .social-icons{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+footer .social-icons li a{
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 5px;
+    border-radius: 50%;
+}
+footer .social-icons li a svg{
+    width: 20px;
+}
+
+.footer-sec-blue-shadow::before{
+    left: 15%;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    border-radius: 50%;
+    z-index: -1;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(50% 50% at 50% 50%, #dae0ff 0%, rgba(196, 196, 196, 0) 100%);
+}
+
+.experience-section div.col{
+    text-align: center;
+}
+.experience-section img{
+    width: 110px;
+    margin: auto;
+}
