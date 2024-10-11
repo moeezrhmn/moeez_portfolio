@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <div class="banner border-bottom ">
+    <div class="banner border-bottom " style="overflow: hidden;">
 
         <div class="container pt-md-5 pb-5">
             <div class="row  align-items-center">
@@ -22,16 +22,19 @@
                             Skills PHP (Laravel, CodeiIgniter) JavaScript (nodeJS, ReactJS) & Python (Flask, FastAPIs) for
                             dynamic websites & automation.</p>
                         <div class=" mt-5 btns d-flex justify-content-center justify-content-md-start  gap-2 ">
-                            <a href="{{ route('contact') }}" class="theme-btn">Contact me</a>
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#contact_me_modal" class="theme-btn">Contact me</a>
                             <a href="{{ route('contact') }}" class="theme-btn-light">See projects</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5  order-1 order-md-2">
                     <div class="profile-pic p-3 p-md-5 text-center ">
-                        <div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div class="pic-box">
+                                <img src="{{ asset('assets/images/moeez-dp.png') }}" alt="">
+                            </div>
                             <span class="banner-pink-shadow"></span>
-                            <div class="banner-img-block" style="position: absolute; right: 0; top:50% ;">
+                            <div class="banner-img-block" style="position: absolute; right: 0; top:50%; z-index:-1 ;">
                                 <svg width="47" height="531" viewBox="0 0 47 531" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -46,14 +49,14 @@
         </div>
     </div>
 
-    <div class="offer-section py-5">
+    <div class="offer-section py-5" style="    overflow: hidden;" >
         <div class="container">
             <div class="row mb-5  justify-content-center text-center ">
                 <div class="col-md-7">
-                    <h1 class="sec-heading"> Offering </h1>
+                    <h1 class="sec-heading"  > Offering </h1>
                     <span style="font-size: 14px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam odit unde
                         corrupti architecto molestiae placeat esse sit, soluta voluptatem quae maiores, fuga.</span>
-                    <div class="offer-sec-block" style="position: absolute; left: 0; top:45% ;">
+                    <div class="offer-sec-block" style="position: absolute; left: 0; top:45% ; z-index:-1">
                         <svg width="55" height="610" viewBox="0 0 55 610" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -87,12 +90,11 @@
                 </div>
                 <div class="col-md-3 col-6 mb-5">
                     <h4>Restful APIs development</h4>
-                    <span style="font-size: 13px;">APIs in Laravel, NodeJS, Python (Flask & FastAPis)</span>
+                    <span style="font-size: 13px;">APIs in Laravel, NodeJS,  Python (Flask & FastAPis)</span>
                 </div>
                 <div class="col-md-3 col-6 mb-5">
                     <h4>WP theme customization</h4>
-                    <span style="font-size: 13px;">Build Child Theme & Customize. Override Cart Page, APIs integration,
-                        etc</span>
+                    <span style="font-size: 13px;">Build Child Theme & Customize. Override Cart Page, APIs integration, etc</span>
                 </div>
                 <div class="col-md-3 col-6 mb-5">
                     <h4>Inventory Management</h4>
@@ -180,8 +182,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="video">
-                        <video width="100%" height="400px" frameborder="0" autoplay loop>
+                        <video width="100%" height="400px" style="filter: contrast(1.4) brightness(1.5);" frameborder="0" autoplay muted loop>
                             <source src="{{ asset('assets/images/programmer-whychooseme.mp4') }}" type="video/mp4" />
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
@@ -390,9 +393,9 @@
     <div class="contact-section py-5 " style="background: #4E6BFF;">
         <div class="container">
             <div class="row text-center mb-4">
-                <h1 class="sec-heading" style="color: #fff;" > Send Your Requirements </h1>
+                <h1 class="sec-heading" style="color: #fff;" > Send Me Your Requirements </h1>
             </div>
-            <div class="row justify-content-center">
+            <div style="display:none;" class="row justify-content-center">
                 <div class="col-md-8">
                     <form action="" class="row justify-content-center">
                         <div class=" col-6 mb-3">
@@ -419,6 +422,82 @@
                     </form>
                 </div>
             </div>
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#contact_me_modal" class="theme-btn-light">Send Now</a>
+                </div>
+            </div>
         </div>
     </div>
+
+
+<!-- Send Query Modal -->
+
+<div class="modal fade " id="contact_me_modal" tabindex="-1" aria-labelledby="contact_me_modal_label" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <form action="" method="post" class="modal-content">
+      <div class="modal-header">
+        <div class="heading-content">
+            <h1 class="modal-title fs-5" id="contact_me_modal_label">Get a Quote For Your Project</h1>
+            <p>I will reach out you soon, possibly within next 12 hours.</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-4 mb-3 col-6">
+                <label for="name">Name: <span style="color: red;" >*</span> </label>
+                <input type="text" id="name" name="full_name" placeholder="Full Name" required class="form-control" >
+            </div>
+            <div class="col-md-4 mb-3 col-6">
+                <label for="email">Email: <span style="color: red;" >*</span> </label>
+                <input type="email" name="email" id="email" placeholder="Enter Email" class="form-control" >
+            </div>
+            <div class="col-md-4 mb-3 col-12">
+                <label for="phone">Phone: </label>
+                <input type="tel" name="phone" placeholder="Enter Phone Number" id="phone" class="form-control" >
+            </div>
+
+            <div class=" col-12 mb-3">
+                <label for="industry">Enter Your Industry or Buisness: <span style="color: red;" >*</span></label>
+                <input type="text" name="industry" required id="industry" placeholder="Medical, Real State, Finetech, Or your profession like Doctor, Buisnessman, Politcian " class="form-control">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="organization_type">Organization Type:</label>
+                <input type="text" name="organization_type" id="organization_type" placeholder="Profitable,  Charitable, Religious, Government, NGOs, Foundations, Trusts etc  " class="form-control">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="priamry_goal">Primary Goal of the Website or Project: <span style="color: red;" >*</span> </label>
+                <textarea name="priamry_goal" rows="4" id="priamry_goal" class="form-control" placeholder="Describe the main purpose whether it's brand awareness, Lead generation, e-commerce, custom solution, automations, or tools, etc"  ></textarea>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="reference_links">Provide any links to website, designs or feature that inspire the desire look or feel:  </label>
+                <input type="text" name="reference_links" id="reference_links" placeholder="Each Seperated By Comma" class="form-control">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="budget">Your Budget for this project: <span style="color: red;" >*</span> </label>
+                <input type="number" name="budget" id="budget" placeholder="Your Budget $" class="form-control">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="number_of_pages">Number of pages:</label>
+                <input type="text" name="number_of_pages" id="number_of_pages" placeholder="Provide detail on expected number of pages you want" class="form-control">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="number_of_pages">Brief of Your Requirements:</label>
+                <textarea name="priamry_goal" rows="4" id="priamry_goal" class="form-control" placeholder="Kinldy provide a detailed explanation of your requirements, including details such as competitor site you admire or any unique features you wish to implement."  ></textarea>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="uploaded_file">Upload any relevant file (maximum allowed size is 2GB):</label>
+                <input type="file" class="form-control">
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class=" theme-btn-light" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class=" theme-btn">Send </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 @endsection

@@ -1,12 +1,12 @@
 <footer style="position: relative">
     <div class="container text-center text-md-start pt-5">
-        <div class="row"  >
+        <div class="row">
             <div class="mb-4 col-md-4">
                 <div class="content">
                     <h6>Moeez Ur Rehman</h6>
-                    <p style="font-size: 14px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem sapiente
-                        id
-                        a dolorum aut magni quo eveniet.</p>
+                    <p style="font-size: 14px;">
+                        I help businesses streamline operations with expert back-end development, specializing in automation, problem-solving, and custom-built solutions. Whether you need web apps, e-commerce platforms, REST APIs, or integrations, I deliver high-quality, scalable results to solve your toughest challenges. Let’s collaborate to transform your ideas into powerful, efficient solutions.
+                    </p>
                     <span class="footer-sec-blue-shadow"></span>
                 </div>
             </div>
@@ -14,17 +14,20 @@
                 <h6>My Tools</h6>
                 <ul>
                     <li>
-                        <a href="#" title="YouTube, Instagram, Twitter, Linkedin">All Video Downloader</a>
+                        <a href="#" title="YouTube, Instagram, Twitter, Linkedin">Comming soon</a>
                     </li>
                 </ul>
             </div>
             <div class="mb-4 col-md-3">
                 <h6>Contact</h6>
-                <p style="font-size: 14px">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                <p style="font-size: 14px">Software Engineer, Custom Software Development, Automation Tools & Solutions, API Integrations, Problem Solving, Web & E-commerce Applications</p>
                 <a href="tel:+923226622545">+923226622545</a>
                 <a href="mailto:moeezrhmn853@gmail.com">moeezrhmn853@gmail.com</a>
             </div>
             <div class="mb-4 col-md-3">
+                <div>
+                    <p style="font-size: 14px;">My recent success stems from innovative automation apps and seamless Shopify integrations, enhancing efficiency and productivity. With a strong foundation in server-side programming.</p>
+                </div>
                 <ul class="social-icons">
                     <li>
                         <a href="">

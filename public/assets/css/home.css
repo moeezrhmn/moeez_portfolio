@@ -29,13 +29,14 @@
 }
 
 .profile-pic img{
-    width: 100% ;
+    width: 100%;
 }
+
 
 
 @media screen and (max-width:768px) {
     .profile-pic img{
-        width: 50% !important;
+        width: 115%;
     }
 }
 

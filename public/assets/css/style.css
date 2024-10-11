@@ -4,8 +4,13 @@
     font-family: "Poppins", sans-serif;
     font-style: normal;
 }
+
 ul{
     padding: 0;
+}
+
+span, p {
+    word-wrap: break-word;
 }
 
 ul li{
@@ -13,11 +18,21 @@ ul li{
 }
 
 nav .navbar-nav .nav-link {
-    font-weight: 700;
+    font-weight: 500;
+    margin: 2px 0;
+
+}
+nav .navbar-nav .nav-link:hover {
+    border:1px solid #4E6BFF;
+    border-radius: 6px;
+}
+.modal-header{
+    padding: 0.7rem 1rem 0 1rem;
 }
 
+
 nav .navbar-nav  .active{
-    color:#4E6BFF !important ;
+    color:#4E6BFF !important;
     background-color: transparent;
 }
 
@@ -25,7 +40,6 @@ nav .navbar-nav  .active{
     border-radius: 6px;
     background: #5874FF;
     color: #fff;
-    
 }
 p{
     line-height: 1.8;
@@ -37,7 +51,7 @@ p{
     background: #5874FF;
     border-radius: 10px;
     color: #fff;
-    padding: 7px 30px;
+    padding: 8px 33px;
     border: 0;
     text-decoration: none;
     transition: all 0.2s ease-out;
@@ -75,9 +89,42 @@ p{
         font-size: 13px;
         line-height: 1.6;
     }
+    nav .navbar-nav .nav-link {
+        padding: 20px;
+    }
 }
 
 
+.profile-pic .pic-box{
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    justify-content: center;
+}
+.profile-pic img{
+    object-fit: cover;
+    margin-bottom: -20px;
+}
+@media (min-width: 768px) {
+    
+    .navbar-nav{
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-pic .pic-box{
+        border-radius: 100%;
+        width: 170px;
+        height: 170px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+}
 
 footer a{
     color: black;
