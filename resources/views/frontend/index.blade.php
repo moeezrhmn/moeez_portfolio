@@ -22,7 +22,7 @@
                             Skills PHP (Laravel, CodeiIgniter) JavaScript (nodeJS, ReactJS) & Python (Flask, FastAPIs) for
                             dynamic websites & automation.</p>
                         <div class=" mt-5 btns d-flex justify-content-center justify-content-md-start  gap-2 ">
-                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#contact_me_modal" class="theme-btn">Contact me</a>
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#contact_me_modal" class="theme-btn">Get a quote</a>
                             <a href="{{ route('contact') }}" class="theme-btn-light">See projects</a>
                         </div>
                     </div>

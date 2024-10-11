@@ -13,8 +13,26 @@
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
         @yield('head_import')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var preloader = document.getElementById('preloader');
+                window.addEventListener('load', function() {
+                    preloader.style.display = 'none';
+                });
+            });
+        </script>
     </head>
     <body style="overflow-x: hidden;"> 
+        <div id="preloader" class="preloader-outer">
+
+            <div class="preloader" >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
         <x-navbar/>
         
         @yield('content')
