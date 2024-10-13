@@ -18,5 +18,5 @@ Route::middleware('guest')->controller(Controller::class)->group(function (){
 
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
 Auth::routes();
