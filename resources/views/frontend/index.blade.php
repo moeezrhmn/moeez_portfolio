@@ -165,9 +165,7 @@
                         </div>
                         <h3 class="pb-4">Make My clients happy by giving Best services.</h3>
                         <p style="font-size: 15px">
-                            KODEX TECHNOLOGY (PVT) LTD is a team of experienced mobile and web applications and website
-                            builders measuring dozens of completed projects. We build and develop mobile applications for
-                            several top platforms, including Android & IOS.
+                          I build user-friendly websites, automate tasks, web scraping, & develop custom SaaS solutions. Skills PHP (Laravel, CodeiIgniter) JavaScript (nodeJS, ReactJS) & Python (Flask, FastAPIs) for dynamic websites & automation.
                         </p>
                         <div class="line" style="position: absolute;top: 18%;left: 0;z-index: -1;">
                             <svg width="157" height="719" viewBox="0 0 157 719" fill="none"
