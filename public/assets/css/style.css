@@ -8,6 +8,9 @@
 ul {
     padding: 0;
 }
+body.overflow-hide-horizontal{
+    overflow-x: hidden;
+}
 div.preloader-outer{
     position: fixed;
     top: 0;

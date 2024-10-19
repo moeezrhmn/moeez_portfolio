@@ -30,7 +30,7 @@
                 </div>
                 <ul class="social-icons">
                     <li>
-                        <a href="">
+                        <a href="https://www.facebook.com/moeezrhmn">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1_260)">
@@ -90,7 +90,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <!-- linkedin icon -->
+                        <a href="https://www.linkedin.com/in/moeezrhmn/">
                             <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1_279)">

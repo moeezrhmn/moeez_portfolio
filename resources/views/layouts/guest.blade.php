@@ -38,7 +38,7 @@
     </script>
 </head>
 
-<body style="overflow-x: hidden;">
+<body class="overflow-hide-horizontal">
     <div id="preloader" class="preloader-outer">
         <div class="preloader" >
             <span></span>
