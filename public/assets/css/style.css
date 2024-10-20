@@ -4,12 +4,19 @@
     font-family: "Poppins", sans-serif;
     font-style: normal;
 }
-
+main{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 ul {
     padding: 0;
 }
 body.overflow-hide-horizontal{
     overflow-x: hidden;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
 }
 div.preloader-outer{
     position: fixed;
@@ -23,6 +30,9 @@ div.preloader-outer{
     align-items: center;
     justify-content: center;
     background-color:#5874FF;
+}
+.form-control::placeholder{
+    color: #21252936;
 }
 div.preloader {
     display: flex;

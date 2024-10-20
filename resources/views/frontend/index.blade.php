@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <div class="banner border-bottom " style="overflow: hidden;">
+    <div class="banner border-bottom " style="position: relative" style="overflow: hidden;">
 
         <div class="container pt-md-5 pb-5">
             <div class="row  align-items-center">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5  order-1 order-md-2">
+                <div class="col-md-5  order-1 order-md-2" >
                     <div class="profile-pic p-3 p-md-5 text-center ">
                         <div style="display: flex; align-items: center; justify-content: center;">
                             <div class="pic-box">
@@ -49,13 +49,12 @@
         </div>
     </div>
 
-    <div class="offer-section py-5" style="    overflow: hidden;" >
+    <div class="offer-section py-5" style=" position: relative; overflow: hidden;" >
         <div class="container">
             <div class="row mb-5  justify-content-center text-center ">
                 <div class="col-md-7">
                     <h1 class="sec-heading"  > Offering </h1>
-                    <span style="font-size: 14px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam odit unde
-                        corrupti architecto molestiae placeat esse sit, soluta voluptatem quae maiores, fuga.</span>
+                    <span style="font-size: 14px">Discover wide range of tailored offerings designed to meet your needs. From premium services to custom solutions, we provide exceptional value and quality in everything we deliver.</span>
                     <div class="offer-sec-block" style="position: absolute; left: 0; top:45% ; z-index:-1">
                         <svg width="55" height="610" viewBox="0 0 55 610" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -197,8 +196,7 @@
                 <div class="col-md-7">
                     <div class="content">
                         <h1 class="sec-heading">Offer The Best Quality Service</h1>
-                        <p style="font-size: 15px">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
+                        <p style="font-size: 15px">Get top-notch service with a focus on quality and customer satisfaction. Our expert team ensures you receive the best, every time. Choose us for reliable, professional results that exceed expectations</p>
                         <span class="quality-servoices-sec-green-shadow"></span>
                     </div>
                 </div>
@@ -220,8 +218,7 @@
                             </svg>
                         </div>
                         <h4>Security and privacy</h4>
-                        <p style="font-size: 13px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor.</p>
+                        <p style="font-size: 13px">Prioritize your data with our secure and privacy-focused solutions. We safeguard your information with top-tier protection, ensuring a safe and confidential experience</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 pb-5">
@@ -240,8 +237,7 @@
                             </svg>
                         </div>
                         <h4>Fast & Opimized</h4>
-                        <p style="font-size: 13px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor.</p>
+                        <p style="font-size: 13px">Enjoy lightning-fast performance with our optimized solutions, designed for speed and efficiency. Get superior functionality without compromising on speed.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 pb-5">
@@ -260,8 +256,7 @@
                             </svg>
                         </div>
                         <h4>Corporate with others </h4>
-                        <p style="font-size: 13px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor.</p>
+                        <p style="font-size: 13px">Work seamlessly with others using our collaborative solutions. We foster teamwork and cooperation, ensuring smooth, productive outcomes across all projects.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 pb-5">
@@ -282,8 +277,7 @@
                             </svg>
                         </div>
                         <h4>Clean & Dry code </h4>
-                        <p style="font-size: 13px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor.</p>
+                        <p style="font-size: 13px">Benefit from clean, maintainable, and DRY code that ensures scalability and efficiency. Our coding practices ensure easy updates and long-term reliability.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 pb-5">
@@ -314,8 +308,7 @@
                             </svg>
                         </div>
                         <h4>Built-in AI features </h4>
-                        <p style="font-size: 13px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor.</p>
+                        <p style="font-size: 13px">Leverage the power of built-in AI features that enhance functionality and automate tasks. Boost efficiency and make smarter decisions with cutting-edge AI integration.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 pb-5">
@@ -335,8 +328,7 @@
                             </svg>
                         </div>
                         <h4>Productive development </h4>
-                        <p style="font-size: 13px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                            eirmod tempor.</p>
+                        <p style="font-size: 13px">Maximize your development productivity with our streamlined processes. We focus on delivering results quickly and efficiently, without compromising quality.</p>
                     </div>
                 </div>
             </div>
@@ -345,12 +337,12 @@
 
     <div class="counter-section mt-5" style="background: #C8D1FF;">
         <div class="container">
-            <div class="row g-5  py-5 justify-content-center">
-                <div class="col-md-4 text-center">
+            <div class="row py-5 justify-content-center">
+                <div class="col-6 text-center">
                     <h1>27</h1>
                     <span>Happy clients</span>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-6 text-center">
                     <h1>100+</h1>
                     <span>Completed Projects</span>
                 </div>
@@ -472,11 +464,11 @@
                 <label for="reference_links">Provide any links to website, designs or feature that inspire the desire look or feel:  </label>
                 <input type="text" name="reference_links" id="reference_links" placeholder="Each Seperated By Comma" class="form-control">
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="budget">Your Budget for this project: <span style="color: red;" >*</span> </label>
                 <input type="number" name="budget" id="budget" placeholder="Your Budget $" class="form-control">
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="number_of_pages">Number of pages:</label>
                 <input type="text" name="number_of_pages" id="number_of_pages" placeholder="Provide detail on expected number of pages you want" class="form-control">
             </div>
