@@ -16,17 +16,17 @@
     <meta property="og:url" content="https://moeezrehman.dev/">
     <meta property="og:title" content="Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions">
     <meta property="og:description" content="Professional web apps, SaaS development, automation, inventory management, and custom solutions. Build user-friendly websites, automate tasks, and integrate APIs with expertise in Laravel, Python, and JavaScript.">
-    <meta property="og:image" content="{{ asset('assets/images/moeez-dp-2.png') }}">
+    <meta property="og:image" content="{{ asset('assets/images/moeez-dp-2.jpg') }}">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://moeezrehman.dev/">
     <meta property="twitter:title" content="Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions">
     <meta property="twitter:description" content="Expert in custom software solutions, web apps, automation, SaaS products, and API integrations. Build efficient, scalable systems for various industries.">
-    <meta property="twitter:image" content="{{ asset('assets/images/moeez-dp-2.png') }}">
+    <meta property="twitter:image" content="{{ asset('assets/images/moeez-dp-2.jpg') }}">
     
     
-    <meta name="msapplication-TileImage" content="{{ asset('assets/images/moeez-dp-2.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/images/moeez-dp-2.jpg') }}">
 
 
     {{-- Boostrap 5.3v --}}
