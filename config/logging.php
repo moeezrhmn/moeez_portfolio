@@ -64,6 +64,13 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
             'replace_placeholders' => true,
         ],
+        'quote_requests' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/quote_requests.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 35),
+            'replace_placeholders' => true,
+        ],
 
         'daily' => [
             'driver' => 'daily',

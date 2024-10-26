@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> {{ config('app.name', 'Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions') }} @hasSection ('title') | @yield('title') @endif </title>
+    <title>Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions @hasSection ('title') | @yield('title') @endif </title>
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions">
@@ -17,16 +17,17 @@
     <meta property="og:title" content="Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions">
     <meta property="og:description" content="Professional web apps, SaaS development, automation, inventory management, and custom solutions. Build user-friendly websites, automate tasks, and integrate APIs with expertise in Laravel, Python, and JavaScript.">
     <meta property="og:image" content="{{ asset('assets/images/moeez-dp-2.jpg') }}">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://moeezrehman.dev/">
     <meta property="twitter:title" content="Moeez Dev | Web Apps, Automation, SaaS, Inventory & Custom Solutions">
     <meta property="twitter:description" content="Expert in custom software solutions, web apps, automation, SaaS products, and API integrations. Build efficient, scalable systems for various industries.">
     <meta property="twitter:image" content="{{ asset('assets/images/moeez-dp-2.jpg') }}">
-    
-    
+
+
     <meta name="msapplication-TileImage" content="{{ asset('assets/images/moeez-dp-2.jpg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/moeez-dp-2.jpg') }}">
 
 
     {{-- Boostrap 5.3v --}}
@@ -57,23 +58,57 @@
         gtag('js', new Date());
 
         gtag('config', 'G-QPQ3J7KD7Y');
+
+        // alert handling
+        document.addEventListener('DOMContentLoaded', function () {
+        const alertSuccess = document.getElementById('alert-success');
+        const alertError = document.getElementById('alert-error');
+        
+        if (alertSuccess) {
+            alertSuccess.classList.add('alert-show');
+            setTimeout(() => {
+                alertSuccess.classList.remove('alert-show');
+            }, 4000);
+        }
+
+        if (alertError) {
+            alertError.classList.add('alert-show');
+            setTimeout(() => {
+                alertError.classList.remove('alert-show');
+            }, 6000);
+        }
+    });
     </script>
 </head>
 
 <body class="overflow-hide-horizontal">
     <div id="preloader" class="preloader-outer">
-        <div class="preloader" >
+        <div class="preloader">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
         </div>
     </div>
+    @if (session('success'))
+    <div id="alert-success" class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+    @if ($errors->any())
+    <div id="alert-error" class="alert alert-error">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <main>
         <x-navbar />
-        
+
         @yield('content')
-        
+
         <x-footer />
     </main>
 

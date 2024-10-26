@@ -14,7 +14,7 @@
                 <div class="col-md-7 order-2 order-md-1 ">
                     <div class="content pe-1 text-center text-md-start" style="position: relative">
                         <span class="banner-blue-shadow"></span>
-                        <span>Backend Developer</span>
+                        <span>Full Stack Developer</span>
                         <h1 class="mb-4" style="font-weight: 600">
                             Web Apps, Inventory, Scraping, Automation, Problems Solution & Saas Products.
                         </h1>
@@ -425,7 +425,7 @@
 
 <div class="modal fade " id="contact_me_modal" tabindex="-1" aria-labelledby="contact_me_modal_label" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
-    <form action="" method="post" class="modal-content">
+    <form action="{{ route('quote_requests') }}" enctype="multipart/form-data" method="post" class="modal-content">
       <div class="modal-header">
         <div class="heading-content">
             <h1 class="modal-title fs-5" id="contact_me_modal_label">Get a Quote For Your Project</h1>
@@ -435,6 +435,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
+            @csrf
             <div class="col-md-4 mb-3 col-6">
                 <label for="name">Name: <span style="color: red;" >*</span> </label>
                 <input type="text" id="name" name="full_name" placeholder="Full Name" required class="form-control" >
@@ -450,7 +451,7 @@
 
             <div class=" col-12 mb-3">
                 <label for="industry">Enter Your Industry or Buisness: <span style="color: red;" >*</span></label>
-                <input type="text" name="industry" required id="industry" placeholder="Medical, Real State, Finetech, Or your profession like Doctor, Buisnessman, Politcian " class="form-control">
+                <input type="text" name="industry_or_buisness" required id="industry" placeholder="Medical, Real State, Finetech, Or your profession like Doctor, Buisnessman, Politcian " class="form-control">
             </div>
             <div class="col-12 mb-3">
                 <label for="organization_type">Organization Type:</label>
@@ -458,27 +459,27 @@
             </div>
             <div class="col-12 mb-3">
                 <label for="priamry_goal">Primary Goal of the Website or Project: <span style="color: red;" >*</span> </label>
-                <textarea name="priamry_goal" rows="4" id="priamry_goal" class="form-control" placeholder="Describe the main purpose whether it's brand awareness, Lead generation, e-commerce, custom solution, automations, or tools, etc"  ></textarea>
+                <textarea name="primary_goal_of_project" rows="4" id="priamry_goal" class="form-control" placeholder="Describe the main purpose whether it's brand awareness, Lead generation, e-commerce, custom solution, automations, or tools, etc"  ></textarea>
             </div>
             <div class="col-12 mb-3">
                 <label for="reference_links">Provide any links to website, designs or feature that inspire the desire look or feel:  </label>
-                <input type="text" name="reference_links" id="reference_links" placeholder="Each Seperated By Comma" class="form-control">
+                <input type="text" name="links" id="reference_links" placeholder="Each Seperated By Comma" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="budget">Your Budget for this project: <span style="color: red;" >*</span> </label>
-                <input type="number" name="budget" id="budget" placeholder="Your Budget $" class="form-control">
+                <input type="number" name="budget" id="budget" placeholder="Your Budget" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="number_of_pages">Number of pages:</label>
                 <input type="text" name="number_of_pages" id="number_of_pages" placeholder="Provide detail on expected number of pages you want" class="form-control">
             </div>
             <div class="col-12 mb-3">
-                <label for="number_of_pages">Brief of Your Requirements:</label>
-                <textarea name="priamry_goal" rows="4" id="priamry_goal" class="form-control" placeholder="Kinldy provide a detailed explanation of your requirements, including details such as competitor site you admire or any unique features you wish to implement."  ></textarea>
+                <label for="brief_of_requirements">Brief of Your Requirements:</label>
+                <textarea name="brief_of_requirements" rows="4" id="brief_of_requirements" class="form-control" placeholder="Kinldy provide a detailed explanation of your requirements, including details such as competitor site you admire or any unique features you wish to implement."  ></textarea>
             </div>
             <div class="col-12 mb-3">
-                <label for="uploaded_file">Upload any relevant file (maximum allowed size is 2GB):</label>
-                <input type="file" class="form-control">
+                <label for="relevant_file">Upload any relevant file (maximum allowed size is 2GB):</label>
+                <input type="file" id="relevant_file" accept=".pdf,.doc,.docx,.jpeg,.webp,.jpg,.png,.zip" name="relevant_file" class="form-control">
             </div>
         </div>
       </div>

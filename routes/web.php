@@ -14,6 +14,8 @@ Route::middleware('guest')->controller(Controller::class)->group(function (){
     Route::get('/services', 'services')->name('services');
     Route::get('/blogs', 'blogs')->name('blogs');
     Route::get('/contact', 'contact')->name('contact');
+
+    Route::post('/quote-requests', 'quote_requests')->name('quote_requests');
 });
 
 
