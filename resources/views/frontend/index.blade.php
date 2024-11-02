@@ -31,7 +31,7 @@
                     <div class="profile-pic p-3 p-md-5 text-center ">
                         <div style="display: flex; align-items: center; justify-content: center;">
                             <div class="pic-box">
-                                <img src="{{ asset('assets/images/moeez-dp.png') }}" alt="">
+                                <img  src="{{ asset('assets/images/moeez-dp-2.jpg') }}" alt="Moeez Rehman FullStack Developer">
                             </div>
                             <span class="banner-pink-shadow"></span>
                             <div class="banner-img-block" style="position: absolute; right: 0; top:50%; z-index:-1 ;">
