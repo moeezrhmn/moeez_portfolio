@@ -1,16 +1,8 @@
+'use client';
 
 import { motion } from 'framer-motion';
 import { about, skills, services } from '@/lib/data/portfolio-data';
 import { FaPython, FaPhp, FaDatabase, FaDocker, FaGitAlt, FaCode } from 'react-icons/fa';
-
-export const metadata = {
-  title: "About Me - Backend Engineer | Python & Laravel Specialist",
-  description: "Learn about my journey as a Backend Engineer. Expert in Python, Laravel, API Development, E-commerce Integrations, and building scalable SaaS systems. 5+ years of experience delivering solutions that process 300k+ products.",
-  openGraph: {
-    title: "About Moeez Rehman - Backend Engineer",
-    description: "Backend Engineer specializing in Python, Laravel, and scalable backend systems",
-  },
-};
 
 export default function About() {
   const containerVariants = {
@@ -235,7 +227,7 @@ export default function About() {
                 variants={itemVariants}
                 className="glass-subtle rounded-xl p-5 md:p-6 hover:glass-card hover:border hover:border-accent/20 transition-all duration-300 flex items-start gap-3 md:gap-4 group"
               >
-                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0 group-hover:glow-element"></div>
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 shrink-0 group-hover:glow-element"></div>
                 <p className="text-secondary flex-1 leading-relaxed">{achievement}</p>
               </motion.div>
             ))}

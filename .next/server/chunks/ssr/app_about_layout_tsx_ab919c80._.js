@@ -1,0 +1,3 @@
+module.exports=[32829,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"About Me - Backend Engineer | Python & Laravel Specialist",description:"Learn about my journey as a Backend Engineer. Expert in Python, Laravel, API Development, E-commerce Integrations, and building scalable SaaS systems. 5+ years of experience delivering solutions that process 300k+ products.",openGraph:{title:"About Moeez Rehman - Backend Engineer",description:"Backend Engineer specializing in Python, Laravel, and scalable backend systems"}}])}];
+
+//# sourceMappingURL=app_about_layout_tsx_ab919c80._.js.map
