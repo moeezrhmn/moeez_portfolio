@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!-- Background with subtle gradient -->
+  <rect width="180" height="180" fill="#000000" rx="40"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00ff41" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="180" height="180" fill="url(#grid)" rx="40"/>
+  
+  <!-- Terminal prompt -->
+  <g transform="translate(90, 110)">
+    <!-- Main symbol -->
+    <text x="0" y="0" font-family="monospace, Courier New" font-size="100" font-weight="bold" fill="#00ff41" text-anchor="middle" dominant-baseline="middle">&gt;</text>
+    
+    <!-- Glow effect -->
+    <text x="0" y="0" font-family="monospace, Courier New" font-size="100" font-weight="bold" fill="#00ff41" text-anchor="middle" dominant-baseline="middle" opacity="0.4" style="filter: blur(6px)">&gt;</text>
+  </g>
+  
+  <!-- Cursor -->
+  <rect x="110" y="95" width="35" height="8" fill="#00ff41" opacity="0.8" rx="2"/>
+</svg>

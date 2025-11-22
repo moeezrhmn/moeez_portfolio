@@ -1,0 +1,307 @@
+@import "tailwindcss";
+
+/* Custom color variables for dark theme */
+:root {
+  /* Backgrounds */
+  --background-primary: #0a0a0a;
+  --background-secondary: #000000;
+  --background-card: #111111;
+  --background-hover: #1a1a1a;
+
+  /* Accent colors */
+  --accent-primary: #00ff41;
+  --accent-secondary: #00dd38;
+  --accent-glow: rgba(0, 255, 65, 0.5);
+
+  /* Text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+
+  /* Borders */
+  --border-default: #222222;
+  --border-hover: #333333;
+}
+
+@theme {
+  /* Colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+  --color-accent: #00ff41;
+  --color-card: #111111;
+  --color-border: #222222;
+  --color-muted: #666666;
+  --color-secondary: #a0a0a0;
+
+  /* Fonts */
+  --font-family-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Reset margins and padding for specific elements only */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-glow);
+  color: var(--background-primary);
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES - HACKER AESTHETIC
+   ============================================ */
+
+/* Primary Glass Effect - For navigation & main elements */
+.glass-nav {
+  position: relative;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+    0 0 20px 0 rgba(0, 255, 65, 0.1);
+}
+
+.glass-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 255, 65, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Card Glass Effect - For dropdowns & modals */
+.glass-card {
+  position: relative;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 255, 65, 0.15);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 0 15px 0 rgba(0, 255, 65, 0.08);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 255, 65, 0.03) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Subtle Glass - For hover states */
+.glass-subtle {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   GREEN GLOW EFFECTS - HACKER AESTHETIC
+   ============================================ */
+
+/* Text glow */
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(0, 255, 65, 0.8),
+    0 0 20px rgba(0, 255, 65, 0.4),
+    0 0 30px rgba(0, 255, 65, 0.2);
+}
+
+.glow-text-sm {
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+}
+
+/* Border glow */
+.glow-border {
+  box-shadow:
+    0 0 15px rgba(0, 255, 65, 0.3),
+    inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.glow-border-strong {
+  box-shadow:
+    0 0 25px rgba(0, 255, 65, 0.5),
+    0 0 50px rgba(0, 255, 65, 0.2),
+    inset 0 0 15px rgba(0, 255, 65, 0.15);
+}
+
+/* Button/Element glow */
+.glow-element {
+  box-shadow:
+    0 0 20px rgba(0, 255, 65, 0.4),
+    0 0 40px rgba(0, 255, 65, 0.2);
+}
+
+.glow-element-strong {
+  box-shadow:
+    0 0 30px rgba(0, 255, 65, 0.6),
+    0 0 60px rgba(0, 255, 65, 0.3),
+    0 0 90px rgba(0, 255, 65, 0.15);
+}
+
+/* Pulse glow animation */
+.glow-pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Accent border with glow */
+.border-glow {
+  border-color: rgba(0, 255, 65, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.border-glow-strong {
+  border-color: rgba(0, 255, 65, 0.6);
+  box-shadow:
+    0 0 15px rgba(0, 255, 65, 0.4),
+    inset 0 0 8px rgba(0, 255, 65, 0.1);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   TERMINAL-SPECIFIC STYLES
+   ============================================ */
+
+/* Terminal cursor blink */
+@keyframes cursor-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Terminal text typing effect */
+@keyframes terminal-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Scanline effect for terminal */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Terminal glow effect */
+.terminal-glow {
+  text-shadow:
+    0 0 5px rgba(0, 255, 65, 0.5),
+    0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* Monospace font enforcer */
+.font-terminal {
+  font-family: var(--font-family-mono);
+  letter-spacing: 0.025em;
+}

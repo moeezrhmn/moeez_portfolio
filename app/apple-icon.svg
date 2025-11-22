@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!-- Background -->
+  <rect width="180" height="180" fill="#000000" rx="40"/>
+  
+  <!-- Terminal prompt -->
+  <text 
+    x="90" 
+    y="130" 
+    font-family="monospace, Courier New" 
+    font-size="120" 
+    font-weight="bold" 
+    fill="#00ff41" 
+    text-anchor="middle"
+  >&gt;</text>
+  
+  <!-- Cursor -->
+  <rect x="110" y="105" width="30" height="10" fill="#00ff41" opacity="0.8" rx="2"/>
+</svg>
