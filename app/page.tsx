@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { personalInfo, skills, experience } from '@/lib/data/portfolio-data';
 import Link from 'next/link';
 import Script from 'next/script';
+import { siteConfig } from '@/lib/config';
 
 interface CommandLine {
   id: number;
@@ -33,7 +34,7 @@ const structuredData = {
   "name": "Moeez Rehman",
   "jobTitle": "Backend Engineer",
   "description": "Backend Engineer specializing in Python, Laravel, API Development, E-commerce Integrations, and SaaS Systems",
-  "url": "https://moeezrehman.com",
+  "url": siteConfig.url,
   "email": "moeezrhmn@gmail.com",
   "telephone": "+92-322-6622545",
   "address": {

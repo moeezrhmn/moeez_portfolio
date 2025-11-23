@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { siteConfig } from "@/lib/config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://moeezrehman.com'), // Update with your actual domain
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "Moeez Rehman - Backend Engineer | Python, Laravel & FastAPI Developer",
     template: "%s | Moeez Rehman"
@@ -49,10 +50,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://moeezrehman.com",
+    url: siteConfig.url,
     title: "Moeez Rehman - Backend Engineer | Python & Laravel Specialist",
     description: "Expert Backend Engineer with 5+ years experience in Python, Laravel, API Development, E-commerce Integrations, and SaaS Systems. Built solutions processing 300k+ products and 40+ daily automated orders.",
-    siteName: "Moeez Rehman Portfolio",
+    siteName: siteConfig.name,
     images: [
       {
         url: "/og-image.svg",
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-site-verification-code", // Add your verification code
+    google: "GNlnqEQ41Lg2IV7EVXPkAUxGzG3Rn1bcavqkR0CCFFA",
     // yandex: "your-yandex-verification-code",
     // bing: "your-bing-verification-code",
   },

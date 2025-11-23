@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
+import { siteConfig } from '@/lib/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://moeez.quanter.dev' // Update with your actual domain
+  const baseUrl = siteConfig.url 
 
   return [
     {

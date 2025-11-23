@@ -7,4 +7,4 @@ Allow: /
 # Disallow: /api/
 
 # Sitemap
-Sitemap: https://moeezrehman.com/sitemap.xml
+Sitemap: https://moeezrehman.quanter.dev/sitemap.xml
