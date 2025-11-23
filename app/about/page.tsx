@@ -193,14 +193,17 @@ export default function About() {
                 <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-secondary mb-5 md:mb-6 text-sm leading-relaxed">
+                <p className="text-secondary mb-4 text-sm leading-relaxed">
                   {service.description}
                 </p>
+                <p className="text-muted text-xs mb-4 italic border-l-2 border-accent/30 pl-3">
+                  {service.technicalDetail}
+                </p>
                 <ul className="space-y-2">
-                  {service.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="text-muted text-xs flex items-start gap-2">
+                  {service.examples.map((example, exampleIndex) => (
+                    <li key={exampleIndex} className="text-muted text-xs flex items-start gap-2">
                       <span className="text-accent mt-1">▸</span>
-                      {detail}
+                      {example}
                     </li>
                   ))}
                 </ul>
