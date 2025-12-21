@@ -26,19 +26,33 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      console.log('Form data:', formData);
-      setSubmitStatus('success');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          setSubmitStatus('idle');
+        }, 3000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
       setIsSubmitting(false);
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 1500);
+    }
   };
 
   const containerVariants = {
@@ -316,6 +330,18 @@ export default function Contact() {
                     >
                       <p className="text-accent text-sm font-mono">
                         ✓ Thank you! I'll get back to you soon.
+                      </p>
+                    </motion.div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-4 glass-subtle rounded-lg p-4 border border-red-500/20"
+                    >
+                      <p className="text-red-500 text-sm font-mono">
+                        ✗ Failed to send message. Please try again.
                       </p>
                     </motion.div>
                   )}

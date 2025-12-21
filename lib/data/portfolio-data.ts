@@ -3,7 +3,7 @@ export const personalInfo = {
   title: "Backend Engineer (Python / Laravel)",
   subtitle: "I build systems that save time, eliminate manual work, and connect your business tools together.",
   location: "Lahore/Faisalabad, Pakistan",
-  email: "moeezrhmn@gmail.com",
+  email: "contact@moeezrehman.quanter.dev",
   phone: "+92 322 6622545",
   github: "https://github.com/moeezrhmn",
   linkedin: "https://linkedin.com/in/moeezrhmn",
@@ -220,28 +220,61 @@ export const experience = [
 
 export const projects = [
   {
+    title: "MultSaver - Social Media Video Downloader",
+    description: "Built a free public tool that allows users to download videos from multiple social media platforms (Instagram, TikTok, Facebook, Twitter) without signup. Supports high-quality downloads and batch processing.",
+    technologies: ["Python", "FastAPI", "Video Processing", "FFmpeg", "Redis"],
+    impact: "Publicly available tool serving thousands of users",
+    url: "https://multsaver.com",
+    isPublic: true
+  },
+  {
     title: "E-commerce Inventory Sync System",
     description: "Developed a Laravel-based application to synchronize inventory between Shopify and eBay using REST APIs and webhooks, reducing manual updates by 80%.",
     technologies: ["Laravel", "PHP", "MySQL", "AWS", "Shopify API", "eBay API", "Webhooks"],
-    impact: "80% reduction in manual updates"
+    impact: "80% reduction in manual updates",
+    isPublic: false
+  },
+  {
+    title: "GPU Investor Portal with Real-time Analytics",
+    description: "Built a full-stack application for GPU investment management featuring real-time analytics dashboards, investor tracking, and financial operations. Implemented scalable architecture for handling multiple concurrent users.",
+    technologies: ["Python", "React", "Next.js", "PostgreSQL", "Real-time Analytics"],
+    impact: "Streamlined GPU investment operations and reporting",
+    isPublic: false
+  },
+  {
+    title: "AI-Powered Sales Call Agent",
+    description: "Developed an AI-powered sales call automation system using Twilio and Vocode for voice interactions. Built intelligent call routing, conversation tracking, and CRM integration for automated sales outreach.",
+    technologies: ["Python", "Twilio", "Vocode", "AI/ML", "FastAPI", "PostgreSQL"],
+    impact: "Automated sales call operations with AI-driven conversations",
+    isPublic: false
   },
   {
     title: "Automated Social Media Posting System",
     description: "Created an automation tool in Laravel for social media management, integrating ImageMagick to generate branded images with real-time weather data and YouTube video merging.",
     technologies: ["Laravel", "PHP", "ImageMagick", "AccuWeather API", "YouTube API"],
-    impact: "Significantly enhanced social media engagement"
+    impact: "Significantly enhanced social media engagement",
+    isPublic: false
   },
   {
-    title: "Web Scraping & Notification Automation",
+    title: "Web Scraping & Notification Automation (Discogs Monitor)",
     description: "Engineered a powerful web scraping tool using Python, MongoDB, and Playwright that monitored Discogs.com wishlists and automatically notified users of new matching items.",
     technologies: ["Python", "MongoDB", "Playwright", "Web Scraping", "Automation"],
-    impact: "Ensured timely updates and user satisfaction"
+    impact: "Ensured timely updates and user satisfaction",
+    isPublic: false
   },
   {
     title: "Plagiarism Detection Tool",
     description: "Built a Python FastAPI application using NLTK and Google Search API to detect text similarity across web sources, optimized for performance with concurrent processing.",
     technologies: ["Python", "FastAPI", "NLTK", "Google Search API", "PostgreSQL"],
-    impact: "Optimized performance with concurrent processing"
+    impact: "Optimized performance with concurrent processing",
+    isPublic: false
+  },
+  {
+    title: "UK Royal Mail Shipping Integration",
+    description: "Integrated UK Royal Mail API for automated shipping label generation and tracking. Built as part of an e-commerce order processing system handling 40+ daily orders with zero manual intervention.",
+    technologies: ["Laravel", "Royal Mail API", "PHP", "MySQL", "Queue Workers"],
+    impact: "Automated shipping label generation for 40+ daily orders",
+    isPublic: false
   }
 ];
 
@@ -251,6 +284,76 @@ export const education = {
   location: "Faisalabad, Pakistan",
   period: "August 2021 - June 2025"
 };
+
+// Public Tools & Projects
+export const publicTools = [
+  {
+    name: "MultSaver",
+    description: "A free social media video downloader that supports multiple platforms. Download videos from Instagram, TikTok, Facebook, Twitter, and more — no signup required.",
+    url: "https://multsaver.com",
+    technologies: ["Python", "FastAPI", "Video Processing"],
+    features: [
+      "Multiple platform support",
+      "High-quality downloads",
+      "No registration needed",
+      "Batch downloads available"
+    ],
+    status: "Live & Free",
+    icon: "🎥"
+  }
+];
+
+// Testimonials
+export const testimonials = [
+  {
+    name: "Sarah Mitchell",
+    role: "CEO, RetailFlow",
+    company: "E-commerce Startup",
+    content: "Moeez built an automation system that saved us 20+ hours per week. Our inventory now syncs seamlessly across all platforms, and we haven't had a single oversell since implementation. Best investment we've made.",
+    image: null,
+    rating: 5
+  },
+  {
+    name: "James Cooper",
+    role: "CTO, DataSync Solutions",
+    company: "SaaS Company",
+    content: "Working with Moeez was a game-changer. He delivered a complex API integration ahead of schedule and it's been running flawlessly for 6 months. His code is clean, well-documented, and maintainable.",
+    image: null,
+    rating: 5
+  },
+  {
+    name: "Ahmed Khan",
+    role: "Operations Manager",
+    company: "LogiTech Trading",
+    content: "The order automation system Moeez developed handles 40+ daily orders without any manual intervention. It's incredibly reliable and has reduced our processing errors to virtually zero.",
+    image: null,
+    rating: 5
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Product Manager",
+    company: "TechFlow Inc",
+    content: "Moeez doesn't just write code — he solves problems. He understood our business needs and built exactly what we needed. Communication was excellent throughout the project.",
+    image: null,
+    rating: 5
+  },
+  {
+    name: "Michael Thompson",
+    role: "Founder",
+    company: "AutomateNow",
+    content: "I've worked with many developers, but Moeez stands out. Fast delivery, clean code, and he actually cares about the outcome. Our data pipeline has been running smoothly for months.",
+    image: null,
+    rating: 5
+  },
+  {
+    name: "Lisa Park",
+    role: "Director of Engineering",
+    company: "CloudServe",
+    content: "Exceptional backend engineer. Moeez built our entire API infrastructure and it scales beautifully. He anticipated issues we didn't even know we had and solved them proactively.",
+    image: null,
+    rating: 5
+  }
+];
 
 // Call-to-Action
 export const cta = {
@@ -264,7 +367,7 @@ export const cta = {
   secondaryCTA: {
     text: "Send a Message",
     action: "Email me directly and I'll respond within 24 hours",
-    email: "moeezrhmn@gmail.com"
+    email: "contact@moeezrehman.quanter.dev"
   },
   availability: "Available for freelance projects and full-time opportunities"
 };

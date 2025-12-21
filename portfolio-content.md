@@ -8,7 +8,7 @@
 
 ## Contact Information
 - **Phone:** +92 322 6622545
-- **Email:** moeezrhmn@gmail.com
+- **Email:** contact@moeezrehman.quanter.dev
 - **LinkedIn:** linkedin.com/in/moeezrhmn
 - **GitHub:** github.com/moeezrhmn
 - **Location:** Lahore/Faisalabad, Pakistan

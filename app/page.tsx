@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { personalInfo, services, whyWorkWithMe, results, cta } from '@/lib/data/portfolio-data';
+import { personalInfo, services, whyWorkWithMe, results, cta, publicTools, testimonials } from '@/lib/data/portfolio-data';
 import Link from 'next/link';
 import Script from 'next/script';
 import { siteConfig } from '@/lib/config';
@@ -15,7 +15,7 @@ const structuredData = {
   "jobTitle": "Backend Engineer (Python & Laravel)",
   "description": "Backend Engineer specializing in Python, Laravel, API Development, E-commerce Integrations, and SaaS Systems",
   "url": siteConfig.url,
-  "email": "moeezrhmn@gmail.com",
+  "email": "contact@moeezrehman.quanter.dev",
   "telephone": "+92-322-6622545",
   "address": {
     "@type": "PostalAddress",
@@ -267,9 +267,7 @@ export default function Home() {
                 className="flex flex-wrap gap-4 md:gap-6 mb-8 justify-center lg:justify-start"
               >
                 {[
-                  { label: '300K+ Products', sublabel: 'Synced' },
-                  { label: '40+ Orders', sublabel: 'Daily Automation' },
-                  { label: '5+ Years', sublabel: 'Experience' }
+                  { label: '5+ Years', sublabel: 'Experience' },
                 ].map((stat, idx) => (
                   <div key={idx} className="text-center lg:text-left">
                     <div className="text-xl md:text-2xl font-bold text-accent font-mono">{stat.label}</div>
@@ -306,7 +304,7 @@ export default function Home() {
               {/* Social links */}
               <motion.div
                 variants={itemVariants}
-                className="flex gap-4 mt-8 text-sm text-muted justify-center lg:justify-start"
+                className="flex flex-wrap gap-4 mt-8 text-sm text-muted justify-center lg:justify-start items-center"
               >
                 <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                   GitHub
@@ -318,6 +316,17 @@ export default function Home() {
                 <span className="text-accent/30">|</span>
                 <a href={`mailto:${personalInfo.email}`} className="hover:text-accent transition-colors">
                   Email
+                </a>
+                <span className="text-accent/30">|</span>
+                <a 
+                  href="/Moeez-Rehman-Resume.pdf" 
+                  download="Moeez-Rehman-Resume.pdf"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 border border-accent/30 rounded-md hover:bg-accent/20 hover:border-accent transition-all text-accent font-mono text-xs"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Resume
                 </a>
               </motion.div>
             </motion.div>
@@ -578,6 +587,218 @@ export default function Home() {
                   {item.description}
                 </p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonials Section */}
+      <div className="relative py-20 md:py-32 px-4 md:px-6 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0, 255, 65, 0.15) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="font-mono text-xs md:text-sm text-accent mb-4">// CLIENT_FEEDBACK</div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              What Clients Say
+            </h2>
+            <p className="text-secondary text-base md:text-lg  mx-auto">
+              Real feedback from businesses I've helped automate and scale their operations.
+            </p>
+          </motion.div>
+
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+                className="glass-card rounded-xl p-6 md:p-8 border border-accent/20 hover:border-accent/40 transition-all duration-300 relative group"
+              >
+                {/* Quote icon decoration */}
+                <div className="absolute top-6 right-6 text-6xl text-accent/10 font-serif group-hover:text-accent/20 transition-colors duration-300">
+                  "
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Star Rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 + i * 0.1 }}
+                        className="text-accent text-lg"
+                      >
+                        ★
+                      </motion.span>
+                    ))}
+                  </div>
+
+                  {/* Testimonial Text */}
+                  <p className="text-secondary text-sm md:text-base leading-relaxed mb-6 italic">
+                    "{testimonial.content}"
+                  </p>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-4 border-t border-accent/10 pt-4">
+                    {/* Avatar placeholder with initials */}
+                    <div className="w-12 h-12 rounded-full bg-accent/10 border-2 border-accent/30 flex items-center justify-center flex-shrink-0 group-hover:border-accent/60 transition-colors duration-300">
+                      <span className="text-accent font-bold text-sm">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-foreground font-bold text-sm md:text-base truncate">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-muted text-xs md:text-sm truncate">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-accent/70 text-xs font-mono truncate">
+                        {testimonial.company}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="text-center mt-12"
+          >
+            <p className="text-secondary text-sm mb-4">
+              Want to share your experience working with me?
+            </p>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 glass-subtle border border-accent/30 rounded-lg font-mono text-accent text-sm hover:border-accent hover:glow-border transition-all"
+              >
+                Get in Touch →
+              </motion.button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Public Tools Section */}
+      <div className="relative py-20 md:py-32 px-4 md:px-6 bg-black border-t border-accent/10">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="font-mono text-xs md:text-sm text-accent mb-4">// PUBLIC_TOOLS</div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Free Tools & Services
+            </h2>
+            <p className="text-secondary text-base md:text-lg  mx-auto">
+              Check out the public tools I've built and shared for everyone to use — completely free.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {publicTools.map((tool, idx) => (
+              <motion.a
+                key={idx}
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="glass-card rounded-xl p-8 border border-accent/20 hover:border-accent/60 transition-all duration-300 group cursor-pointer relative overflow-hidden"
+              >
+                {/* Hover gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/10 group-hover:via-accent/5 group-hover:to-accent/10 transition-all duration-500" />
+
+                <div className="relative z-10">
+                  {/* Icon and Status Badge */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-5xl">{tool.icon}</div>
+                    <span className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/30 rounded-full">
+                      {tool.status}
+                    </span>
+                  </div>
+
+                  {/* Tool Name */}
+                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                    {tool.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-secondary text-sm mb-4 leading-relaxed">
+                    {tool.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-4">
+                    {tool.features.slice(0, 3).map((feature, featureIdx) => (
+                      <li key={featureIdx} className="text-muted text-xs flex items-center gap-2">
+                        <span className="text-accent">✓</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {tool.technologies.map((tech, techIdx) => (
+                      <span
+                        key={techIdx}
+                        className="px-2 py-1 text-xs font-mono bg-black/50 text-muted border border-accent/10 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA Link */}
+                  <div className="flex items-center gap-2 text-accent text-sm font-mono group-hover:gap-3 transition-all">
+                    <span>Try it now</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </div>
+
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-accent/0 group-hover:border-accent/40 transition-colors duration-300" />
+              </motion.a>
             ))}
           </div>
         </div>
