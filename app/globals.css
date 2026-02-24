@@ -305,3 +305,35 @@ a {
   font-family: var(--font-family-mono);
   letter-spacing: 0.025em;
 }
+
+/* ============================================
+   HERO SECTION - CSS ANIMATIONS
+   (for server-rendered elements, no JS needed)
+   ============================================ */
+
+.hero-slide-up {
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.hero-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* CSS orb animations — replaces Framer Motion repeat: Infinity */
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+@keyframes orb-pulse-reverse {
+  0%, 100% { transform: scale(1.2); opacity: 0.2; }
+  50% { transform: scale(1); opacity: 0.4; }
+}
+
+/* Floating code snippet animation */
+@keyframes snippet-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}

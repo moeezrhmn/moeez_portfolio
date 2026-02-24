@@ -72,7 +72,7 @@ export const results = [
 ];
 
 export const about = {
-  summary: `I'm a Backend Engineer specializing in Python (FastAPI, Flask) and Laravel, focused on building reliable APIs, automation workflows, and backend systems for SaaS and AI-powered products.
+  summary: `I'm a Backend Engineer specializing in Python (FastAPI, Flask) and Laravel, focused on building reliable APIs, automation workflows, and backend systems for SaaS and AI-powered products. I also build full-stack applications using React and Next.js when the project calls for it.
 
 I'm not a generalist — I'm strongest where companies feel the most pain: systems that move data, integrate platforms, automate operations, and scale without breaking.`,
 
@@ -81,7 +81,8 @@ I'm not a generalist — I'm strongest where companies feel the most pain: syste
     "Third-party integrations (Shopify, eBay, custom APIs, legacy systems)",
     "Automation workflows that replace hours of manual work",
     "E-commerce backend systems & operational tooling",
-    "Building internal tools for order, inventory, and data processing"
+    "Building internal tools for order, inventory, and data processing",
+    "Full-stack development with React & Next.js"
   ],
 
   achievements: [
@@ -121,7 +122,7 @@ export const services = [
   {
     title: "Backend Systems & Custom Dashboards",
     description: "I build internal tools that help you run your business better. Think custom dashboards, admin panels, reporting systems, or ERP-style tools tailored exactly to your workflow.",
-    technicalDetail: "Full-stack development with Python/Laravel backends and modern frontends",
+    technicalDetail: "Full-stack development with Python/Laravel backends and React/Next.js frontends",
     examples: ["Revenue and analytics dashboards", "Order management systems", "Custom reporting tools for your team"]
   },
   {
