@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Moeez Rehman",
-  title: "Backend Engineer (Python / Laravel)",
+  title: "Software Engineer | Backend & Infrastructure",
   subtitle: "I build systems that save time, eliminate manual work, and connect your business tools together.",
   location: "Lahore/Faisalabad, Pakistan",
   email: "contact@moeezrehman.quanter.dev",
