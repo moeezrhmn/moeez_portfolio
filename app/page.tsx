@@ -76,21 +76,21 @@ export default function Home() {
                 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-6 leading-tight hero-slide-up"
                 style={{ animationDelay: '0.15s' }}
               >
-                I Build Backend Systems{' '}
-                <span className="text-accent glow-text">That Run Your Business</span>{' '}
-                on Autopilot
+                Build Systems that
+                <span className="text-accent glow-text"> Automate and Scale </span>
+                Business
               </h1>
 
               <p
                 className="text-base md:text-lg lg:text-xl text-secondary mb-8 max-w-2xl leading-relaxed mx-auto lg:mx-0 hero-slide-up"
                 style={{ animationDelay: '0.25s' }}
               >
-                {personalInfo.valueProposition}
+                I build and deploy complete software solutions - from the backend API to the frontend dashboard to the server it runs on.
               </p>
 
               {/* Stats */}
               <div
-                className="flex flex-wrap gap-4 md:gap-6 mb-8 justify-center lg:justify-start hero-fade-in"
+                className="flex flex-wrap gap-4 md:gap-6 mt-2 mb-8 justify-center lg:justify-start hero-fade-in"
                 style={{ animationDelay: '0.35s' }}
               >
                 <div className="text-center lg:text-left">

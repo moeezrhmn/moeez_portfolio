@@ -127,6 +127,275 @@ export default function HomeSections() {
         </div>
       </div>
 
+      {/* Case Studies Section */}
+      <div className="relative py-20 md:py-32 px-4 md:px-6 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 md:mb-20"
+          >
+            <div className="font-mono text-xs md:text-sm text-accent mb-4">// CASE_STUDIES</div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Problems Solved, Systems Built
+            </h2>
+            <p className="text-secondary text-base md:text-lg mx-auto leading-relaxed">
+              Real projects, real challenges — here&apos;s how I approached them.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            {/* Case Study 1 — E-commerce Automation */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card rounded-2xl p-8 md:p-10 border border-accent/20 hover:border-accent/40 transition-all duration-300 group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="flex items-center justify-between mb-6">
+                <span className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/30 rounded-full">
+                  E-commerce & Automation
+                </span>
+                <div className="text-right">
+                  <div className="text-xs text-muted font-mono">Confidential Client</div>
+                  <div className="text-xs text-accent/60 font-mono">@ Maxenius Solutions</div>
+                </div>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                Multi-Channel Inventory Sync & Order Automation
+              </h3>
+
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// THE PROBLEM</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A UK-based e-commerce business was manually updating 300,000+ product listings across Shopify and eBay and hand-processing 40+ orders daily — taking hours every day with constant human error.
+                  </p>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// WHAT I BUILT</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A Laravel-based sync engine using Shopify and eBay APIs with queue workers for real-time inventory updates, plus an automated order pipeline integrated with UK Royal Mail for instant shipping label generation.
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-2 mb-6">
+                {[
+                  '300,000+ products synced automatically across platforms',
+                  '40+ daily orders processed with zero manual work',
+                  '80% reduction in manual updates — hours saved every day',
+                ].map((outcome, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
+                    <span className="text-accent mt-0.5 shrink-0">▸</span>
+                    <span className="text-foreground">{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-accent/10">
+                {['Laravel', 'PHP', 'Shopify API', 'eBay API', 'Queue Workers', 'MySQL', 'Royal Mail API'].map((tech) => (
+                  <span key={tech} className="px-2 py-1 text-xs font-mono bg-black/50 text-muted border border-accent/10 rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Case Study 2 — GPU Investor Portal */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card rounded-2xl p-8 md:p-10 border border-accent/20 hover:border-accent/40 transition-all duration-300 group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="flex items-center justify-between mb-6">
+                <span className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/30 rounded-full">
+                  FinTech & Infrastructure
+                </span>
+                <div className="text-right">
+                  <div className="text-xs text-muted font-mono">Confidential Client</div>
+                  <div className="text-xs text-accent/60 font-mono">@ Codiux</div>
+                </div>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                GPU Investor Portal with Real-Time Analytics
+              </h3>
+
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// THE PROBLEM</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A GPU infrastructure company had no centralized system to manage investor accounts, track GPU resource allocation, or generate financial reports — everything was being handled through spreadsheets and manual emails.
+                  </p>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// WHAT I BUILT</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A full-stack investor portal with secure authentication, real-time analytics dashboards, GPU resource tracking, and financial reporting — built to handle multiple concurrent investors at scale.
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-2 mb-6">
+                {[
+                  'Real-time dashboards for investor tracking and resource analytics',
+                  'Secure multi-user portal replacing manual spreadsheet workflows',
+                  'Scalable architecture built for financial operations at scale',
+                ].map((outcome, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
+                    <span className="text-accent mt-0.5 shrink-0">▸</span>
+                    <span className="text-foreground">{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-accent/10">
+                {['Python', 'FastAPI', 'React', 'Next.js', 'PostgreSQL', 'Real-time Analytics'].map((tech) => (
+                  <span key={tech} className="px-2 py-1 text-xs font-mono bg-black/50 text-muted border border-accent/10 rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Case Study 3 — AI Sales Caller */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card rounded-2xl p-8 md:p-10 border border-accent/20 hover:border-accent/40 transition-all duration-300 group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="flex items-center justify-between mb-6">
+                <span className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/30 rounded-full">
+                  AI & Automation
+                </span>
+                <div className="text-right">
+                  <div className="text-xs text-muted font-mono">Confidential Client</div>
+                  <div className="text-xs text-accent/60 font-mono">@ Codiux</div>
+                </div>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                AI Sales Calling Platform — Backend Services
+              </h3>
+
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// THE SYSTEM</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A large-scale AI-powered sales calling platform handling automated outbound calls, lead management, and compliance — built across multiple microservices in Node.js.
+                  </p>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// MY CONTRIBUTION</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    Developed core backend services within the platform — including DNC (Do Not Call) compliance, tenant management, and lead intake — ensuring reliable data flow across the system.
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-2 mb-6">
+                {[
+                  'DNC service — enforcing do-not-call compliance across all outbound calls',
+                  'Tenant service — multi-tenant architecture for isolated client accounts',
+                  'Lead receive service — ingesting and routing incoming leads to the right queues',
+                ].map((outcome, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
+                    <span className="text-accent mt-0.5 shrink-0">▸</span>
+                    <span className="text-foreground">{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-accent/10">
+                {['Node.js', 'Microservices', 'Twilio', 'PostgreSQL', 'Lead Management', 'Multi-tenant'].map((tech) => (
+                  <span key={tech} className="px-2 py-1 text-xs font-mono bg-black/50 text-muted border border-accent/10 rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Case Study 4 — Hagoods Freight System */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card rounded-2xl p-8 md:p-10 border border-accent/20 hover:border-accent/40 transition-all duration-300 group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="flex items-center justify-between mb-6">
+                <span className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/30 rounded-full">
+                  Logistics & Transport
+                </span>
+                <div className="text-right">
+                  <div className="text-xs text-muted font-mono">Confidential Client</div>
+                  <div className="text-xs text-accent/60 font-mono">Freelance Project</div>
+                </div>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                Freight & Bilty Management System
+              </h3>
+
+              <div className="space-y-4 mb-6">
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// THE PROBLEM</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A transport business was managing hundreds of freight contracts (bilties) manually — tracking payments from customers, costs to drivers, and company settlements using paper records with no visibility into profits or outstanding balances.
+                  </p>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-accent mb-1">// WHAT I BUILT</div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    A full-stack freight management system with complete bilty lifecycle tracking, multi-party financial transactions (sale, purchase, expense, credit), ledger batch processing for company settlements, and PDF financial reports with profit analysis.
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-2 mb-6">
+                {[
+                  'Bilty tracking from booking to delivery with proof-of-delivery image attachments',
+                  'Ledger system for batch company settlements — replacing manual reconciliation',
+                  'Real-time dashboard with profit analysis, pending payments, and delay tracking',
+                ].map((outcome, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
+                    <span className="text-accent mt-0.5 shrink-0">▸</span>
+                    <span className="text-foreground">{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-accent/10">
+                {['Laravel 11', 'Vue 3', 'PHP', 'MySQL', 'DomPDF', 'Laravel Sanctum'].map((tech) => (
+                  <span key={tech} className="px-2 py-1 text-xs font-mono bg-black/50 text-muted border border-accent/10 rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </div>
+
       {/* Why Work With Me Section */}
       <div className="relative py-20 md:py-32 px-4 md:px-6 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
