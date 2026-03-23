@@ -1,9 +1,9 @@
 import { personalInfo, cta } from '@/lib/data/portfolio-data';
 import { siteConfig } from '@/lib/config';
 import Script from 'next/script';
-import Link from 'next/link';
 import HomeSections from '@/components/home/HomeSections';
 import { Terminal, BackgroundEffects } from '@/components/home/HeroClient';
+import { Button } from '@/components/ui/Button';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -33,17 +33,14 @@ export default function Home() {
       />
 
       {/* Hero / Banner Section */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Static background — server-rendered, visible immediately */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-black" />
-
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.035] pointer-events-none">
           <div
             className="absolute inset-0"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(0, 255, 65, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.3) 1px, transparent 1px)',
+                'linear-gradient(rgba(234, 88, 12, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(234, 88, 12, 0.4) 1px, transparent 1px)',
               backgroundSize: '50px 50px',
             }}
           />
@@ -68,7 +65,7 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                 </span>
-                <span className="text-xs md:text-sm text-accent font-mono">Available To Discuss Projects</span>
+                <span className="text-xs md:text-sm text-accent font-mono">Available for Free Consultation</span>
               </div>
 
               {/* LCP element — server-rendered, no JS needed */}
@@ -104,16 +101,8 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-fade-in"
                 style={{ animationDelay: '0.45s' }}
               >
-                <Link href="/contact">
-                  <button className="px-8 py-4 bg-accent text-black rounded-lg font-bold hover:glow-border hover:scale-105 active:scale-95 transition-all duration-200 text-sm md:text-base">
-                    {cta.primaryCTA.text}
-                  </button>
-                </Link>
-                <Link href="/work">
-                  <button className="px-8 py-4 glass-card border border-accent/30 rounded-lg font-mono hover:border-accent hover:glow-border hover:scale-105 active:scale-95 transition-all duration-200 text-accent text-sm md:text-base">
-                    View My Work →
-                  </button>
-                </Link>
+                <Button href="https://cal.com/moeezrhmn" variant="primary" external>{cta.primaryCTA.text}</Button>
+                <Button href="/work" variant="secondary">View My Work →</Button>
               </div>
 
               {/* Social links */}

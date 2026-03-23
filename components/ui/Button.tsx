@@ -1,50 +1,58 @@
 import React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import Link from 'next/link';
 
-interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'> {
-  variant?: 'primary' | 'secondary' | 'ghost';
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'dark-outline';
   children: React.ReactNode;
   href?: string;
+  external?: boolean;
+  onClick?: () => void;
+  className?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
+
+const styles = {
+  primary:
+    'inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-accent text-white font-semibold rounded-xl shadow-[0_2px_12px_rgba(234,88,12,0.35)] hover:bg-orange-600 hover:shadow-[0_4px_20px_rgba(234,88,12,0.5)] active:scale-95 transition-all duration-200 text-sm',
+  secondary:
+    'inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-foreground font-semibold rounded-xl border border-gray-200 shadow-[0_1px_4px_rgba(0,0,0,0.06)] hover:border-accent/40 hover:text-accent active:scale-95 transition-all duration-200 text-sm',
+  ghost:
+    'inline-flex items-center justify-center gap-2 px-4 py-2.5 text-accent font-medium rounded-xl hover:bg-accent/10 active:scale-95 transition-all duration-200 text-sm',
+  'dark-outline':
+    'inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl border border-white/15 hover:bg-white/20 active:scale-95 transition-all duration-200 text-sm',
+};
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   children,
   href,
+  external = false,
+  onClick,
   className = '',
-  ...props
+  type = 'button',
+  disabled = false,
 }) => {
-  const baseStyles = "px-8 py-4 rounded-lg font-semibold transition-all duration-300 cursor-pointer inline-block text-center";
-
-  const variants = {
-    primary: "bg-accent text-background hover:shadow-[0_0_30px_rgba(0,255,65,0.5)] hover:scale-105",
-    secondary: "bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-background hover:shadow-[0_0_20px_rgba(0,255,65,0.5)]",
-    ghost: "bg-transparent text-foreground hover:bg-[#1a1a1a]"
-  };
-
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
+  const cls = `${styles[variant]} ${className}`;
 
   if (href) {
+    if (external) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+          {children}
+        </a>
+      );
+    }
     return (
-      <motion.a
-        href={href}
-        className={combinedClassName}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
+      <Link href={href} className={cls}>
         {children}
-      </motion.a>
+      </Link>
     );
   }
 
   return (
-    <motion.button
-      className={combinedClassName}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      {...props}
-    >
+    <button type={type} onClick={onClick} disabled={disabled} className={cls}>
       {children}
-    </motion.button>
+    </button>
   );
 };

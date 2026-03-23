@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Color Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #e5e7eb; }
+
+    .option-label {
+      text-align: center;
+      padding: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: #fff;
+      color: #374151;
+      border-bottom: 3px solid;
+    }
+
+    .preview {
+      background: #ffffff;
+      padding: 48px 40px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+    .nav-logo { font-weight: 800; font-size: 15px; font-family: monospace; }
+    .nav-links { display: flex; gap: 24px; font-size: 13px; font-weight: 500; color: #6b7280; }
+    .nav-cta { font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer; }
+
+    .hero { display: flex; flex-direction: column; gap: 16px; max-width: 640px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      font-size: 12px; font-family: monospace; width: fit-content;
+      font-weight: 600;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .hero h1 { font-size: 40px; font-weight: 800; line-height: 1.2; color: #111827; }
+    .hero p { font-size: 15px; line-height: 1.75; color: #6b7280; }
+
+    .btns { display: flex; gap: 12px; margin-top: 6px; }
+    .btn { padding: 13px 28px; border-radius: 9px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { padding: 24px; border-radius: 16px; background: #f9fafb; border: 1px solid #f3f4f6; }
+    .card-num { font-family: monospace; font-size: 11px; margin-bottom: 10px; font-weight: 700; }
+    .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #111827; }
+    .card p { font-size: 12px; line-height: 1.6; color: #6b7280; }
+
+    .divider { height: 8px; background: #e5e7eb; }
+
+    /* ══════════════════════════
+       A — Emerald Green
+    ══════════════════════════ */
+    .a-label { border-color: #059669; }
+    .a .nav-logo { color: #059669; }
+    .a .nav-cta { background: #059669; color: #fff; }
+    .a .badge { background: #d1fae5; color: #059669; border: 1px solid #6ee7b7; }
+    .a .dot { background: #059669; }
+    .a h1 span { color: #059669; }
+    .a .btn-primary { background: #059669; color: #fff; box-shadow: 0 4px 16px rgba(5,150,105,0.25); }
+    .a .btn-secondary { background: #fff; border: 1.5px solid #6ee7b7; color: #059669; }
+    .a .card-num { color: #059669; }
+    .a .card { border-color: #d1fae5; }
+
+    /* ══════════════════════════
+       B — Midnight Blue
+    ══════════════════════════ */
+    .b-label { border-color: #1e40af; }
+    .b .nav-logo { color: #1e40af; }
+    .b .nav-cta { background: #1e40af; color: #fff; }
+    .b .badge { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+    .b .dot { background: #1e40af; }
+    .b h1 span { color: #1e40af; }
+    .b .btn-primary { background: #1e40af; color: #fff; box-shadow: 0 4px 16px rgba(30,64,175,0.25); }
+    .b .btn-secondary { background: #fff; border: 1.5px solid #93c5fd; color: #1e40af; }
+    .b .card-num { color: #1e40af; }
+    .b .card { border-color: #dbeafe; }
+
+    /* ══════════════════════════
+       C — Cyan
+    ══════════════════════════ */
+    .c-label { border-color: #0891b2; }
+    .c .nav-logo { color: #0891b2; }
+    .c .nav-cta { background: #0891b2; color: #fff; }
+    .c .badge { background: #cffafe; color: #0891b2; border: 1px solid #67e8f9; }
+    .c .dot { background: #0891b2; }
+    .c h1 span { color: #0891b2; }
+    .c .btn-primary { background: #0891b2; color: #fff; box-shadow: 0 4px 16px rgba(8,145,178,0.25); }
+    .c .btn-secondary { background: #fff; border: 1.5px solid #67e8f9; color: #0891b2; }
+    .c .card-num { color: #0891b2; }
+    .c .card { border-color: #cffafe; }
+
+    /* ══════════════════════════
+       D — Violet / Purple
+    ══════════════════════════ */
+    .d-label { border-color: #7c3aed; }
+    .d .nav-logo { color: #7c3aed; }
+    .d .nav-cta { background: #7c3aed; color: #fff; }
+    .d .badge { background: #ede9fe; color: #7c3aed; border: 1px solid #c4b5fd; }
+    .d .dot { background: #7c3aed; }
+    .d h1 span { color: #7c3aed; }
+    .d .btn-primary { background: #7c3aed; color: #fff; box-shadow: 0 4px 16px rgba(124,58,237,0.25); }
+    .d .btn-secondary { background: #fff; border: 1.5px solid #c4b5fd; color: #7c3aed; }
+    .d .card-num { color: #7c3aed; }
+    .d .card { border-color: #ede9fe; }
+
+    /* ══════════════════════════
+       E — Slate + Orange (warm)
+    ══════════════════════════ */
+    .e-label { border-color: #ea580c; }
+    .e .nav-logo { color: #ea580c; }
+    .e .nav-cta { background: #ea580c; color: #fff; }
+    .e .badge { background: #ffedd5; color: #ea580c; border: 1px solid #fdba74; }
+    .e .dot { background: #ea580c; }
+    .e h1 span { color: #ea580c; }
+    .e .btn-primary { background: #ea580c; color: #fff; box-shadow: 0 4px 16px rgba(234,88,12,0.25); }
+    .e .btn-secondary { background: #fff; border: 1.5px solid #fdba74; color: #ea580c; }
+    .e .card-num { color: #ea580c; }
+    .e .card { border-color: #ffedd5; }
+  </style>
+</head>
+<body>
+
+  <!-- A: Emerald -->
+  <div class="option-label a-label">A — White + Emerald Green (like quanter.dev)</div>
+  <div class="preview a">
+    <nav class="nav">
+      <div class="nav-logo">moeezrehman.dev</div>
+      <div class="nav-links"><span>About</span><span>Work</span><span>Projects</span><span>Contact</span></div>
+      <button class="nav-cta">Hire Me</button>
+    </nav>
+    <div class="hero">
+      <div class="badge"><div class="dot"></div> Available To Discuss Projects</div>
+      <h1>Build Systems that <span>Automate and Scale</span> Businesses</h1>
+      <p>I build and deploy complete software solutions — from the backend API to the frontend dashboard to the server it runs on. You don't need to hire 3 people.</p>
+      <div class="btns">
+        <button class="btn btn-primary">Book a Call</button>
+        <button class="btn btn-secondary">View My Work →</button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-num">// 01</div><h3>API Development</h3><p>Connect your tools so they work together automatically.</p></div>
+      <div class="card"><div class="card-num">// 02</div><h3>Automation Workflows</h3><p>Turn repetitive tasks into systems that run 24/7.</p></div>
+      <div class="card"><div class="card-num">// 03</div><h3>Custom Dashboards</h3><p>Internal tools tailored to how your business works.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- B: Midnight Blue -->
+  <div class="option-label b-label">B — White + Midnight Blue</div>
+  <div class="preview b">
+    <nav class="nav">
+      <div class="nav-logo">moeezrehman.dev</div>
+      <div class="nav-links"><span>About</span><span>Work</span><span>Projects</span><span>Contact</span></div>
+      <button class="nav-cta">Hire Me</button>
+    </nav>
+    <div class="hero">
+      <div class="badge"><div class="dot"></div> Available To Discuss Projects</div>
+      <h1>Build Systems that <span>Automate and Scale</span> Businesses</h1>
+      <p>I build and deploy complete software solutions — from the backend API to the frontend dashboard to the server it runs on. You don't need to hire 3 people.</p>
+      <div class="btns">
+        <button class="btn btn-primary">Book a Call</button>
+        <button class="btn btn-secondary">View My Work →</button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-num">// 01</div><h3>API Development</h3><p>Connect your tools so they work together automatically.</p></div>
+      <div class="card"><div class="card-num">// 02</div><h3>Automation Workflows</h3><p>Turn repetitive tasks into systems that run 24/7.</p></div>
+      <div class="card"><div class="card-num">// 03</div><h3>Custom Dashboards</h3><p>Internal tools tailored to how your business works.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- C: Cyan -->
+  <div class="option-label c-label">C — White + Cyan</div>
+  <div class="preview c">
+    <nav class="nav">
+      <div class="nav-logo">moeezrehman.dev</div>
+      <div class="nav-links"><span>About</span><span>Work</span><span>Projects</span><span>Contact</span></div>
+      <button class="nav-cta">Hire Me</button>
+    </nav>
+    <div class="hero">
+      <div class="badge"><div class="dot"></div> Available To Discuss Projects</div>
+      <h1>Build Systems that <span>Automate and Scale</span> Businesses</h1>
+      <p>I build and deploy complete software solutions — from the backend API to the frontend dashboard to the server it runs on. You don't need to hire 3 people.</p>
+      <div class="btns">
+        <button class="btn btn-primary">Book a Call</button>
+        <button class="btn btn-secondary">View My Work →</button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-num">// 01</div><h3>API Development</h3><p>Connect your tools so they work together automatically.</p></div>
+      <div class="card"><div class="card-num">// 02</div><h3>Automation Workflows</h3><p>Turn repetitive tasks into systems that run 24/7.</p></div>
+      <div class="card"><div class="card-num">// 03</div><h3>Custom Dashboards</h3><p>Internal tools tailored to how your business works.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- D: Violet -->
+  <div class="option-label d-label">D — White + Violet</div>
+  <div class="preview d">
+    <nav class="nav">
+      <div class="nav-logo">moeezrehman.dev</div>
+      <div class="nav-links"><span>About</span><span>Work</span><span>Projects</span><span>Contact</span></div>
+      <button class="nav-cta">Hire Me</button>
+    </nav>
+    <div class="hero">
+      <div class="badge"><div class="dot"></div> Available To Discuss Projects</div>
+      <h1>Build Systems that <span>Automate and Scale</span> Businesses</h1>
+      <p>I build and deploy complete software solutions — from the backend API to the frontend dashboard to the server it runs on. You don't need to hire 3 people.</p>
+      <div class="btns">
+        <button class="btn btn-primary">Book a Call</button>
+        <button class="btn btn-secondary">View My Work →</button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-num">// 01</div><h3>API Development</h3><p>Connect your tools so they work together automatically.</p></div>
+      <div class="card"><div class="card-num">// 02</div><h3>Automation Workflows</h3><p>Turn repetitive tasks into systems that run 24/7.</p></div>
+      <div class="card"><div class="card-num">// 03</div><h3>Custom Dashboards</h3><p>Internal tools tailored to how your business works.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- E: Orange -->
+  <div class="option-label e-label">E — White + Orange (warm & energetic)</div>
+  <div class="preview e">
+    <nav class="nav">
+      <div class="nav-logo">moeezrehman.dev</div>
+      <div class="nav-links"><span>About</span><span>Work</span><span>Projects</span><span>Contact</span></div>
+      <button class="nav-cta">Hire Me</button>
+    </nav>
+    <div class="hero">
+      <div class="badge"><div class="dot"></div> Available To Discuss Projects</div>
+      <h1>Build Systems that <span>Automate and Scale</span> Businesses</h1>
+      <p>I build and deploy complete software solutions — from the backend API to the frontend dashboard to the server it runs on. You don't need to hire 3 people.</p>
+      <div class="btns">
+        <button class="btn btn-primary">Book a Call</button>
+        <button class="btn btn-secondary">View My Work →</button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-num">// 01</div><h3>API Development</h3><p>Connect your tools so they work together automatically.</p></div>
+      <div class="card"><div class="card-num">// 02</div><h3>Automation Workflows</h3><p>Turn repetitive tasks into systems that run 24/7.</p></div>
+      <div class="card"><div class="card-num">// 03</div><h3>Custom Dashboards</h3><p>Internal tools tailored to how your business works.</p></div>
+    </div>
+  </div>
+
+</body>
+</html>

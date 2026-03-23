@@ -17,9 +17,9 @@ const FLOATING_SNIPPETS = [
 export default function BackgroundEffects() {
   return (
     <>
-      {/* Animated orbs — CSS animations, zero JS per frame */}
+      {/* Animated orbs — subtle on light background */}
       <div
-        className="absolute top-20 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-20 -left-40 w-96 h-96 bg-accent/8 rounded-full blur-3xl pointer-events-none"
         style={{ animation: 'orb-pulse 8s ease-in-out infinite' }}
       />
       <div

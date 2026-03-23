@@ -1,229 +1,136 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { experience, projects } from '@/lib/data/portfolio-data';
-import { FaCalendar, FaMapMarkerAlt, FaCode } from 'react-icons/fa';
+import { FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import { Button } from '@/components/ui/Button';
 
 export default function Work() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+  const spotlightVariants = [
+    { bg: 'bg-gray-900', tagColor: 'text-gray-500', titleColor: 'text-white', descColor: 'text-gray-400', techBg: 'bg-gray-800 text-gray-300 border-gray-700', bulletColor: 'text-accent' },
+    { bg: 'bg-accent', tagColor: 'text-white/60', titleColor: 'text-white', descColor: 'text-white/80', techBg: 'bg-white/20 text-white border-white/20', bulletColor: 'text-white' },
+    { bg: 'bg-white border border-gray-200', tagColor: 'text-muted', titleColor: 'text-foreground', descColor: 'text-secondary', techBg: 'bg-gray-100 text-muted border-gray-200', bulletColor: 'text-accent' },
+    { bg: 'bg-orange-50 border border-orange-200', tagColor: 'text-orange-400', titleColor: 'text-gray-900', descColor: 'text-gray-600', techBg: 'bg-orange-100 text-orange-700 border-orange-200', bulletColor: 'text-accent' },
+  ];
+  const projOrder = [2, 0, 3, 1, 0, 3];
 
   return (
-    <div className="relative min-h-screen pt-32 pb-20">
-      {/* Grid background */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
+    <div className="min-h-screen bg-white pt-24 pb-24 md:pt-32 md:pb-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Terminal Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-12"
-        >
-          <div className="font-mono text-sm text-secondary mb-4">
-            <span className="text-accent">$</span> cat experience.log
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground font-mono">
-            <span className="text-accent">#</span> Work Experience
+        {/* Page Header */}
+        <div className="mb-16 md:mb-20">
+          <div className="font-mono text-xs md:text-sm text-accent mb-4">// WORK_EXPERIENCE</div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
+            Experience &amp; Projects
           </h1>
-        </motion.div>
+          <p className="text-secondary text-lg max-w-2xl leading-relaxed">
+            Where I&apos;ve worked, what I&apos;ve built, and the impact it made.
+          </p>
+        </div>
 
         {/* Experience Timeline */}
-        <motion.section
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-20"
-        >
+        <section className="mb-20 md:mb-24">
+          <div className="mb-10">
+            <div className="font-mono text-xs text-accent mb-3">// EMPLOYMENT</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Work History</h2>
+          </div>
+
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-accent/20 hidden sm:block"></div>
+            <div className="absolute left-4 md:left-5 top-0 bottom-0 w-px bg-gray-200 hidden sm:block" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {experience.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="relative"
-                >
+                <div key={index} className="relative sm:pl-16 md:pl-20">
                   {/* Timeline dot */}
-                  <div className="absolute left-[11px] md:left-[23px] top-8 w-6 h-6 bg-accent rounded-full border-4 border-background hidden sm:block z-10 glow-element"></div>
+                  <div className="absolute left-[9px] md:left-[13px] top-8 w-4 h-4 bg-accent rounded-full border-4 border-white hidden sm:block z-10 shadow-sm" />
 
-                  {/* Content card */}
-                  <div className="sm:ml-16 md:ml-24 glass-card rounded-2xl p-6 md:p-8 hover:border hover:border-accent/30 hover:glow-border transition-all duration-300 group">
-                    <div className="flex flex-col gap-4 mb-4">
-                      {/* Company & Title */}
+                  <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                       <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-accent font-mono mb-2 group-hover:glow-text-sm transition-all">
-                          {exp.company}
-                        </h3>
-                        <p className="text-lg text-foreground font-semibold">
-                          {exp.title}
-                        </p>
+                        <h3 className="text-xl font-bold text-foreground mb-1">{exp.title}</h3>
+                        <div className="text-accent font-semibold text-sm">{exp.company}</div>
                       </div>
-
-                      {/* Meta info */}
-                      <div className="flex flex-wrap gap-4 text-sm text-secondary font-mono">
-                        <div className="flex items-center gap-2">
+                      <div className="flex flex-col gap-1 text-xs text-muted shrink-0">
+                        <div className="flex items-center gap-1.5">
                           <FaCalendar className="text-accent" />
                           <span>{exp.period}</span>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5">
                           <FaMapMarkerAlt className="text-accent" />
                           <span>{exp.location}</span>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-secondary mb-4 leading-relaxed">{exp.description}</p>
+                    <p className="text-secondary text-sm leading-relaxed mb-4">{exp.description}</p>
 
-                    <ul className="space-y-2.5">
+                    <ul className="space-y-2">
                       {exp.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className="text-secondary text-sm flex items-start gap-3">
-                          <span className="text-accent mt-1 font-mono">→</span>
+                        <li key={hIndex} className="text-secondary text-sm flex items-start gap-2">
+                          <span className="text-accent mt-1 shrink-0">▸</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
-        {/* Projects Section */}
-        <motion.section
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <motion.div variants={itemVariants} className="mb-12">
-            <div className="font-mono text-sm text-secondary mb-4">
-              <span className="text-accent">$</span> ls projects/ --featured
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-mono">
-              <span className="text-accent">##</span> Featured Projects
-            </h2>
-          </motion.div>
+        {/* Featured Projects */}
+        <section className="mb-20 md:mb-24">
+          <div className="mb-10">
+            <div className="font-mono text-xs text-accent mb-3">// FEATURED_PROJECTS</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Selected Projects</h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="glass-card rounded-2xl p-8 hover:border hover:border-accent/30 hover:glow-border transition-all duration-300 group"
-              >
-                <div className="mb-4">
-                  <span className="text-accent text-xs font-mono font-bold">
-                    // PROJECT_{String(index + 1).padStart(2, '0')}
-                  </span>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {projects.map((project, index) => {
+              const v = spotlightVariants[projOrder[index % projOrder.length]];
+              return (
+                <div key={index} className={`${v.bg} rounded-2xl p-6 md:p-8`}>
+                  <div className={`text-xs font-bold uppercase tracking-widest ${v.tagColor} mb-4`}>
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <h3 className={`text-lg font-bold ${v.titleColor} mb-3 leading-snug`}>{project.title}</h3>
+                  <p className={`text-sm leading-relaxed ${v.descColor} mb-5`}>{project.description}</p>
 
-                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
-
-                <p className="text-secondary mb-6 leading-relaxed text-sm">
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-muted mb-3 font-mono uppercase">Stack:</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-accent/10 border border-accent/20 rounded-full text-xs text-accent hover:bg-accent/20 transition-colors font-mono"
-                      >
+                      <span key={techIndex} className={`px-2 py-1 text-xs font-mono border rounded ${v.techBg}`}>
                         {tech}
                       </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Impact */}
-                <div className="flex items-start gap-2 text-sm pt-4 border-t border-accent/10">
-                  <FaCode className="text-accent mt-1 shrink-0" />
-                  <p className="text-muted font-mono text-xs">
-                    <span className="font-semibold text-accent">IMPACT:</span> {project.impact}
-                  </p>
+                  <div className={`text-xs leading-relaxed pt-4 border-t ${v.titleColor === 'text-white' ? 'border-white/10' : 'border-gray-100'} ${v.descColor}`}>
+                    <span className={`font-bold ${v.bulletColor}`}>Impact: </span>{project.impact}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* View all projects link */}
-          <motion.div variants={itemVariants} className="mt-8 text-center">
-            <a
-              href="/projects"
-              className="inline-flex items-center gap-2 text-accent hover:glow-text-sm transition-all font-mono text-sm group"
-            >
-              <span>View all projects</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-          </motion.div>
-        </motion.section>
+          <div className="mt-8 text-center">
+            <Button href="/projects" variant="ghost">View all projects →</Button>
+          </div>
+        </section>
 
-        {/* CTA Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
-          <motion.div
-            variants={itemVariants}
-            className="glass-card border-2 border-accent/30 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent pointer-events-none"></div>
+        {/* CTA */}
+        <section>
+          <div className="bg-gray-900 rounded-2xl p-10 md:p-16" style={{ textAlign: 'center' }}>
+            <div className="font-mono text-xs text-accent mb-4">// COLLABORATION</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Let&apos;s Build Together
+            </h2>
+            <p className="text-gray-400 text-base mb-8 leading-relaxed" style={{ maxWidth: '36rem', margin: '0 auto 2rem' }}>
+              I&apos;m open to discussing new projects, freelance work, or full-time roles where I can build systems that matter.
+            </p>
+            <Button href="/contact" variant="primary">Get in Touch</Button>
+          </div>
+        </section>
 
-            <div className="relative z-10">
-              <div className="font-mono text-sm text-accent mb-4">// COLLABORATION</div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 font-mono">
-                Let's Build Together
-              </h2>
-              <p className="text-secondary text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-              </p>
-              <motion.a
-                href="/contact"
-                className="inline-block bg-accent/10 hover:bg-accent/20 text-foreground px-8 py-4 rounded-full font-semibold border-2 border-accent/30 hover:border-accent hover:glow-element transition-all duration-300 font-mono"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                $ contact --message
-              </motion.a>
-            </div>
-          </motion.div>
-        </motion.section>
       </div>
     </div>
   );

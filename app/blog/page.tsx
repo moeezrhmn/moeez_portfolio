@@ -1,56 +1,40 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { FaRss, FaArrowLeft } from 'react-icons/fa';
-import Link from 'next/link';
+import { FaRss } from 'react-icons/fa';
+import { Button } from '@/components/ui/Button';
 
 export default function Blog() {
   return (
-    <div className="relative min-h-screen pt-32 pb-20 flex items-center justify-center">
-      {/* Grid background */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 pt-24 pb-24">
+      <div className="max-w-xl w-full text-center">
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl p-12 md:p-16"
-        >
-          <FaRss className="text-6xl text-accent mx-auto mb-6 glow-text" />
+        <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-6">
+          <FaRss className="text-accent text-2xl" />
+        </div>
 
-          <div className="font-mono text-sm text-secondary mb-4">
-            <span className="text-accent">$</span> cat blog/status.log
-          </div>
+        <div className="font-mono text-xs text-accent mb-3">// BLOG</div>
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Coming Soon
+        </h1>
+        <p className="text-secondary text-base leading-relaxed mb-8">
+          I&apos;m setting up the blog. Soon I&apos;ll be writing about backend development, API design, automation workflows, and building systems that scale.
+        </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground font-mono mb-6">
-            <span className="text-accent">#</span> Blog
-          </h1>
-
-          <p className="text-secondary text-lg mb-8 font-mono">
-            // Under construction...
-          </p>
-
-          <div className="glass-subtle rounded-xl p-6 mb-8 border border-accent/10">
-            <p className="text-muted text-sm font-mono">
-              <span className="text-accent">STATUS:</span> Currently setting up the blog infrastructure.
-              Check back soon for articles on backend development, API design, and automation workflows.
+        <div className="bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-8 text-left">
+          <div className="flex items-start gap-3">
+            <span className="relative flex h-2 w-2 mt-1.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+            </span>
+            <p className="text-sm text-secondary leading-relaxed">
+              Currently setting up the blog infrastructure. Articles on backend engineering, API design, and automation workflows coming soon.
             </p>
           </div>
+        </div>
 
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 bg-accent/10 hover:bg-accent/20 text-foreground px-8 py-4 rounded-full font-semibold border-2 border-accent/30 hover:border-accent hover:glow-element transition-all duration-300 font-mono"
-          >
-            <FaArrowLeft />
-            $ cd ~/
-          </Link>
-        </motion.div>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button href="/" variant="primary">Back to Home</Button>
+          <Button href="/contact" variant="secondary">Get Notified</Button>
+        </div>
+
       </div>
     </div>
   );

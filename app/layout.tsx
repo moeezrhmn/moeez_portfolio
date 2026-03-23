@@ -45,6 +45,15 @@ export const metadata: Metadata = {
     "Pakistan Developer",
     "Remote Software Engineer"
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+  },
   authors: [{ name: "Moeez Rehman", url: "https://github.com/moeezrhmn" }],
   creator: "Moeez Rehman",
   publisher: "Moeez Rehman",
@@ -60,20 +69,11 @@ export const metadata: Metadata = {
     title: "Moeez Rehman - Software Engineer | Backend & Infrastructure",
     description: "Software Engineer with 5+ years experience in Backend, APIs, Automation, VPS & Cloud Deployments. Built systems processing 300k+ products and 40+ daily automated orders using Python, Laravel, and React/Next.js.",
     siteName: siteConfig.name,
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "Moeez Rehman - Software Engineer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Moeez Rehman - Software Engineer | Backend & Infrastructure",
     description: "Software Engineer specializing in Backend, APIs, Automation, and Cloud Infrastructure. Python · Laravel · React/Next.js.",
-    images: ["/og-image.svg"],
   },
   robots: {
     index: true,
@@ -102,7 +102,9 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#00ff41" />
+        <meta name="theme-color" content="#111827" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
       </head>
 
       <body className={`${inter.variable} antialiased`}>
