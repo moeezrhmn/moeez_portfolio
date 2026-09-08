@@ -42,7 +42,7 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <section className="shell pt-40 pb-16">
+      <section className="shell pt-28 sm:pt-40 pb-16">
         <p className="meta mb-8">Services and engagement terms</p>
         <MaskedHeading
           lines={['THREE WAYS', 'TO HIRE ME.']}
@@ -111,7 +111,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="border-b border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <SectionHead
             title={
               <>
@@ -121,7 +121,7 @@ export default function ServicesPage() {
               </>
             }
             note="Not upsells, the baseline"
-            className="mb-14"
+            className="mb-10 sm:mb-14"
           />
           <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-4">
             {included.map((x, i) => (
@@ -134,8 +134,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="shell py-24">
-        <h2 className="disp text-[2.2rem] sm:text-[3rem] mb-14">The process, in detail</h2>
+      <section className="shell py-16 sm:py-24">
+        <h2 className="disp text-[2.2rem] sm:text-[3rem] mb-10 sm:mb-14">The process, in detail</h2>
         <div className="border-b border-line">
           {process.map((s) => (
             <Reveal
@@ -158,7 +158,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
             <div className="lg:col-span-4">
               <h2 className="disp text-[2.2rem] sm:text-[3rem]">
@@ -183,7 +183,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
           <div className="lg:col-span-4">
             <h2 className="disp text-[2.2rem] sm:text-[3rem]">
@@ -208,7 +208,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <h2 className="disp text-[2.1rem] sm:text-[4rem]">
             Start with the
             <br />

@@ -135,7 +135,7 @@ export default function CaseStudy() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-20">
+        <div className="shell py-14 sm:py-20">
           <div className="meta mb-12">Outcomes</div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
             {caseMetrics.map((m) => (
@@ -151,7 +151,7 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8">
           <div className="lg:col-span-4">
             <h2 className="disp text-[2rem] sm:text-[2.6rem]">The brief</h2>
@@ -203,7 +203,7 @@ export default function CaseStudy() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <h2 className="disp text-[2rem] sm:text-[2.6rem]">The system, as built</h2>
             <span className="meta pb-2">Fig. 1 &middot; data flow</span>
@@ -217,7 +217,7 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <h2 className="disp text-[2rem] sm:text-[2.6rem] mb-12">
           Five decisions that
           <br />
@@ -239,7 +239,7 @@ export default function CaseStudy() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <h2 className="disp text-[2rem] sm:text-[2.6rem] mb-12">Before and after</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left min-w-[640px]">
@@ -264,7 +264,7 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8">
           <div className="lg:col-span-4">
             <h2 className="disp text-[2rem] sm:text-[2.6rem]">
@@ -314,7 +314,7 @@ export default function CaseStudy() {
       </section>
 
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <h2 className="disp text-[2.1rem] sm:text-[4rem]">
             Got two systems
             <br />

@@ -11,10 +11,10 @@
 /** Approximate em advance per uppercase character in Archivo 600 at the
  *  display tracking of -0.045em. Deliberately generous: overshooting shrinks
  *  the type slightly, undershooting clips it. */
-const EM_PER_CHAR = 0.58;
+const EM_PER_CHAR = 0.57;
 
-/** Widest gutter the shell applies, both sides, plus headroom. */
-const GUTTER = '4rem';
+/** The shell gutter is 3rem below 640px; the extra 0.5rem is headroom. */
+const GUTTER = '3.5rem';
 
 export function fitHeading(lines: readonly string[]) {
   const longest = Math.max(...lines.map((l) => l.length));

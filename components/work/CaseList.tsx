@@ -100,7 +100,7 @@ export function CaseList() {
         </div>
 
         {shown.length === 0 ? (
-          <p className="py-20 text-center meta">No case files in that category.</p>
+          <p className="py-14 sm:py-20 text-center meta">No case files in that category.</p>
         ) : null}
       </section>
     </>

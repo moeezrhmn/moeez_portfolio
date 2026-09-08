@@ -57,7 +57,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <section className="shell pt-40 pb-14">
+      <section className="shell pt-28 sm:pt-40 pb-14">
         <p className="meta mb-8">Contact &middot; replies within 24 hours</p>
         <MaskedHeading
           lines={['NAME THE TASK', 'YOU KEEP DOING', 'BY HAND.']}
@@ -138,7 +138,7 @@ export default function ContactPage() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <SectionHead
             title={
               <>
@@ -148,7 +148,7 @@ export default function ContactPage() {
               </>
             }
             note="No sales sequence"
-            className="mb-14"
+            className="mb-10 sm:mb-14"
           />
           <div className="gridline gridline-deep sm:grid-cols-3">
             {next.map((n, i) => (
@@ -162,7 +162,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
           <div className="lg:col-span-4">
             <h2 className="disp text-[2.2rem] sm:text-[3rem]">

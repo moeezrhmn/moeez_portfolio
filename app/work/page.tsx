@@ -9,7 +9,7 @@ export default function WorkPage() {
     <>
       <Progress />
 
-      <section className="shell pt-40 pb-16">
+      <section className="shell pt-28 sm:pt-40 pb-16">
         <p className="meta mb-8">Case files &middot; 2021 to present</p>
         <MaskedHeading
           lines={['THE WORK', 'THAT SHIPPED.']}
@@ -25,7 +25,7 @@ export default function WorkPage() {
       <CaseList />
 
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 items-end">
             <div className="lg:col-span-8">
               <h2 className="disp text-[2.1rem] sm:text-[4rem]">

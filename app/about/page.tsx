@@ -52,7 +52,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
 
-      <section className="shell pt-40 pb-16">
+      <section className="shell pt-28 sm:pt-40 pb-16">
         <p className="meta mb-8">About &middot; {siteConfig.name}</p>
         <MaskedHeading
           lines={['I MAKE SOFTWARE', 'NOBODY HAS TO', 'THINK ABOUT.']}
@@ -126,7 +126,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <SectionHead
             title={
               <>
@@ -136,7 +136,7 @@ export default function AboutPage() {
               </>
             }
             note="Opinions earned by getting these wrong first"
-            className="mb-14"
+            className="mb-10 sm:mb-14"
           />
           <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
             {principles.map((p, i) => (
@@ -150,7 +150,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <SectionHead title="Where I've worked" note="2021 to present" className="mb-12" />
         <div className="border-b border-line">
           {experience.map((r) => (
@@ -194,7 +194,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-y border-line bg-deep">
-        <div className="shell py-24">
+        <div className="shell py-16 sm:py-24">
           <SectionHead
             title={
               <>
@@ -204,7 +204,7 @@ export default function AboutPage() {
               </>
             }
             note="No proficiency bars, they measure nothing"
-            className="mb-14"
+            className="mb-10 sm:mb-14"
           />
           <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
             {stack.map((g, i) => (
@@ -224,7 +224,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="shell py-24">
+      <section className="shell py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
           <div className="lg:col-span-4">
             <h2 className="disp text-[2.2rem] sm:text-[3rem]">
@@ -256,7 +256,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <h2 className="disp text-[2.1rem] sm:text-[4rem]">
             Hiring, or just
             <br />

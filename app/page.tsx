@@ -52,7 +52,7 @@ export default function Home() {
       {/* ══ HERO ═══════════════════════════════════════════════════════
           Statement left, spec block right. The spec answers a recruiter's
           filter questions before they scroll once. */}
-      <section className="shell pt-32 pb-20">
+      <section className="shell pt-24 pb-14 sm:pt-32 sm:pb-20">
         <Reveal as="p" className="meta mb-10">
           Full Stack AI Engineer &middot; {siteConfig.location.city}, {siteConfig.location.country}
         </Reveal>
@@ -62,7 +62,7 @@ export default function Home() {
           className="[--h:15vw] sm:[--h:12vw] lg:[--h:9.4vw]"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-12 mt-16 pt-12 hair">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 mt-10 pt-8 sm:gap-y-12 sm:mt-16 sm:pt-12 hair">
           <div className="lg:col-span-6">
             <Reveal as="p" className="text-[1.125rem] leading-[1.7] text-ash max-w-[46ch]">
               Five years building full stack products and production AI systems. I ship
@@ -109,17 +109,17 @@ export default function Home() {
       {/* ══ WHAT I BUILD ═══════════════════════════════════════════════
           Leads with capability. The proof numbers sit further down, after
           the work that produced them. */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <Offers items={offers} />
       </section>
 
       {/* ══ TOOLKIT ════════════════════════════════════════════════════ */}
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <SectionHead
             title="The toolkit"
             note="Things I use in production, not a list of everything I have read about"
-            className="mb-14"
+            className="mb-10 sm:mb-14"
           />
           <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
             {stack.map((g, i) => (
@@ -134,11 +134,11 @@ export default function Home() {
       </section>
 
       {/* ══ CAPABILITIES ═══════════════════════════════════════════════ */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <SectionHead
           title="What I actually do"
           note="Six things done properly, rather than twenty listed"
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         />
         <div className="gridline sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((c, i) => (
@@ -153,7 +153,7 @@ export default function Home() {
 
       {/* ══ SELECTED WORK ══════════════════════════════════════════════ */}
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <SectionHead title="Selected work" note="Tap to expand" className="mb-12" />
           <Accordion
             size="lg"
@@ -202,17 +202,17 @@ export default function Home() {
       {/* ══ TRACK RECORD ═══════════════════════════════════════════════
           Numbers earn their place here, after the systems that produced
           them, rather than as the first thing a visitor reads. */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <SectionHead
           title="Measured outcomes"
           note="Taken from delivered systems, not estimates"
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         />
         <Figures items={metrics} />
       </section>
 
       {/* ══ FEATURED PRODUCT ═══════════════════════════════════════════ */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
           <div className="lg:col-span-5">
             <div className="meta text-brass mb-6">Live and public</div>
@@ -264,7 +264,7 @@ export default function Home() {
 
       {/* ══ WHO THIS IS FOR ════════════════════════════════════════════ */}
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
             <div className="lg:col-span-4">
               <h2 className="disp text-[2.2rem] sm:text-[3rem]">
@@ -286,7 +286,7 @@ export default function Home() {
       </section>
 
       {/* ══ THE PERSON ═════════════════════════════════════════════════ */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-16 items-start">
           <Reveal as="figure" className="lg:col-span-4">
             <Portrait />
@@ -324,8 +324,8 @@ export default function Home() {
 
       {/* ══ PROCESS ════════════════════════════════════════════════════ */}
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
-          <SectionHead title="How I work" note="Four steps, no surprises" className="mb-14" />
+        <div className="shell py-16 sm:py-24 lg:py-32">
+          <SectionHead title="How I work" note="Four steps, no surprises" className="mb-10 sm:mb-14" />
           <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-4">
             {process.map((s, i) => (
               <Reveal key={s.n} delay={(i % 4) * 70} className="p-8 lg:p-10">
@@ -339,10 +339,10 @@ export default function Home() {
       </section>
 
       {/* ══ ENGAGEMENTS ════════════════════════════════════════════════ */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <SectionHead
           title="Engagements"
-          className="mb-14"
+          className="mb-10 sm:mb-14"
           action={
             <Link href="/services" className="grp meta !text-brass inline-flex items-center gap-2 pb-3">
               Full detail <span className="arw">&rarr;</span>
@@ -370,11 +370,11 @@ export default function Home() {
       {/* ══ TESTIMONIALS ═══════════════════════════════════════════════
           Real Upwork reviews, quoted verbatim and trimmed only at sentence
           boundaries. The tags are the client's own endorsements. */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <SectionHead
           title="In their words"
           note="Client reviews, quoted as written"
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         />
 
         <div className="gridline lg:grid-cols-2">
@@ -408,7 +408,7 @@ export default function Home() {
           Every name here is a role actually held, sourced from the same data
           the About timeline renders, so it cannot drift out of sync. */}
       <section className="border-t border-line bg-deep">
-        <div className="shell py-24 sm:py-32">
+        <div className="shell py-16 sm:py-24 lg:py-32">
           <SectionHead
             title={
               <>
@@ -418,7 +418,7 @@ export default function Home() {
               </>
             }
             note="Recent engagements, one of them as team lead"
-            className="mb-14"
+            className="mb-10 sm:mb-14"
           />
 
           <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
@@ -442,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* ══ FAQ ════════════════════════════════════════════════════════ */}
-      <section className="shell py-24 sm:py-32">
+      <section className="shell py-16 sm:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
           <div className="lg:col-span-4">
             <h2 className="disp text-[2.2rem] sm:text-[3rem]">
@@ -471,7 +471,7 @@ export default function Home() {
 
       {/* ══ CTA ════════════════════════════════════════════════════════ */}
       <section className="border-t border-line">
-        <div className="shell py-28 sm:py-40">
+        <div className="shell py-20 sm:py-28 lg:py-40">
           <p className="meta mb-10">Next step</p>
           <h2
             className="disp [--h:13vw] sm:[--h:10vw] lg:[--h:8vw]"

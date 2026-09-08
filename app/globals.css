@@ -193,18 +193,25 @@ input, select, textarea, button { font-family: var(--font-display); }
 .mask { overflow: hidden; display: block; }
 .mask > span {
   display: block;
-  transform: translateY(110%);
-  opacity: 0;
   transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+/* Same guard as .fade, and it matters more here: this element is the page's
+   <h1>. Better a headline that does not animate than no headline at all. */
+@media (scripting: enabled) {
+  .mask > span { transform: translateY(110%); opacity: 0; }
 }
 .lit .mask > span { transform: none; opacity: 1; }
 .lit .mask:nth-child(2) > span { transition-delay: 0.09s; }
 .lit .mask:nth-child(3) > span { transition-delay: 0.18s; }
 
+/* Only hide content when JavaScript is actually available to reveal it.
+   Without this guard a script failure, a blocked bundle or an old browser
+   leaves most of the page invisible rather than merely un-animated. */
 .fade {
-  opacity: 0;
-  transform: translateY(18px);
   transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (scripting: enabled) {
+  .fade { opacity: 0; transform: translateY(18px); }
 }
 .fade.in { opacity: 1; transform: none; }
 
