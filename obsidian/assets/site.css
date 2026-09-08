@@ -1,0 +1,237 @@
+/* ══════════════════════════════════════════════════════════════════════
+   OBSIDIAN — shared design system
+   Two committed themes, one palette contract. Light is the default.
+   Flat surfaces, hairline rules, no shadows, no gradients, no radius.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Light (default) ───────────────────────────────────────────────────
+   Warm bone paper, near-black ink, deepened brass so the accent still
+   passes contrast against a pale ground. */
+:root{
+  --void:#F4F1EA; --deep:#EAE6DC; --raised:#E1DCD0;
+  --bone:#15140F; --ash:#5C574C; --dim:#6F6A5C;
+  --line:#D7D1C1; --brass:#8A6620; --onbrass:#F4F1EA;
+  --head-bg:rgba(244,241,234,.78);
+  --grain:.030;
+}
+
+/* ── Type families ─────────────────────────────────────────────────────
+   Three roles, three faces. Archivo for display (tight, loud, structural),
+   Literata for reading (a screen-first serif with a tall x-height, which
+   is what makes the long prose comfortable), JetBrains Mono for anything
+   that behaves like data. Swap --font-body to change every paragraph. */
+:root{
+  --font-display:Archivo,system-ui,sans-serif;
+  --font-body:Literata,Georgia,"Times New Roman",serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+
+/* ── Dark ─────────────────────────────────────────────────────────── */
+[data-theme="dark"]{
+  --void:#0A0A0B; --deep:#0F0F11; --raised:#141416;
+  --bone:#EDEAE3; --ash:#8A867E; --dim:#5A564E;
+  --line:#1F1E1C; --brass:#C9A45C; --onbrass:#0A0A0B;
+  --head-bg:rgba(10,10,11,.72);
+  --grain:.032;
+}
+
+html{ scroll-behavior:smooth; scroll-padding-top:5rem; -webkit-text-size-adjust:100%; }
+body{
+  background:var(--void); color:var(--bone);
+  font-family:var(--font-body); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  transition:background-color .4s ease, color .4s ease;
+}
+::selection{ background:var(--brass); color:var(--onbrass); }
+
+/* Film grain. A single fixed overlay gives the flat ground some tooth.
+   It is the difference between a colour and something printed on. */
+.grain{
+  position:fixed; inset:0; z-index:1; pointer-events:none; opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+[data-theme="dark"] .grain{ mix-blend-mode:normal; }
+
+/* ── Type ──────────────────────────────────────────────────────────── */
+.disp{ font-family:var(--font-display); font-weight:600; letter-spacing:-0.045em; line-height:0.92; }
+h1,h2,h3,h4,h5,h6{ font-family:var(--font-display); }
+.font-ui{ font-family:var(--font-display); }
+input,select,textarea,button{ font-family:var(--font-display); }
+.meta{
+  font-family:var(--font-mono); font-size:.6875rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--ash);
+}
+.tnum{ font-variant-numeric:tabular-nums; }
+.prose p{ margin-bottom:1.2rem; line-height:1.8; color:var(--ash); }
+.prose p:last-child{ margin-bottom:0; }
+.prose strong{ color:var(--bone); font-weight:500; }
+
+/* ── Links & buttons ───────────────────────────────────────────────── */
+.ln{
+  text-decoration:underline; text-decoration-thickness:1px;
+  text-underline-offset:.3em; text-decoration-color:var(--dim); transition:.25s;
+}
+.ln:hover{ color:var(--brass); text-decoration-color:var(--brass); }
+
+.arw{ display:inline-block; transition:transform .3s cubic-bezier(.16,1,.3,1); }
+.grp:hover .arw{ transform:translateX(.3rem); }
+.grp:hover .arw-d{ transform:translate(.3rem,-.3rem); }
+
+.btn{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.04em;
+  display:inline-flex; align-items:center; gap:.65rem;
+  padding:.95rem 1.6rem; border:1px solid var(--brass);
+  background:var(--brass); color:var(--onbrass); transition:.25s;
+}
+.btn:hover{ background:transparent; color:var(--brass); }
+
+.btn-ghost{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.04em;
+  display:inline-flex; align-items:center; gap:.65rem;
+  padding:.95rem 1.6rem; border:1px solid var(--line);
+  color:var(--bone); transition:.25s;
+}
+.btn-ghost:hover{ border-color:var(--brass); color:var(--brass); }
+
+/* ── Motion ────────────────────────────────────────────────────────── */
+/* Masked line reveal. One theatrical moment per page, at the top. */
+.mask{ overflow:hidden; display:block; }
+.mask > span{
+  display:block; transform:translateY(110%); opacity:0;
+  transition:transform 1.05s cubic-bezier(.16,1,.3,1), opacity .8s ease;
+}
+.lit .mask > span{ transform:none; opacity:1; }
+.lit .mask:nth-child(2) > span{ transition-delay:.09s; }
+.lit .mask:nth-child(3) > span{ transition-delay:.18s; }
+
+.fade{
+  opacity:0; transform:translateY(18px);
+  transition:opacity .9s ease, transform .9s cubic-bezier(.16,1,.3,1);
+}
+.fade.in{ opacity:1; transform:none; }
+
+/* Marquee: two identical tracks, second seamless behind the first. */
+.marq{ display:flex; width:max-content; animation:slide 46s linear infinite; }
+@keyframes slide{ to{ transform:translateX(-50%); } }
+.marq:hover{ animation-play-state:paused; }
+
+/* Reading progress: a hairline of brass across the top. */
+.prog{
+  position:fixed; top:0; left:0; height:2px; width:0%;
+  background:var(--brass); z-index:60; transition:width .1s linear;
+}
+
+/* ── Header & navigation ───────────────────────────────────────────── */
+.site-head{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  border-bottom:1px solid var(--line);
+  background:var(--head-bg); backdrop-filter:blur(14px);
+}
+.nav-a{ color:var(--ash); transition:color .25s; }
+.nav-a:hover{ color:var(--bone); }
+.nav-a[aria-current="page"]{ color:var(--brass); }
+
+/* Theme toggle */
+.theme-btn{
+  font-family:var(--font-mono); font-size:.6875rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ash);
+  border:1px solid var(--line); padding:.4rem .6rem; transition:.25s;
+}
+.theme-btn:hover{ border-color:var(--brass); color:var(--brass); }
+
+/* Mobile drawer */
+.drawer{
+  position:fixed; inset:4rem 0 0; z-index:49; background:var(--void);
+  transform:translateY(-100%); transition:transform .5s cubic-bezier(.16,1,.3,1);
+  border-top:1px solid var(--line); overflow-y:auto;
+}
+.drawer.open{ transform:none; }
+.burger span{ display:block; height:1px; background:var(--bone); transition:.35s cubic-bezier(.16,1,.3,1); }
+.burger.on span:nth-child(1){ transform:translateY(4px) rotate(45deg); }
+.burger.on span:nth-child(2){ opacity:0; }
+.burger.on span:nth-child(3){ transform:translateY(-4px) rotate(-45deg); }
+
+/* ── Index rows (work list, FAQ) ───────────────────────────────────── */
+.idx{ border-top:1px solid var(--line); transition:background-color .45s ease; }
+.idx:hover{ background:var(--deep); }
+.idx-t{ transition:color .35s ease, transform .45s cubic-bezier(.16,1,.3,1); }
+.idx:hover .idx-t{ color:var(--brass); transform:translateX(10px); }
+.idx-n{ transition:color .35s ease; }
+.idx:hover .idx-n{ color:var(--bone); }
+
+/* 0fr to 1fr animates height with no hardcoded pixel value. */
+.panel{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .55s cubic-bezier(.16,1,.3,1); }
+.panel > div{ overflow:hidden; }
+.idx.open .panel{ grid-template-rows:1fr; }
+.idx.open{ background:var(--deep); }
+.plus{ transition:transform .45s cubic-bezier(.16,1,.3,1); }
+.idx.open .plus{ transform:rotate(45deg); }
+
+/* ── Cards & surfaces ──────────────────────────────────────────────── */
+.card{ background:var(--deep); border:1px solid var(--line); transition:border-color .35s ease; }
+.card:hover{ border-color:var(--brass); }
+.hair{ border-top:1px solid var(--line); }
+
+/* Hairline grid: children sit on a 1px gap that reads as ruled cells. */
+.gridline{ display:grid; gap:1px; background:var(--line); }
+.gridline > *{ background:var(--void); }
+.gridline-deep > *{ background:var(--deep); }
+
+/* ── Forms ─────────────────────────────────────────────────────────── */
+.field{
+  width:100%; background:var(--raised); border:1px solid var(--line);
+  color:var(--bone); padding:.9rem 1rem; font-size:.9375rem;
+  transition:border-color .25s;
+}
+.field::placeholder{ color:var(--dim); }
+.field:focus{ outline:none; border-color:var(--brass); }
+label .meta{ display:block; margin-bottom:.55rem; }
+
+/* ── Architecture diagram ──────────────────────────────────────────── */
+/* Presentation attributes stay off the SVG so both themes drive it. */
+.d-node   { fill:var(--deep); stroke:var(--bone); stroke-width:1.5; }
+.d-engine { fill:var(--deep); stroke:var(--brass); stroke-width:2.5; }
+.d-dead   { fill:var(--deep); stroke:var(--dim); stroke-width:1.5; stroke-dasharray:5 4; }
+.d-path   { stroke:var(--brass); stroke-width:1.5; fill:none; }
+.d-path-x { stroke:var(--dim); stroke-width:1.5; stroke-dasharray:4 5; fill:none; }
+.d-dim    { stroke:var(--brass); stroke-width:1; opacity:.45; fill:none; }
+.d-mask   { fill:var(--void); }
+.d-txt    { font-family:var(--font-mono); fill:var(--bone); }
+.d-lbl    { font-family:var(--font-mono); fill:var(--ash); }
+.d-sub    { font-family:var(--font-mono); fill:var(--dim); }
+.d-acc    { font-family:var(--font-mono); fill:var(--brass); }
+.d-arrow  { fill:var(--brass); }
+.d-arrow-x{ fill:var(--dim); }
+.flow{ stroke-dasharray:7 6; animation:march 1.6s linear infinite; }
+@keyframes march{ to{ stroke-dashoffset:-26; } }
+
+/* ── Portrait ──────────────────────────────────────────────────────────
+   A hard 1px frame with a brass outline offset behind it. The filter pulls
+   the photograph's saturation down just enough to sit inside the palette
+   instead of shouting over it. */
+.portrait{ position:relative; }
+.portrait::before{
+  content:''; position:absolute; top:16px; left:16px; right:-16px; bottom:-16px;
+  border:1px solid var(--brass); opacity:.4; pointer-events:none;
+}
+.portrait img,.portrait-sm img{
+  position:relative; display:block; width:100%; height:auto;
+  border:1px solid var(--line); filter:saturate(.88) contrast(1.02);
+  transition:filter .4s ease;
+}
+[data-theme="dark"] .portrait img,
+[data-theme="dark"] .portrait-sm img{ filter:saturate(.8) brightness(.9); }
+@media (max-width:640px){
+  .portrait::before{ top:10px; left:10px; right:-10px; bottom:-10px; }
+}
+
+/* ── Focus visibility ──────────────────────────────────────────────── */
+:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .mask > span,.fade{ transform:none !important; opacity:1 !important; transition:none; }
+  .marq,.flow{ animation:none; }
+  *{ transition-duration:.01ms !important; }
+}

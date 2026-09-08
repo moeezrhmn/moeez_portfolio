@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Moeez Rehman</title>
+<meta name="description" content="Full Stack AI Engineer in Lahore. Five years, five teams, production LLM and voice systems, and a preference for software nobody has to think about.">
+
+<script>
+(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tw.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 h-16 flex items-center justify-between gap-6">
+    <a href="index.html" class="meta !text-bone shrink-0">Moeez Rehman</a>
+    <nav class="hidden md:flex items-center gap-8 meta">
+      <a href="index.html" class="nav-a">Home</a>
+      <a href="work.html" class="nav-a">Work</a>
+      <a href="services.html" class="nav-a">Services</a>
+      <a href="about.html" class="nav-a" aria-current="page">About</a>
+      <a href="contact.html" class="nav-a">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="meta tnum hidden lg:flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-brass"></span>
+        <span id="clock">--:--:--</span><span class="text-dim">LHE</span>
+      </div>
+      <button id="theme" class="theme-btn" aria-label="Switch theme">Dark</button>
+      <button id="burger" class="burger md:hidden w-6 h-4 flex flex-col justify-between" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer md:hidden" id="drawer">
+  <nav class="px-6 py-10 flex flex-col">
+    <a href="index.html" class="disp text-4xl py-4 border-b border-line">Home</a>
+    <a href="work.html" class="disp text-4xl py-4 border-b border-line">Work</a>
+    <a href="services.html" class="disp text-4xl py-4 border-b border-line">Services</a>
+    <a href="about.html" class="disp text-4xl py-4 border-b border-line text-brass">About</a>
+    <a href="contact.html" class="disp text-4xl py-4 border-b border-line">Contact</a>
+    <a href="contact.html" class="btn mt-10 self-start">Book 20 minutes <span>→</span></a>
+  </nav>
+</div>
+
+<main class="relative z-10">
+
+  <!-- ══ HEAD ════════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pt-40 pb-16">
+    <p class="meta fade mb-8">About &middot; Moeez Rehman</p>
+    <h1 data-reveal class="disp text-[12vw] sm:text-[8.5vw] lg:text-[7vw]">
+      <span class="mask"><span>I MAKE SOFTWARE</span></span>
+      <span class="mask"><span>NOBODY HAS TO</span></span>
+      <span class="mask"><span class="text-brass">THINK ABOUT.</span></span>
+    </h1>
+  </section>
+
+  <!-- ══ STORY ═══════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4">
+        <div class="meta mb-5">At a glance</div>
+        <dl class="gridline border border-line">
+          <div class="p-5"><dt class="meta mb-2">Title</dt><dd class="text-[.9375rem]">Full Stack AI Engineer</dd></div>
+          <div class="p-5"><dt class="meta mb-2">Experience</dt><dd class="text-[.9375rem] tnum">5+ years, 5 teams</dd></div>
+          <div class="p-5"><dt class="meta mb-2">Based</dt><dd class="text-[.9375rem]">Lahore, Pakistan, UTC+5</dd></div>
+          <div class="p-5"><dt class="meta mb-2">Core</dt><dd class="text-[.9375rem]">Python, Next.js, PostgreSQL, AWS</dd></div>
+          <div class="p-5"><dt class="meta mb-2">AI</dt><dd class="text-[.9375rem]">OpenAI, Retell AI, MCP servers</dd></div>
+          <div class="p-5"><dt class="meta mb-2">Languages</dt><dd class="text-[.9375rem]">English (fluent), Urdu, Punjabi</dd></div>
+          <div class="p-5"><dt class="meta mb-2">Open to</dt><dd class="text-[.9375rem]">Freelance builds and full time roles</dd></div>
+        </dl>
+        <!-- TODO: point at your actual CV file -->
+        <a href="../public/Moeez-Rehman-Resume.pdf" class="btn-ghost grp mt-6 w-full justify-between">Download résumé <span class="arw arw-d">↗</span></a>
+      </div>
+
+      <div class="lg:col-span-7 lg:col-start-6 prose text-[1.0625rem]">
+        <p>I started in PHP in 2021, writing backend modules for client projects nobody would
+        call glamorous. CMS features, e-commerce plumbing, database queries that had grown
+        slow because nothing had ever been measured.</p>
+
+        <p>What I noticed early is that the interesting problem is almost never the code.
+        It is that <strong>a person somewhere is doing something a computer should be
+        doing</strong>, and everyone has stopped noticing because that is simply how it has
+        always worked. Somebody exports a spreadsheet every Monday. Somebody re-types an
+        address into a courier portal. Somebody keeps a private tally because the two systems
+        disagree and they have learned not to trust either.</p>
+
+        <p>That became the work I chose. Over five years and five teams I moved from backend
+        modules to owning whole systems: the APIs, the queues, the schedulers, the sync
+        engines, and eventually the infrastructure they run on. At Maxenius I led the team
+        that built a catalogue sync holding <strong>300,000 listings in agreement across two
+        storefronts</strong>, then led its migration from Laravel to Python.</p>
+
+        <p>The last two years pushed me into AI engineering, and it turned out to be the same
+        job wearing different clothes. At Codiux I built and deployed a
+        <strong>production voice sales agent on Twilio, Retell AI and OpenAI</strong>: real
+        outbound calls, real customers, real consequences when a provider times out mid
+        sentence. Since then I have been building MCP servers so agents can reach internal
+        systems safely instead of through hand written glue.</p>
+
+        <p>I build with Claude Code, Codex and Cursor in the loop, and I would rather say
+        so than pretend otherwise. They are very good at the mechanical half of the job.
+        They are not a substitute for knowing why a queue is backing up at three in the
+        morning, and everything that reaches a client is code I have read and can defend.</p>
+
+        <p>Calling a model is the easy part. Everything that makes it trustworthy, the
+        latency budgets, the fallbacks, the guardrails on what an agent may actually do, the
+        write backs that make its output useful, is ordinary systems engineering. That is the
+        part I am good at, and it is why I describe myself as a full stack engineer who does
+        AI rather than the other way round.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRINCIPLES ══════════════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-14">
+        <h2 class="disp text-[2.2rem] sm:text-[3rem]">How I think<br>about the work</h2>
+        <span class="meta pb-3 max-w-[26ch] leading-relaxed">Opinions earned by getting these wrong first</span>
+      </div>
+
+      <div class="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">01</div>
+          <h3 class="text-lg font-medium">Boring is the goal</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">A system people talk about is usually a system misbehaving. Success is nobody mentioning it for six months.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">02</div>
+          <h3 class="text-lg font-medium">Failures must be visible</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">Anything that can fail will. The question is whether it lands in a queue somebody reviews, or disappears until a customer complains.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">03</div>
+          <h3 class="text-lg font-medium">One source of truth</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">Two systems that both believe they are authoritative will eventually disagree. Decide which one wins before writing any code.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">04</div>
+          <h3 class="text-lg font-medium">Idempotence over cleverness</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">If running something twice is safe, retries become free and most distributed systems pain quietly disappears.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">05</div>
+          <h3 class="text-lg font-medium">An agent is a system, not a prompt</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">The model is one component. Timeouts, retries, permissions and observability decide whether it is usable in production.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">06</div>
+          <h3 class="text-lg font-medium">Say when not to build</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">Some processes are too rare or too cheap to automate. Saying so costs one project and earns the next three.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE ══════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+      <h2 class="disp text-[2.2rem] sm:text-[3rem]">Where I've worked</h2>
+      <span class="meta pb-3 tnum">2021 to present</span>
+    </div>
+
+    <div class="border-b border-line">
+      <article class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-5">
+        <div class="sm:col-span-3">
+          <div class="meta tnum mb-3">Jun 2025 - Aug 2026</div>
+          <h3 class="text-lg font-medium">Full Stack Engineer</h3>
+          <p class="text-sm text-ash mt-1">Codiux &middot; Lahore</p>
+        </div>
+        <div class="sm:col-span-9">
+          <p class="text-[.9375rem] leading-relaxed text-ash mb-4">Where the AI work started. Full stack product engineering across Python, React and Next.js, with end to end ownership through to AWS deployment.</p>
+          <ul class="space-y-2.5 text-[.9375rem] leading-relaxed text-ash">
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Built and deployed a production AI sales call agent on Twilio, Retell AI and OpenAI</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Designed backend services and REST APIs in Python for AI and analytics workloads</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Built a GPU investor portal with real time analytics for financial operations</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Owned webhook driven automation pipelines from design through production</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-5">
+        <div class="sm:col-span-3">
+          <div class="meta tnum mb-3">Mar 2024 - Jun 2025</div>
+          <h3 class="text-lg font-medium">Backend Engineer</h3>
+          <p class="text-sm text-ash mt-1">Maxenius Solutions &middot; Faisalabad</p>
+          <p class="meta mt-3 !text-brass">Also team lead</p>
+        </div>
+        <div class="sm:col-span-9">
+          <p class="text-[.9375rem] leading-relaxed text-ash mb-4">The engagement that shaped how I work. Large scale commerce integration, the operational automation around it, and my first time leading other engineers.</p>
+          <ul class="space-y-2.5 text-[.9375rem] leading-relaxed text-ash">
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Shopify and eBay sync engine holding 300,000+ listings in agreement</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Led the junior team building it, mentoring on architecture and code review</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Led an 80% migration of the system from Laravel to Python</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Order to dispatch automation including UK Royal Mail label generation</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Throughput work through queue tuning, caching strategy and SQL optimisation</li>
+          </ul>
+          <a href="case-catalogue-sync.html" class="grp meta !text-brass inline-flex items-center gap-2 mt-6">Read the case study <span class="arw">→</span></a>
+        </div>
+      </article>
+
+      <article class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-5">
+        <div class="sm:col-span-3">
+          <div class="meta tnum mb-3">May 2023 - Feb 2024</div>
+          <h3 class="text-lg font-medium">Backend Engineer</h3>
+          <p class="text-sm text-ash mt-1">XLogic Solution &middot; Faisalabad</p>
+        </div>
+        <div class="sm:col-span-9">
+          <p class="text-[.9375rem] leading-relaxed text-ash mb-4">First role where I owned production services rather than features inside someone else's.</p>
+          <ul class="space-y-2.5 text-[.9375rem] leading-relaxed text-ash">
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Custom automation workflows and REST APIs for e-commerce and internal systems</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Built and maintained several production Laravel and Python services</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-5">
+        <div class="sm:col-span-3">
+          <div class="meta tnum mb-3">Sep 2022 - May 2023</div>
+          <h3 class="text-lg font-medium">PHP Developer</h3>
+          <p class="text-sm text-ash mt-1">BrightWithUs &middot; Faisalabad</p>
+        </div>
+        <div class="sm:col-span-9">
+          <ul class="space-y-2.5 text-[.9375rem] leading-relaxed text-ash">
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Backend features for e-commerce and CMS platforms</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Third party API integrations and performance improvements</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-5">
+        <div class="sm:col-span-3">
+          <div class="meta tnum mb-3">Sep 2021 - Aug 2022</div>
+          <h3 class="text-lg font-medium">PHP Developer</h3>
+          <p class="text-sm text-ash mt-1">OOP Tech &middot; Faisalabad</p>
+        </div>
+        <div class="sm:col-span-9">
+          <ul class="space-y-2.5 text-[.9375rem] leading-relaxed text-ash">
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Backend modules for client projects, where it started</li>
+            <li class="pl-5 relative"><span class="absolute left-0 top-[.7em] w-2 h-px bg-brass"></span>Database query optimisation on systems nobody had measured</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-5">
+        <div class="sm:col-span-3">
+          <div class="meta tnum mb-3">Aug 2021 - Jun 2025</div>
+          <h3 class="text-lg font-medium">BSc, Information Technology</h3>
+          <p class="text-sm text-ash mt-1">Univ. of Agriculture, Faisalabad</p>
+        </div>
+        <div class="sm:col-span-9">
+          <p class="text-[.9375rem] leading-relaxed text-ash mb-4">Software engineering, web development, database systems, computer networks, data structures and algorithms, object oriented programming.</p>
+          <p class="text-[.9375rem] leading-relaxed text-ash">Studied alongside full time work for the whole degree, which is its own lesson in scheduling, prioritisation and knowing what to cut.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ STACK ═══════════════════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-14">
+        <h2 class="disp text-[2.2rem] sm:text-[3rem]">Tools I reach<br>for daily</h2>
+        <span class="meta pb-3 max-w-[26ch] leading-relaxed">No proficiency bars, they measure nothing</span>
+      </div>
+
+      <div class="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
+        <div class="fade p-8"><div class="meta mb-4">AI engineering</div><p class="text-[.9375rem] leading-relaxed">OpenAI, Retell AI, LLM integration<br>Conversational agents, prompt engineering<br>MCP servers, built and deployed</p></div>
+        <div class="fade p-8"><div class="meta mb-4">AI assisted development</div><p class="text-[.9375rem] leading-relaxed">Claude Code, Codex, Cursor<br>Daily, for the mechanical work<br>Review and architecture stay mine</p></div>
+        <div class="fade p-8"><div class="meta mb-4">Languages &amp; frameworks</div><p class="text-[.9375rem] leading-relaxed">Python, JavaScript, TypeScript, PHP, SQL<br>FastAPI, Django, Flask, Laravel<br>React, Next.js, Tailwind CSS</p></div>
+        <div class="fade p-8"><div class="meta mb-4">Backend &amp; APIs</div><p class="text-[.9375rem] leading-relaxed">REST API design, webhooks, microservices<br>Queue workers, retry and dead letter handling<br>Twilio, Shopify, eBay, Royal Mail</p></div>
+        <div class="fade p-8"><div class="meta mb-4">Databases</div><p class="text-[.9375rem] leading-relaxed">PostgreSQL, MySQL, MariaDB<br>MongoDB, Redis, Supabase</p></div>
+        <div class="fade p-8"><div class="meta mb-4">Cloud &amp; DevOps</div><p class="text-[.9375rem] leading-relaxed">AWS: EC2, ECS, RDS, ElastiCache,<br>Secrets Manager, VPC<br>Docker, Nginx, Linux VPS, Git</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LOOKING FOR ═════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4"><h2 class="disp text-[2.2rem] sm:text-[3rem]">What I'm<br>looking for</h2></div>
+      <div class="lg:col-span-7 lg:col-start-6 prose text-[1.0625rem]">
+        <p>My last engagement ended in August 2026, so I have capacity now for both.</p>
+        <p>Freelance work: AI agent and MCP builds, integration and automation projects where
+        the outcome is measurable. Hours removed, errors eliminated, a process retired. Those
+        are the projects I do best and enjoy most.</p>
+        <p>Full time: full stack, backend or AI engineering, remote or onsite in Lahore. I am
+        most useful on teams shipping AI features that have to hold up under real traffic, or
+        where data has to move between systems reliably and somebody needs to own that end to
+        end rather than treat it as glue nobody wants.</p>
+        <p>Either way, what I care about is <strong>whether the work removes real friction for
+        real people</strong>. That is a low bar to state and a surprisingly high one to clear
+        consistently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ═════════════════════════════════════════════════════════ -->
+  <section class="border-t border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24 sm:py-32">
+      <h2 class="disp text-[2.6rem] sm:text-[4rem] fade">Hiring, or just<br><span class="text-brass">stuck?</span></h2>
+      <p class="fade mt-8 max-w-[50ch] text-[1.0625rem] leading-[1.7] text-ash">
+        Either is a good reason to get in touch. Twenty minutes, no pitch.
+      </p>
+      <div class="fade mt-11 flex flex-wrap gap-4">
+        <a href="contact.html" class="btn grp">Get in touch <span class="arw">→</span></a>
+        <a href="work.html" class="btn-ghost grp">See the work <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line bg-deep relative z-10">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 py-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      <div class="col-span-2 lg:col-span-1">
+        <div class="disp text-2xl">Moeez Rehman</div>
+        <p class="mt-4 text-sm leading-relaxed text-ash max-w-[28ch]">Full Stack AI Engineer. Lahore, Pakistan, UTC+5.</p>
+        <div class="meta mt-6 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brass"></span> Open for work</div>
+      </div>
+      <div>
+        <div class="meta mb-5">Pages</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="ln">Home</a></li>
+          <li><a href="work.html" class="ln">Work</a></li>
+          <li><a href="services.html" class="ln">Services</a></li>
+          <li><a href="contact.html" class="ln">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Elsewhere</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="ln">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener" class="ln">LinkedIn</a></li>
+          <li><a href="https://multsaver.com" target="_blank" rel="noopener" class="ln">MultSaver</a></li>
+          <li><a href="../public/Moeez-Rehman-Resume.pdf" class="ln">Résumé (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Direct</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="mailto:contact@moeezrehman.com" class="ln break-all">contact@moeezrehman.com</a></li>
+          <li><a href="tel:+923126622545" class="ln tnum">+92 312 662 2545</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-7 hair flex flex-col sm:flex-row justify-between gap-3 meta">
+      <span>© <span class="tnum">2026</span> Moeez Rehman &middot; moeezrehman.com</span>
+      <span>Set in Archivo &amp; JetBrains Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

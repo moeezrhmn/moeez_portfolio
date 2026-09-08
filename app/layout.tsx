@@ -1,79 +1,98 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo, Literata, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/config";
-import Script from "next/script";
 
-const inter = Inter({
+/* Three roles, three faces. Display shouts, body is read, mono carries data. */
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-archivo",
+  display: "swap",
 });
+
+const literata = Literata({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-literata",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
+/* Runs before first paint so a returning dark-theme visitor never sees a
+   flash of light. Light is the default; the OS preference is deliberately
+   not consulted, only an explicit choice. */
+const themeScript = `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})()`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  alternates: {
-    canonical: siteConfig.url,
-  },
+  alternates: { canonical: siteConfig.url },
   title: {
-    default: "Moeez Rehman - Software Engineer | Backend, APIs & Cloud Infrastructure",
-    template: "%s | Moeez Rehman"
+    default: `${siteConfig.name} · ${siteConfig.title}`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: "Software Engineer specializing in Backend & Infrastructure — APIs, Automation, VPS & Cloud Deployments. 5+ years building scalable systems with Python, Laravel, and React/Next.js.",
+  description: siteConfig.description,
   keywords: [
-    "Software Engineer",
-    "Backend Engineer",
-    "Infrastructure Engineer",
+    "Full Stack AI Engineer",
+    "AI Engineer",
+    "LLM Integration",
+    "Voice AI Agent",
+    "Retell AI",
+    "OpenAI",
+    "MCP Server",
+    "Model Context Protocol",
     "Python Developer",
-    "Laravel Developer",
     "FastAPI",
-    "API Development",
-    "REST API",
-    "Automation",
-    "VPS Deployment",
-    "Cloud Infrastructure",
+    "Next.js Developer",
+    "API Integration",
+    "Workflow Automation",
     "Shopify Integration",
     "eBay API",
-    "E-commerce Backend",
-    "SaaS Development",
-    "React Developer",
-    "Next.js Developer",
-    "Full Stack Engineer",
-    "Docker",
     "AWS",
-    "Pakistan Developer",
-    "Remote Software Engineer"
+    "PostgreSQL",
+    "Laravel Developer",
+    "Lahore",
+    "Remote Software Engineer",
   ],
   icons: {
+    // SVG first for browsers that take it, .ico as the fallback Safari and
+    // Google's search results still prefer. Apple requires PNG: it silently
+    // ignores an SVG apple-touch-icon and screenshots the page instead.
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.svg",
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+    shortcut: "/favicon.ico",
   },
-  authors: [{ name: "Moeez Rehman", url: "https://github.com/moeezrhmn" }],
-  creator: "Moeez Rehman",
-  publisher: "Moeez Rehman",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  authors: [{ name: siteConfig.author, url: siteConfig.social.github }],
+  creator: siteConfig.author,
+  publisher: siteConfig.author,
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "Moeez Rehman - Software Engineer | Backend & Infrastructure",
-    description: "Software Engineer with 5+ years experience in Backend, APIs, Automation, VPS & Cloud Deployments. Built systems processing 300k+ products and 40+ daily automated orders using Python, Laravel, and React/Next.js.",
+    title: `${siteConfig.name} · ${siteConfig.title}`,
+    description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Moeez Rehman - Software Engineer | Backend & Infrastructure",
-    description: "Software Engineer specializing in Backend, APIs, Automation, and Cloud Infrastructure. Python · Laravel · React/Next.js.",
+    title: `${siteConfig.name} · ${siteConfig.title}`,
+    description: siteConfig.description,
   },
   robots: {
     index: true,
@@ -81,51 +100,58 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
     google: "GNlnqEQ41Lg2IV7EVXPkAUxGzG3Rn1bcavqkR0CCFFA",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    // The pre-paint script below sets data-theme on this element before React
+    // hydrates, so the server HTML and the client DOM differ here by design.
+    // suppressHydrationWarning applies to this element only, one level deep,
+    // so genuine mismatches further down the tree still surface.
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${archivo.variable} ${literata.variable} ${jetbrains.variable}`}
+    >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#111827" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+        <meta name="theme-color" content="#F4F1EA" />
       </head>
 
-      <body className={`${inter.variable} antialiased`}>
-        {/* Google tag (gtag.js)  */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-          `}
-        </Script>
+      <body className="antialiased">
+        {/* Film grain sits above the page and below the content. */}
+        <div className="grain" aria-hidden="true" />
+
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+              `}
+            </Script>
+          </>
+        ) : null}
 
         <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <main className="relative z-10 min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,139 +1,122 @@
 import { ImageResponse } from 'next/og';
+import { siteConfig } from '@/lib/config';
 
-export const runtime = 'edge';
-export const alt = 'Moeez Rehman — Software Engineer';
+export const alt = `${siteConfig.name} · ${siteConfig.title}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+
+/**
+ * This is what renders when the link is pasted into LinkedIn, WhatsApp or
+ * Slack, so it does more work than most of the site while job hunting.
+ * Bone ground, hairline rules, one brass accent, tabular figures. No icons,
+ * no gradients: the same rules as every other surface.
+ *
+ * Only system fonts are available here without shipping a font binary, so
+ * this leans on weight and tracking rather than trying to fake Archivo.
+ */
+const BONE = '#F4F1EA';
+const INK = '#15140F';
+const ASH = '#5C574C';
+const LINE = '#D7D1C1';
+const BRASS = '#8A6620';
+
+/* What I build, not what one 2024-25 engagement measured. This is the first
+   impression on LinkedIn, so it should say what I do. */
+const figures = [
+  ['AI Agents', 'Voice, chat, MCP'],
+  ['Integrations', 'APIs that stay in sync'],
+  ['Cloud', 'AWS, deployed'],
+];
 
 export default function OgImage() {
   return new ImageResponse(
     (
       <div
         style={{
-          background: '#111827',
           width: '100%',
           height: '100%',
+          background: BONE,
+          color: INK,
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '80px',
+          justifyContent: 'space-between',
+          padding: '64px 72px',
           fontFamily: 'system-ui, -apple-system, sans-serif',
-          position: 'relative',
         }}
       >
-        {/* Accent top bar */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '5px',
-            background: '#ea580c',
-          }}
-        />
-
-        {/* Top-right decorative circle */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '-80px',
-            right: '-80px',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'rgba(234, 88, 12, 0.08)',
-          }}
-        />
-
-        {/* Monogram badge */}
+        {/* Top rule: name left, availability right */}
         <div
           style={{
             display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            justifyContent: 'center',
-            width: '72px',
-            height: '72px',
-            borderRadius: '18px',
-            background: '#1f2937',
-            border: '2px solid rgba(234, 88, 12, 0.4)',
-            marginBottom: '36px',
+            borderBottom: `1px solid ${LINE}`,
+            paddingBottom: 22,
+            fontSize: 19,
+            letterSpacing: 3,
+            textTransform: 'uppercase',
+            color: ASH,
           }}
         >
-          <span style={{ color: '#ea580c', fontSize: '32px', fontWeight: '800' }}>M</span>
+          <span>{siteConfig.name}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ width: 9, height: 9, borderRadius: 9, background: BRASS }} />
+            <span>{siteConfig.availability.label}</span>
+          </div>
         </div>
 
-        {/* Name */}
+        {/* The statement */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              fontSize: 96,
+              fontWeight: 700,
+              letterSpacing: -4.5,
+              lineHeight: 0.94,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <span>SYSTEMS THAT RUN</span>
+            <span style={{ color: BRASS }}>THEMSELVES.</span>
+          </div>
+          <div style={{ fontSize: 27, color: ASH, marginTop: 26, letterSpacing: -0.3 }}>
+            {`${siteConfig.title} · ${siteConfig.location.city}, ${siteConfig.location.country}`}
+          </div>
+        </div>
+
+        {/* Figures, on a hairline */}
         <div
           style={{
-            color: '#ffffff',
-            fontSize: '68px',
-            fontWeight: '800',
-            letterSpacing: '-2px',
-            lineHeight: '1',
-            marginBottom: '16px',
+            display: 'flex',
+            gap: 72,
+            borderTop: `1px solid ${LINE}`,
+            paddingTop: 26,
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
           }}
         >
-          Moeez Rehman
-        </div>
-
-        {/* Title */}
-        <div
-          style={{
-            color: '#ea580c',
-            fontSize: '28px',
-            fontWeight: '600',
-            marginBottom: '32px',
-          }}
-        >
-          Software Engineer — Backend &amp; Infrastructure
-        </div>
-
-        {/* Tagline */}
-        <div
-          style={{
-            color: '#9ca3af',
-            fontSize: '22px',
-            maxWidth: '780px',
-            lineHeight: '1.5',
-            marginBottom: '48px',
-          }}
-        >
-          Building complete solutions — from the backend API to the frontend dashboard to the server it runs on.
-        </div>
-
-        {/* Tech tags */}
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          {['Python', 'Laravel', 'FastAPI', 'React / Next.js', 'Docker', 'AWS'].map((tag) => (
-            <div
-              key={tag}
-              style={{
-                background: '#1f2937',
-                border: '1px solid #374151',
-                color: '#d1d5db',
-                fontSize: '16px',
-                fontWeight: '500',
-                padding: '8px 18px',
-                borderRadius: '8px',
-              }}
-            >
-              {tag}
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom domain */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '40px',
-            right: '80px',
-            color: '#4b5563',
-            fontSize: '18px',
-            fontWeight: '500',
-          }}
-        >
-          moeezrehman.quanter.dev
+          <div style={{ display: 'flex', gap: 56 }}>
+            {figures.map(([value, label]) => (
+              <div key={label} style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontSize: 38, fontWeight: 700, letterSpacing: -1.4 }}>{value}</span>
+                <span
+                  style={{
+                    fontSize: 16,
+                    letterSpacing: 2.4,
+                    textTransform: 'uppercase',
+                    color: ASH,
+                    marginTop: 8,
+                  }}
+                >
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+          <span style={{ fontSize: 19, letterSpacing: 2.4, color: BRASS }}>
+            {siteConfig.url.replace(/^https?:\/\//, '')}
+          </span>
         </div>
       </div>
     ),

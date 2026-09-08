@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · Moeez Rehman</title>
+<meta name="description" content="Book a 20 minute call or send a message. Replies within 24 hours.">
+
+<script>
+(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tw.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 h-16 flex items-center justify-between gap-6">
+    <a href="index.html" class="meta !text-bone shrink-0">Moeez Rehman</a>
+    <nav class="hidden md:flex items-center gap-8 meta">
+      <a href="index.html" class="nav-a">Home</a>
+      <a href="work.html" class="nav-a">Work</a>
+      <a href="services.html" class="nav-a">Services</a>
+      <a href="about.html" class="nav-a">About</a>
+      <a href="contact.html" class="nav-a" aria-current="page">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="meta tnum hidden lg:flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-brass"></span>
+        <span id="clock">--:--:--</span><span class="text-dim">LHE</span>
+      </div>
+      <button id="theme" class="theme-btn" aria-label="Switch theme">Dark</button>
+      <button id="burger" class="burger md:hidden w-6 h-4 flex flex-col justify-between" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer md:hidden" id="drawer">
+  <nav class="px-6 py-10 flex flex-col">
+    <a href="index.html" class="disp text-4xl py-4 border-b border-line">Home</a>
+    <a href="work.html" class="disp text-4xl py-4 border-b border-line">Work</a>
+    <a href="services.html" class="disp text-4xl py-4 border-b border-line">Services</a>
+    <a href="about.html" class="disp text-4xl py-4 border-b border-line">About</a>
+    <a href="contact.html" class="disp text-4xl py-4 border-b border-line text-brass">Contact</a>
+  </nav>
+</div>
+
+<main class="relative z-10">
+
+  <!-- ══ HEAD ════════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pt-40 pb-14">
+    <p class="meta fade mb-8">Contact &middot; replies within 24 hours</p>
+    <h1 data-reveal class="disp text-[12vw] sm:text-[8.5vw] lg:text-[7vw]">
+      <span class="mask"><span>NAME THE TASK</span></span>
+      <span class="mask"><span>YOU KEEP DOING</span></span>
+      <span class="mask"><span class="text-brass">BY HAND.</span></span>
+    </h1>
+    <p class="fade mt-12 max-w-[54ch] text-[1.0625rem] leading-[1.7] text-ash">
+      Twenty minutes, no pitch. If building it will not pay for itself, you will
+      hear that on the call. That answer costs you nothing and saves us both a month.
+    </p>
+  </section>
+
+  <!-- ══ FORM + DIRECT ═══════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-14 border-t border-line pt-14">
+
+      <!-- Form.
+           TODO: this currently opens the visitor's email client with the
+           message pre-filled, so it works as a static file. To take real
+           submissions, point it at your /api/contact route or a service
+           like Formspree, and delete the mailto fallback script below. -->
+      <div class="lg:col-span-7">
+        <h2 class="disp text-[1.8rem] sm:text-[2.2rem] mb-9">Send a message</h2>
+
+        <form id="form" class="grid grid-cols-1 sm:grid-cols-2 gap-5" novalidate>
+          <label class="block">
+            <span class="meta">Your name</span>
+            <input class="field" type="text" name="name" required placeholder="Jane Cooper">
+          </label>
+          <label class="block">
+            <span class="meta">Email</span>
+            <input class="field" type="email" name="email" required placeholder="jane@company.com">
+          </label>
+          <label class="block">
+            <span class="meta">Company <span class="!text-dim">(optional)</span></span>
+            <input class="field" type="text" name="company" placeholder="Cooper &amp; Co.">
+          </label>
+          <label class="block">
+            <span class="meta">What kind of work?</span>
+            <select class="field" name="kind">
+              <option>Not sure yet</option>
+              <option>AI agent or MCP build</option>
+              <option>Integration or automation</option>
+              <option>Full stack product build</option>
+              <option>Fixing something that is broken</option>
+              <option>Monthly retainer</option>
+              <option>Full time role</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="meta">Budget range</span>
+            <select class="field" name="budget">
+              <option>Not sure yet</option>
+              <option>Under $2,000</option>
+              <option>$2,000 to $6,000</option>
+              <option>$6,000 to $15,000</option>
+              <option>$15,000+</option>
+              <option>Retainer, ongoing</option>
+              <option>Not applicable, hiring</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="meta">What are you trying to fix?</span>
+            <textarea class="field" name="message" rows="7" required
+              placeholder="The more specific the better. Which systems, how often the task runs, and roughly how long it takes each time."></textarea>
+          </label>
+
+          <div class="sm:col-span-2 flex flex-wrap items-center gap-5 pt-2">
+            <button type="submit" class="btn grp">Send message <span class="arw">→</span></button>
+            <p class="meta !text-dim max-w-[30ch] leading-relaxed">No newsletter, no follow up sequence. One reply from a person.</p>
+          </div>
+
+          <p id="status" class="sm:col-span-2 meta !text-brass" role="status" hidden></p>
+        </form>
+      </div>
+
+      <!-- Direct -->
+      <div class="lg:col-span-4 lg:col-start-9">
+        <!-- A face on the contact page: people write more readily to a person
+             than to a form. Portrait and identity share one bordered block. -->
+        <figure class="portrait-sm fade mb-12">
+          <img src="assets/profile.jpeg" width="1002" height="1001" loading="lazy"
+               alt="Moeez Rehman, Full Stack AI Engineer, photographed outdoors in Lahore">
+          <figcaption class="border border-line border-t-0 p-6">
+            <div class="font-ui text-[1.125rem] font-medium tracking-tight">Moeez Rehman</div>
+            <div class="meta mt-2">Full Stack AI Engineer</div>
+            <div class="meta mt-5 pt-5 hair flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-brass"></span> Replies within 24 hours
+            </div>
+          </figcaption>
+        </figure>
+
+        <h2 class="disp text-[1.8rem] sm:text-[2.2rem] mb-9">Or go direct</h2>
+
+        <div class="gridline border border-line">
+          <!-- TODO: swap this href for your Calendly / Cal.com link -->
+          <a href="#" class="grp block p-6 hover:text-brass transition-colors">
+            <div class="meta mb-2">Preferred</div>
+            <div class="text-[1.0625rem] flex items-center gap-2">Book 20 minutes <span class="arw">→</span></div>
+            <p class="text-sm text-ash mt-2">Pick a slot that suits your timezone</p>
+          </a>
+          <a href="mailto:contact@moeezrehman.com" class="grp block p-6 hover:text-brass transition-colors">
+            <div class="meta mb-2">Email</div>
+            <div class="text-[.9375rem] break-all flex items-start gap-2">contact@moeezrehman.com <span class="arw arw-d shrink-0">↗</span></div>
+          </a>
+          <a href="tel:+923126622545" class="grp block p-6 hover:text-brass transition-colors">
+            <div class="meta mb-2">Phone / WhatsApp</div>
+            <div class="text-[1.0625rem] tnum flex items-center gap-2">+92 312 662 2545 <span class="arw arw-d">↗</span></div>
+          </a>
+          <a href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener" class="grp block p-6 hover:text-brass transition-colors">
+            <div class="meta mb-2">LinkedIn</div>
+            <div class="text-[1.0625rem] flex items-center gap-2">in/moeezrhmn <span class="arw arw-d">↗</span></div>
+          </a>
+          <a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="grp block p-6 hover:text-brass transition-colors">
+            <div class="meta mb-2">GitHub</div>
+            <div class="text-[1.0625rem] flex items-center gap-2">moeezrhmn <span class="arw arw-d">↗</span></div>
+          </a>
+        </div>
+
+        <dl class="mt-8 gridline border border-line">
+          <div class="p-5 flex justify-between gap-4"><dt class="meta">Timezone</dt><dd class="text-sm tnum">UTC+5, Lahore</dd></div>
+          <div class="p-5 flex justify-between gap-4"><dt class="meta">Overlap</dt><dd class="text-sm text-right">UK and EU day, US morning</dd></div>
+          <div class="p-5 flex justify-between gap-4"><dt class="meta">Reply within</dt><dd class="text-sm tnum">24 hours</dd></div>
+          <div class="p-5 flex justify-between gap-4"><dt class="meta">Availability</dt><dd class="text-sm text-brass">Open now</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHAT HAPPENS NEXT ═══════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-14">
+        <h2 class="disp text-[2.2rem] sm:text-[3rem]">What happens<br>after you send it</h2>
+        <span class="meta pb-3">No sales sequence</span>
+      </div>
+      <div class="gridline gridline-deep sm:grid-cols-3">
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">Within 24h</div>
+          <h3 class="text-lg font-medium">A real reply</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">Written by me, addressing what you actually described, usually with one or two questions I need answered before I can be useful.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">The call</div>
+          <h3 class="text-lg font-medium">Twenty minutes</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">You walk me through the process as it works today. I ask about frequency, volume and what breaks. No slides, nothing to prepare.</p>
+        </div>
+        <div class="fade p-8 lg:p-10">
+          <div class="meta tnum text-brass mb-6">Within 3 days</div>
+          <h3 class="text-lg font-medium">Scope and price</h3>
+          <p class="mt-4 text-[.9375rem] leading-relaxed text-ash">A short written proposal covering inclusions, exclusions, fixed price and date. Or an honest note saying this is not worth building, which happens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ═════════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4"><h2 class="disp text-[2.2rem] sm:text-[3rem]">Before you<br>write</h2></div>
+      <div class="lg:col-span-8 border-b border-line">
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">I don't know what I need yet. Is that a problem?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">No, that is the normal starting point. Describe the annoying part of your week rather than a technical solution. Working out what to build is the part I am being paid for.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">We have an AI prototype that isn't production ready.</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">That is one of the most common reasons people get in touch. Send whatever you have, even if it is a notebook and a prompt. The gap between a working demo and something that survives real users is mostly engineering, and it is well trodden ground.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">My budget is small. Worth getting in touch?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Yes, and say the number in the form. A tightly scoped automation project starts well below a full build. If your budget genuinely cannot cover the work I will tell you straight away rather than string it out.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">I'm hiring, not buying a project.</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Also welcome. Pick "Full time role" in the form. My last engagement ended in August 2026 and I am open to full stack, backend or AI engineering roles, remote or onsite in Lahore. The <a href="about.html" class="ln">about page</a> covers what I am looking for.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">Can you fix something that's already broken?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Often yes. Send whatever error messages or logs you have. I will read the code before quoting and tell you honestly whether repairing it or replacing the broken part is cheaper. Sometimes the answer is that you do not need me at all.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line bg-deep relative z-10">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 py-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      <div class="col-span-2 lg:col-span-1">
+        <div class="disp text-2xl">Moeez Rehman</div>
+        <p class="mt-4 text-sm leading-relaxed text-ash max-w-[28ch]">Full Stack AI Engineer. Lahore, Pakistan, UTC+5.</p>
+        <div class="meta mt-6 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brass"></span> Open for work</div>
+      </div>
+      <div>
+        <div class="meta mb-5">Pages</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="ln">Home</a></li>
+          <li><a href="work.html" class="ln">Work</a></li>
+          <li><a href="services.html" class="ln">Services</a></li>
+          <li><a href="about.html" class="ln">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Elsewhere</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="ln">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener" class="ln">LinkedIn</a></li>
+          <li><a href="https://multsaver.com" target="_blank" rel="noopener" class="ln">MultSaver</a></li>
+          <li><a href="../public/Moeez-Rehman-Resume.pdf" class="ln">Résumé (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Direct</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="mailto:contact@moeezrehman.com" class="ln break-all">contact@moeezrehman.com</a></li>
+          <li><a href="tel:+923126622545" class="ln tnum">+92 312 662 2545</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-7 hair flex flex-col sm:flex-row justify-between gap-3 meta">
+      <span>© <span class="tnum">2026</span> Moeez Rehman &middot; moeezrehman.com</span>
+      <span>Set in Archivo &amp; JetBrains Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+/* Static-file fallback: compose a mailto so the form does something real
+   while this is still a set of HTML files. Replace with a POST to your
+   own endpoint before launch. */
+(function () {
+  var form = document.getElementById('form');
+  var status = document.getElementById('status');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var data = new FormData(form);
+    var get = function (k) { return (data.get(k) || '').toString().trim(); };
+
+    if (!get('name') || !get('email') || !get('message')) {
+      status.textContent = 'Name, email and a description are all needed.';
+      status.hidden = false;
+      return;
+    }
+
+    var body = [
+      'Name: '    + get('name'),
+      'Email: '   + get('email'),
+      'Company: ' + (get('company') || 'not given'),
+      'Work: '    + get('kind'),
+      'Budget: '  + get('budget'),
+      '',
+      get('message')
+    ].join('\n');
+
+    status.textContent = 'Opening your email client...';
+    status.hidden = false;
+
+    window.location.href = 'mailto:contact@moeezrehman.com'
+      + '?subject=' + encodeURIComponent('Project enquiry from ' + get('name'))
+      + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>

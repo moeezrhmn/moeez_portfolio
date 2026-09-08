@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <rect width="512" height="512" rx="112" fill="#111827"/>
-  <path
-    d="M96 384V128h52L256 318.4 364 128h52v256h-52V203.2L309.6 352H202.4L148 203.2V384H96z"
-    fill="#ea580c"
-  />
-  <circle cx="428" cy="100" r="28" fill="#ea580c" opacity="0.45"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="M">
+  <title>Moeez Rehman</title>
+  <rect width="512" height="512" fill="#14130F"/>
+  <defs>
+    <clipPath id="m">
+      <path d="M72 408 V104 H140 L256 330 L372 104 H440 V408 H372 V196 L302 374 H210 L140 196 V408 Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#m)">
+    <rect width="512" height="512" fill="#F4F1EA"/>
+    <rect x="140" width="232" height="512" fill="#C9A45C"/>
+  </g>
 </svg>

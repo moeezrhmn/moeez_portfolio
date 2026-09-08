@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Deploying moeezrehman.quanter.dev..."
+echo "Deploying moeezrehman.com..."
 
 echo "Installing dependencies..."
 npm install

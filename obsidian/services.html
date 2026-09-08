@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services · Moeez Rehman</title>
+<meta name="description" content="AI agent builds, integration and automation work, and engineering retainers. Fixed scope, fixed price, documented handover.">
+
+<script>
+(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tw.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  /* Deliverable list: a brass rule instead of a bullet glyph. */
+  .deliv li{ position:relative; padding-left:1.6rem; }
+  .deliv li::before{
+    content:''; position:absolute; left:0; top:.72em;
+    width:.7rem; height:1px; background:var(--brass);
+  }
+</style>
+</head>
+
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 h-16 flex items-center justify-between gap-6">
+    <a href="index.html" class="meta !text-bone shrink-0">Moeez Rehman</a>
+    <nav class="hidden md:flex items-center gap-8 meta">
+      <a href="index.html" class="nav-a">Home</a>
+      <a href="work.html" class="nav-a">Work</a>
+      <a href="services.html" class="nav-a" aria-current="page">Services</a>
+      <a href="about.html" class="nav-a">About</a>
+      <a href="contact.html" class="nav-a">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="meta tnum hidden lg:flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-brass"></span>
+        <span id="clock">--:--:--</span><span class="text-dim">LHE</span>
+      </div>
+      <button id="theme" class="theme-btn" aria-label="Switch theme">Dark</button>
+      <button id="burger" class="burger md:hidden w-6 h-4 flex flex-col justify-between" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer md:hidden" id="drawer">
+  <nav class="px-6 py-10 flex flex-col">
+    <a href="index.html" class="disp text-4xl py-4 border-b border-line">Home</a>
+    <a href="work.html" class="disp text-4xl py-4 border-b border-line">Work</a>
+    <a href="services.html" class="disp text-4xl py-4 border-b border-line text-brass">Services</a>
+    <a href="about.html" class="disp text-4xl py-4 border-b border-line">About</a>
+    <a href="contact.html" class="disp text-4xl py-4 border-b border-line">Contact</a>
+    <a href="contact.html" class="btn mt-10 self-start">Book 20 minutes <span>→</span></a>
+  </nav>
+</div>
+
+<main class="relative z-10">
+
+  <!-- ══ HEAD ════════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pt-40 pb-16">
+    <p class="meta fade mb-8">Services and engagement terms</p>
+    <h1 data-reveal class="disp text-[13vw] sm:text-[9vw] lg:text-[7.5vw]">
+      <span class="mask"><span>THREE WAYS</span></span>
+      <span class="mask"><span class="text-brass">TO HIRE ME.</span></span>
+    </h1>
+    <p class="fade mt-12 max-w-[56ch] text-[1.0625rem] leading-[1.7] text-ash">
+      The prices below are the ranges most projects land in. The number in your proposal
+      is fixed against a written scope, and it does not move unless the scope does.
+    </p>
+  </section>
+
+  <!-- ══ ENGAGEMENTS ═════════════════════════════════════════════════
+       TODO: replace every figure on this page with your real rates.  -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-24">
+
+    <!-- A -->
+    <div class="fade border-t border-line py-14 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="meta tnum text-brass">Option A</span>
+          <span class="meta !text-onbrass bg-brass px-2 py-0.5">Most asked for</span>
+        </div>
+        <h2 class="disp text-[2.2rem] sm:text-[2.8rem]">AI agent<br>build</h2>
+        <p class="mt-6 text-[1.0625rem] leading-[1.65] text-ash max-w-[36ch]">
+          A voice or chat agent, or an MCP server that gives one safe access to your
+          systems. Taken from idea or prototype to something that survives production.
+        </p>
+        <dl class="mt-8 gridline border border-line">
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Duration</dt><dd class="text-sm tnum">4 to 8 weeks</dd></div>
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Typical range</dt><dd class="text-sm tnum text-brass">$5,000 to $14,000</dd></div>
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Billing</dt><dd class="text-sm tnum">3 milestones</dd></div>
+        </dl>
+      </div>
+
+      <div class="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-10">
+        <div>
+          <div class="meta mb-5">What you get</div>
+          <ul class="deliv space-y-3 text-[.9375rem] leading-relaxed text-ash">
+            <li>A working agent deployed on your infrastructure</li>
+            <li>Telephony or chat surface wired up, Twilio and Retell AI where voice is involved</li>
+            <li>MCP servers exposing your tools with scoped permissions</li>
+            <li>Transcript and outcome capture written back to your CRM or database</li>
+            <li>Fallbacks for provider outages, timeouts and refusals</li>
+            <li>Prompt and behaviour documentation your team can edit</li>
+            <li>30 days of post launch support</li>
+          </ul>
+        </div>
+        <div>
+          <div class="meta mb-5">Good fit when</div>
+          <ul class="deliv space-y-3 text-[.9375rem] leading-relaxed text-ash">
+            <li>A prototype works in a notebook and now needs real users</li>
+            <li>A repetitive conversation eats a team's day, inbound or outbound</li>
+            <li>You want agents acting on internal systems without hand written glue</li>
+            <li>An existing AI feature is unreliable and nobody knows why</li>
+          </ul>
+          <a href="work.html" class="grp meta !text-brass inline-flex items-center gap-2 mt-7">See a build like this <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="fade border-t border-line py-14 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4">
+        <div class="meta tnum text-brass mb-5">Option B</div>
+        <h2 class="disp text-[2.2rem] sm:text-[2.8rem]">Integration<br>&amp; automation</h2>
+        <p class="mt-6 text-[1.0625rem] leading-[1.65] text-ash max-w-[36ch]">
+          Two or more systems that need to talk, or one expensive manual process
+          that needs to stop being manual.
+        </p>
+        <dl class="mt-8 gridline border border-line">
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Duration</dt><dd class="text-sm tnum">3 to 6 weeks</dd></div>
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Typical range</dt><dd class="text-sm tnum text-brass">$3,500 to $9,000</dd></div>
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Billing</dt><dd class="text-sm tnum">2 to 3 milestones</dd></div>
+        </dl>
+      </div>
+
+      <div class="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-10">
+        <div>
+          <div class="meta mb-5">What you get</div>
+          <ul class="deliv space-y-3 text-[.9375rem] leading-relaxed text-ash">
+            <li>A working integration deployed to your infrastructure</li>
+            <li>Webhook or scheduled sync, whichever suits the data</li>
+            <li>Retry, backoff and a dead letter path for failures</li>
+            <li>An exception view so your team can triage without me</li>
+            <li>Written architecture and runbook documentation</li>
+            <li>30 days of post launch support</li>
+          </ul>
+        </div>
+        <div>
+          <div class="meta mb-5">Good fit when</div>
+          <ul class="deliv space-y-3 text-[.9375rem] leading-relaxed text-ash">
+            <li>Someone is copying data between two systems daily</li>
+            <li>Stock, pricing or orders disagree across channels</li>
+            <li>Reports are assembled by hand on a schedule</li>
+            <li>An existing integration breaks often enough to hurt</li>
+          </ul>
+          <a href="case-catalogue-sync.html" class="grp meta !text-brass inline-flex items-center gap-2 mt-7">Read the full case study <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="fade border-y border-line py-14 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4">
+        <div class="meta tnum text-brass mb-5">Option C</div>
+        <h2 class="disp text-[2.2rem] sm:text-[2.8rem]">Engineering<br>retainer</h2>
+        <p class="mt-6 text-[1.0625rem] leading-[1.65] text-ash max-w-[36ch]">
+          Standing capacity for teams that need backend or AI work continuously
+          but not a full time hire.
+        </p>
+        <dl class="mt-8 gridline border border-line">
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Term</dt><dd class="text-sm">Monthly, rolling</dd></div>
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">From</dt><dd class="text-sm tnum text-brass">$2,500 / month</dd></div>
+          <div class="p-4 flex justify-between gap-4"><dt class="meta">Notice</dt><dd class="text-sm tnum">30 days, either side</dd></div>
+        </dl>
+      </div>
+
+      <div class="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-10">
+        <div>
+          <div class="meta mb-5">What you get</div>
+          <ul class="deliv space-y-3 text-[.9375rem] leading-relaxed text-ash">
+            <li>An agreed block of days each month, planned with you</li>
+            <li>New endpoints, jobs, dashboards, agents and integrations</li>
+            <li>Maintenance on anything I have already built for you</li>
+            <li>A named person to call when something breaks</li>
+            <li>A short written summary of what shipped each month</li>
+          </ul>
+        </div>
+        <div>
+          <div class="meta mb-5">Good fit when</div>
+          <ul class="deliv space-y-3 text-[.9375rem] leading-relaxed text-ash">
+            <li>Frontend is covered but backend work keeps queueing up</li>
+            <li>You have agents or integrations running that need someone watching</li>
+            <li>Hiring is months away and the roadmap cannot wait</li>
+            <li>You are an agency needing backend and AI depth per project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ALWAYS INCLUDED ═════════════════════════════════════════════ -->
+  <section class="border-b border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-14">
+        <h2 class="disp text-[2.2rem] sm:text-[3rem]">Included in<br>every engagement</h2>
+        <span class="meta pb-3 max-w-[28ch] leading-relaxed">Not upsells, the baseline</span>
+      </div>
+      <div class="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-4">
+        <div class="fade p-8"><h3 class="font-medium">Your code, your repo</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">Everything ships to your repository and your infrastructure. No wrapper, no lock in, no dependency on me.</p></div>
+        <div class="fade p-8"><h3 class="font-medium">Documentation</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">Architecture notes and a runbook written for the next engineer, not as a formality.</p></div>
+        <div class="fade p-8"><h3 class="font-medium">Weekly demos</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">Staging you can click through every week. You always know what state the work is in.</p></div>
+        <div class="fade p-8"><h3 class="font-medium">30 days support</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">If something I wrote misbehaves after launch, I fix it. No hourly clock, no argument.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESS ═════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <h2 class="disp text-[2.2rem] sm:text-[3rem] mb-14">The process, in detail</h2>
+
+    <div class="border-b border-line">
+      <div class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-4">
+        <div class="sm:col-span-3"><div class="meta tnum text-brass mb-2">Step 01</div><h3 class="text-xl font-medium">Map the process</h3><p class="meta mt-3">Day 1, free</p></div>
+        <div class="sm:col-span-9 prose text-[.9375rem] max-w-[70ch]">
+          <p>A twenty minute call where you walk me through the work as it happens today. I am
+          listening for how often it runs, who does it, how long it takes and what goes wrong
+          when it is skipped.</p>
+          <p>You leave that call with an honest read on whether this is worth building.
+          Sometimes it is not. A process that runs twice a month rarely justifies the spend,
+          and I will say so rather than sell you one.</p>
+        </div>
+      </div>
+
+      <div class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-4">
+        <div class="sm:col-span-3"><div class="meta tnum text-brass mb-2">Step 02</div><h3 class="text-xl font-medium">Scope in writing</h3><p class="meta mt-3">Within 3 days</p></div>
+        <div class="sm:col-span-9 prose text-[.9375rem] max-w-[70ch]">
+          <p>You get a short document: what gets built, what explicitly does not, the fixed
+          price, the milestones and the delivery date. The exclusions list matters more than
+          the inclusions, because it is where projects usually go wrong.</p>
+          <p>Nothing starts until you have approved it. If you want to change scope later,
+          that is fine. It becomes a written change with its own price, rather than a quiet
+          argument at the end.</p>
+        </div>
+      </div>
+
+      <div class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-4">
+        <div class="sm:col-span-3"><div class="meta tnum text-brass mb-2">Step 03</div><h3 class="text-xl font-medium">Build in the open</h3><p class="meta mt-3">The bulk of the work</p></div>
+        <div class="sm:col-span-9 prose text-[.9375rem] max-w-[70ch]">
+          <p>Work lands on a staging environment continuously, and once a week we look at it
+          together. Fifteen minutes, screen shared, showing what moved.</p>
+          <p>Anything risky goes behind a read only mode first, where the system logs what it
+          <em>would</em> have done so we can check it against reality before it is allowed to
+          write. That is how the catalogue sync was rolled out without downtime.</p>
+        </div>
+      </div>
+
+      <div class="fade border-t border-line py-9 grid grid-cols-1 sm:grid-cols-12 gap-x-10 gap-y-4">
+        <div class="sm:col-span-3"><div class="meta tnum text-brass mb-2">Step 04</div><h3 class="text-xl font-medium">Hand over properly</h3><p class="meta mt-3">Final week, plus 30 days</p></div>
+        <div class="sm:col-span-9 prose text-[.9375rem] max-w-[70ch]">
+          <p>Deployed to your infrastructure, documented, with alerting wired to wherever your
+          team already looks. We walk through the runbook together so somebody on your side
+          can operate it.</p>
+          <p>Then thirty days where I am on hand for anything that surfaces. Most systems
+          reveal their real edge cases in the first fortnight of live traffic, and that period
+          is included rather than billed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHAT I DON'T DO ═════════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+        <div class="lg:col-span-4">
+          <h2 class="disp text-[2.2rem] sm:text-[3rem]">What I<br>don't do</h2>
+          <p class="mt-6 text-[.9375rem] leading-relaxed text-ash max-w-[32ch]">
+            Being clear about this saves us both a call. If you need one of these,
+            I would rather point you elsewhere than do it badly.
+          </p>
+        </div>
+        <div class="lg:col-span-8 gridline gridline-deep sm:grid-cols-2 border border-line">
+          <div class="p-7"><h3 class="font-medium">Model training</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">I integrate and deploy models, and I build the systems around them. Training or fine tuning your own is a different specialism.</p></div>
+          <div class="p-7"><h3 class="font-medium">Brand &amp; visual design</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">I build interfaces to a design, and I build functional internal tools. Identity and marketing design is not my discipline.</p></div>
+          <div class="p-7"><h3 class="font-medium">Mobile apps</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">I will build and document the API your app consumes. Native iOS and Android work is somebody else's job.</p></div>
+          <div class="p-7"><h3 class="font-medium">WordPress &amp; page builders</h3><p class="mt-3 text-[.9375rem] leading-relaxed text-ash">Theme and plugin work is not what I am good at or interested in, even though it happens to be PHP.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ═════════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4"><h2 class="disp text-[2.2rem] sm:text-[3rem]">Money &amp;<br>terms</h2></div>
+      <div class="lg:col-span-8 border-b border-line">
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">Why ranges instead of a fixed price?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Because the honest answer depends on your systems. Two storefronts with clean APIs is the bottom of the range. A legacy ERP with no documentation is the top. After the scoping call you get one fixed number, not a range.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">Who pays for model and telephony usage?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">You do, directly, on your own accounts. OpenAI, Retell AI, Twilio and AWS all bill you rather than passing through me with a margin on top. I will give you a usage estimate during scoping so the running cost is not a surprise after launch.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">How do payments work?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Milestones, typically a third to start, a third at a working staging build, a third on handover. Retainers are billed monthly in advance. Bank transfer or Wise, with invoices in USD, GBP or EUR.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">What if we need to change scope mid build?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Normal and expected. It becomes a written change with its own price and date before I build it. What I will not do is absorb scope silently and then produce a surprise invoice, or agree verbally and let it become a dispute later.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">Do AI coding tools change what I am paying for?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Worth being direct about. I use Claude Code, Codex and Cursor every day, and they make me meaningfully faster on the mechanical work. You are quoted against the outcome and the written scope rather than hours at a keyboard, so the benefit reaches you as a shorter delivery time, not a smaller invoice for the same result. Every line is reviewed before it leaves my machine, and I stand behind the work exactly as I would have without them.</p></div></div>
+        </div>
+
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">Do you sign NDAs and contracts?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Yes to both, routinely. I have worked under client confidentiality for most of my career, which is why several projects on this site describe the system without naming the company.</p></div></div>
+        </div>
+        <div class="idx" data-acc="faq">
+          <button class="w-full text-left py-7 px-2 flex items-center gap-6"><span class="flex-1 text-[1.0625rem] font-medium">How soon can you start?</span><span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span></button>
+          <div class="panel"><div><p class="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">Immediately. My last engagement ended in August 2026, so I have capacity now. I take a limited number of projects at a time so the ones I do take get proper attention.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ═════════════════════════════════════════════════════════ -->
+  <section class="border-t border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24 sm:py-32">
+      <h2 class="disp text-[2.6rem] sm:text-[4rem] fade">Start with the<br><span class="text-brass">cheapest step.</span></h2>
+      <p class="fade mt-8 max-w-[50ch] text-[1.0625rem] leading-[1.7] text-ash">
+        Twenty minutes, no pitch, no obligation. If building it will not pay
+        for itself, you will hear that on the call.
+      </p>
+      <div class="fade mt-11 flex flex-wrap gap-4">
+        <a href="contact.html" class="btn grp">Book 20 minutes <span class="arw">→</span></a>
+        <a href="work.html" class="btn-ghost grp">See the work first <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line bg-deep relative z-10">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 py-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      <div class="col-span-2 lg:col-span-1">
+        <div class="disp text-2xl">Moeez Rehman</div>
+        <p class="mt-4 text-sm leading-relaxed text-ash max-w-[28ch]">Full Stack AI Engineer. Lahore, Pakistan, UTC+5.</p>
+        <div class="meta mt-6 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brass"></span> Open for work</div>
+      </div>
+      <div>
+        <div class="meta mb-5">Pages</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="ln">Home</a></li>
+          <li><a href="work.html" class="ln">Work</a></li>
+          <li><a href="about.html" class="ln">About</a></li>
+          <li><a href="contact.html" class="ln">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Elsewhere</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="ln">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener" class="ln">LinkedIn</a></li>
+          <li><a href="https://multsaver.com" target="_blank" rel="noopener" class="ln">MultSaver</a></li>
+          <li><a href="../public/Moeez-Rehman-Resume.pdf" class="ln">Résumé (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Direct</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="mailto:contact@moeezrehman.com" class="ln break-all">contact@moeezrehman.com</a></li>
+          <li><a href="tel:+923126622545" class="ln tnum">+92 312 662 2545</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-7 hair flex flex-col sm:flex-row justify-between gap-3 meta">
+      <span>© <span class="tnum">2026</span> Moeez Rehman &middot; moeezrehman.com</span>
+      <span>Set in Archivo &amp; JetBrains Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

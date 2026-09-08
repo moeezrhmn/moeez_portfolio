@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalogue Sync · Case Study · Moeez Rehman</title>
+<meta name="description" content="How 300,000+ listings were kept in sync between Shopify and eBay, cutting manual updates by 80% and returning 20 hours a week.">
+
+<script>
+(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tw.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 h-16 flex items-center justify-between gap-6">
+    <a href="index.html" class="meta !text-bone shrink-0">Moeez Rehman</a>
+    <nav class="hidden md:flex items-center gap-8 meta">
+      <a href="index.html" class="nav-a">Home</a>
+      <a href="work.html" class="nav-a" aria-current="page">Work</a>
+      <a href="services.html" class="nav-a">Services</a>
+      <a href="about.html" class="nav-a">About</a>
+      <a href="contact.html" class="nav-a">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="meta tnum hidden lg:flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-brass"></span>
+        <span id="clock">--:--:--</span><span class="text-dim">LHE</span>
+      </div>
+      <button id="theme" class="theme-btn" aria-label="Switch theme">Dark</button>
+      <button id="burger" class="burger md:hidden w-6 h-4 flex flex-col justify-between" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer md:hidden" id="drawer">
+  <nav class="px-6 py-10 flex flex-col">
+    <a href="index.html" class="disp text-4xl py-4 border-b border-line">Home</a>
+    <a href="work.html" class="disp text-4xl py-4 border-b border-line text-brass">Work</a>
+    <a href="services.html" class="disp text-4xl py-4 border-b border-line">Services</a>
+    <a href="about.html" class="disp text-4xl py-4 border-b border-line">About</a>
+    <a href="contact.html" class="disp text-4xl py-4 border-b border-line">Contact</a>
+    <a href="contact.html" class="btn mt-10 self-start">Book 20 minutes <span>→</span></a>
+  </nav>
+</div>
+
+<main class="relative z-10">
+
+  <!-- ══ HEAD ════════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pt-36 pb-14">
+    <a href="work.html" class="grp meta inline-flex items-center gap-2 mb-10 hover:text-bone transition-colors">
+      <span class="arw" style="transform:rotate(180deg)">→</span> All case files
+    </a>
+
+    <p class="meta fade mb-7">Case 02 &middot; Commerce, Automation</p>
+
+    <h1 data-reveal class="disp text-[11vw] sm:text-[8vw] lg:text-[6.6vw]">
+      <span class="mask"><span>THREE HUNDRED</span></span>
+      <span class="mask"><span>THOUSAND LISTINGS,</span></span>
+      <span class="mask"><span class="text-brass">ONE SOURCE OF TRUTH.</span></span>
+    </h1>
+
+    <p class="fade mt-12 max-w-[58ch] text-[1.1875rem] leading-[1.65] text-ash">
+      A UK retailer was maintaining the same catalogue by hand in two storefronts.
+      This is what replaced that, and what it cost them not to have it sooner.
+    </p>
+  </section>
+
+  <!-- ══ FACT BAR ════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-20">
+    <div class="gridline border border-line sm:grid-cols-2 lg:grid-cols-4">
+      <div class="p-6"><div class="meta mb-3">Client</div><p class="text-[.9375rem]">UK e-commerce retailer<br><span class="text-ash">via Maxenius Solutions</span></p></div>
+      <div class="p-6"><div class="meta mb-3">Engagement</div><p class="text-[.9375rem] tnum">2024 to 2025<br><span class="text-ash">Backend engineer, team lead</span></p></div>
+      <div class="p-6"><div class="meta mb-3">Stack</div><p class="text-[.9375rem]">Laravel, then Python<br><span class="text-ash">MySQL &middot; AWS &middot; Queue workers</span></p></div>
+      <div class="p-6"><div class="meta mb-3">Surfaces</div><p class="text-[.9375rem]">Shopify &middot; eBay<br><span class="text-ash">REST and webhooks</span></p></div>
+    </div>
+  </section>
+
+  <!-- ══ OUTCOMES ════════════════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-20">
+      <div class="meta mb-12">Outcomes</div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        <div class="fade">
+          <div class="disp text-[3rem] sm:text-[3.8rem] tnum">300<span class="text-brass">K+</span></div>
+          <div class="meta mt-4 pt-4 hair">Listings held in sync</div>
+        </div>
+        <div class="fade">
+          <div class="disp text-[3rem] sm:text-[3.8rem] tnum">80<span class="text-brass">%</span></div>
+          <div class="meta mt-4 pt-4 hair">Fewer manual updates</div>
+        </div>
+        <div class="fade">
+          <div class="disp text-[3rem] sm:text-[3.8rem] tnum">20<span class="text-brass">h</span></div>
+          <div class="meta mt-4 pt-4 hair">Returned per week</div>
+        </div>
+        <div class="fade">
+          <div class="disp text-[3rem] sm:text-[3.8rem] tnum">0</div>
+          <div class="meta mt-4 pt-4 hair">Manual steps remaining</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ THE BRIEF ═══════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8">
+      <div class="lg:col-span-4">
+        <h2 class="disp text-[2rem] sm:text-[2.6rem]">The brief</h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6 prose text-[1.0625rem]">
+        <p>The client sold the same catalogue through a Shopify storefront and an eBay shop.
+        Both were maintained by hand. When a price changed, someone edited it twice. When
+        stock moved, someone remembered to update the other channel, or did not.</p>
+
+        <p>The cost of forgetting was not theoretical. <strong>Overselling on eBay meant
+        cancelling orders</strong>, which meant refunds, seller rating damage and support time.
+        The team's answer had been to keep a buffer of unsold stock on eBay, which quietly
+        capped how much they could sell.</p>
+
+        <p>One person spent roughly a full working day each week on reconciliation. The brief
+        I was given was narrow: <strong>make the two catalogues agree, and stop the
+        overselling</strong>. I later led the small team that built and extended it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONSTRAINTS ═════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+      <div class="lg:col-span-4">
+        <h2 class="disp text-[2rem] sm:text-[2.6rem]">What made it<br>hard</h2>
+        <p class="mt-6 text-[.9375rem] leading-relaxed text-ash max-w-[32ch]">
+          The naive version of this, a script that loops every product and pushes it,
+          fails on all four of these.
+        </p>
+      </div>
+      <div class="lg:col-span-8 gridline sm:grid-cols-2 border border-line">
+        <div class="fade p-7">
+          <div class="meta tnum text-brass mb-4">01</div>
+          <h3 class="font-medium">Rate limits</h3>
+          <p class="mt-3 text-[.9375rem] leading-relaxed text-ash">Both APIs cap calls per second. A full catalogue pass at 300k items is days of API budget, not minutes.</p>
+        </div>
+        <div class="fade p-7">
+          <div class="meta tnum text-brass mb-4">02</div>
+          <h3 class="font-medium">Different data models</h3>
+          <p class="mt-3 text-[.9375rem] leading-relaxed text-ash">Shopify variants and eBay listings do not map one to one. Categories, attributes and shipping profiles all needed translation.</p>
+        </div>
+        <div class="fade p-7">
+          <div class="meta tnum text-brass mb-4">03</div>
+          <h3 class="font-medium">Partial failure</h3>
+          <p class="mt-3 text-[.9375rem] leading-relaxed text-ash">A sync that dies halfway must not leave the two systems in a worse state than it found them.</p>
+        </div>
+        <div class="fade p-7">
+          <div class="meta tnum text-brass mb-4">04</div>
+          <h3 class="font-medium">No downtime</h3>
+          <p class="mt-3 text-[.9375rem] leading-relaxed text-ash">The shop kept trading throughout. Nothing could be rebuilt from scratch behind a maintenance page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ARCHITECTURE ════════════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <h2 class="disp text-[2rem] sm:text-[2.6rem]">The system, as built</h2>
+        <span class="meta pb-2">Fig. 1 &middot; data flow</span>
+      </div>
+
+      <!-- Fills and strokes live in site.css so the diagram follows the theme. -->
+      <div class="overflow-x-auto border border-line p-6 sm:p-10 bg-void">
+        <svg class="min-w-[820px] w-full" viewBox="0 0 920 400" role="img"
+             aria-label="Shopify webhooks feed a sync engine, which enqueues deltas to a worker queue that persists to MySQL, pushes batched updates to eBay, and routes repeated failures to a dead letter queue for human review.">
+          <defs>
+            <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" class="d-arrow"/>
+            </marker>
+            <marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" class="d-arrow-x"/>
+            </marker>
+          </defs>
+
+          <path d="M200 91 H375"  class="d-path flow" marker-end="url(#ab)"/>
+          <path d="M595 91 H720"  class="d-path flow" marker-end="url(#ab)"/>
+          <path d="M485 142 V220" class="d-path flow" marker-end="url(#ab)"/>
+          <path d="M385 252 H280" class="d-path flow" marker-end="url(#ab)"/>
+          <path d="M585 252 H720" class="d-path-x" marker-end="url(#ad)"/>
+
+          <text x="287" y="80"  class="d-lbl" font-size="11" text-anchor="middle">product.update</text>
+          <text x="657" y="80"  class="d-lbl" font-size="11" text-anchor="middle">REST, batched</text>
+          <text x="497" y="188" class="d-lbl" font-size="11">enqueue delta</text>
+          <text x="332" y="242" class="d-lbl" font-size="11" text-anchor="middle">persist</text>
+          <text x="652" y="242" class="d-sub" font-size="11" text-anchor="middle">on 3x fail</text>
+
+          <rect x="30" y="58" width="170" height="66" class="d-node"/>
+          <text x="115" y="86"  class="d-txt" font-size="13" text-anchor="middle">SHOPIFY</text>
+          <text x="115" y="105" class="d-sub" font-size="10.5" text-anchor="middle">source of truth</text>
+
+          <rect x="375" y="40" width="220" height="102" class="d-engine"/>
+          <text x="485" y="76"  class="d-acc" font-size="14" text-anchor="middle">SYNC ENGINE</text>
+          <text x="485" y="98"  class="d-lbl" font-size="10.5" text-anchor="middle">diff, map, idempotent write</text>
+          <text x="485" y="116" class="d-sub" font-size="10.5" text-anchor="middle">Laravel, later Python</text>
+
+          <rect x="720" y="58" width="170" height="66" class="d-node"/>
+          <text x="805" y="86"  class="d-txt" font-size="13" text-anchor="middle">EBAY</text>
+          <text x="805" y="105" class="d-sub" font-size="10.5" text-anchor="middle">300k+ listings</text>
+
+          <rect x="385" y="220" width="200" height="64" class="d-node"/>
+          <text x="485" y="247" class="d-txt" font-size="13" text-anchor="middle">WORKER QUEUE</text>
+          <text x="485" y="266" class="d-sub" font-size="10.5" text-anchor="middle">retry, backoff</text>
+
+          <path d="M100 234 h180 v40 a90 12 0 0 1 -180 0 z" class="d-node"/>
+          <ellipse cx="190" cy="234" rx="90" ry="12" class="d-node"/>
+          <text x="190" y="262" class="d-txt" font-size="12.5" text-anchor="middle">MySQL</text>
+
+          <rect x="720" y="224" width="170" height="56" class="d-dead"/>
+          <text x="805" y="248" class="d-lbl" font-size="12" text-anchor="middle">DEAD LETTER</text>
+          <text x="805" y="266" class="d-sub" font-size="10.5" text-anchor="middle">human review</text>
+
+          <path d="M30 344 H890" class="d-dim" marker-start="url(#ab)" marker-end="url(#ab)"/>
+          <path d="M30 332 V356 M890 332 V356" class="d-dim"/>
+          <rect x="352" y="332" width="216" height="24" class="d-mask"/>
+          <text x="460" y="349" class="d-acc" font-size="11" text-anchor="middle">0 MANUAL STEPS REMAIN</text>
+        </svg>
+      </div>
+
+      <p class="meta mt-6 max-w-[70ch] leading-relaxed">
+        Shopify is the single source of truth. Everything downstream is derived, which means
+        recovery is always "replay from Shopify" rather than "reconcile two opinions".
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ DECISIONS ═══════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+      <h2 class="disp text-[2rem] sm:text-[2.6rem]">Five decisions that<br>made it work</h2>
+    </div>
+
+    <div class="border-b border-line">
+      <div class="idx" data-acc="dec">
+        <button class="w-full text-left py-8 px-2 flex items-center gap-6">
+          <span class="idx-n meta tnum !text-dim shrink-0">01</span>
+          <span class="flex-1 idx-t text-[1.25rem] sm:text-[1.6rem] font-medium tracking-tight">Deltas, not full passes</span>
+          <span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span>
+        </button>
+        <div class="panel"><div><div class="pb-8 px-2 sm:pl-16 pr-8 prose text-[.9375rem] max-w-[70ch]">
+          <p>A nightly full catalogue sweep would have burned the entire API budget and still
+          left up to 24 hours of drift. Instead the engine subscribes to Shopify webhooks and
+          only ever touches what actually changed.</p>
+          <p>A reconciliation sweep still runs, but weekly and in small batches, purely as a
+          safety net for webhooks that never arrived. <strong>Typical sync latency went from a
+          day to under a minute.</strong></p>
+        </div></div></div>
+      </div>
+
+      <div class="idx" data-acc="dec">
+        <button class="w-full text-left py-8 px-2 flex items-center gap-6">
+          <span class="idx-n meta tnum !text-dim shrink-0">02</span>
+          <span class="flex-1 idx-t text-[1.25rem] sm:text-[1.6rem] font-medium tracking-tight">Every write is idempotent</span>
+          <span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span>
+        </button>
+        <div class="panel"><div><div class="pb-8 px-2 sm:pl-16 pr-8 prose text-[.9375rem] max-w-[70ch]">
+          <p>Webhooks arrive more than once. Retries replay work. If applying the same update
+          twice produced a different result, the catalogue would slowly corrupt itself.</p>
+          <p>Each job carries the target state rather than an instruction to change something,
+          so <strong>running it once and running it five times land in exactly the same
+          place</strong>. That is what makes aggressive retrying safe.</p>
+        </div></div></div>
+      </div>
+
+      <div class="idx" data-acc="dec">
+        <button class="w-full text-left py-8 px-2 flex items-center gap-6">
+          <span class="idx-n meta tnum !text-dim shrink-0">03</span>
+          <span class="flex-1 idx-t text-[1.25rem] sm:text-[1.6rem] font-medium tracking-tight">Failures queue, they don't vanish</span>
+          <span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span>
+        </button>
+        <div class="panel"><div><div class="pb-8 px-2 sm:pl-16 pr-8 prose text-[.9375rem] max-w-[70ch]">
+          <p>Some updates genuinely cannot be applied: a category eBay rejects, an attribute
+          that fails validation. Silently dropping those is how sync systems lose trust.</p>
+          <p>After three attempts with backoff, a job moves to a dead letter queue with its
+          payload and the API's actual error message. <strong>Someone reviews a short list each
+          morning instead of auditing 300,000 products.</strong> That list is the only manual
+          work left in the system.</p>
+        </div></div></div>
+      </div>
+
+      <div class="idx" data-acc="dec">
+        <button class="w-full text-left py-8 px-2 flex items-center gap-6">
+          <span class="idx-n meta tnum !text-dim shrink-0">04</span>
+          <span class="flex-1 idx-t text-[1.25rem] sm:text-[1.6rem] font-medium tracking-tight">Rolled out one category at a time</span>
+          <span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span>
+        </button>
+        <div class="panel"><div><div class="pb-8 px-2 sm:pl-16 pr-8 prose text-[.9375rem] max-w-[70ch]">
+          <p>The shop was trading the whole time, so nothing was cut over at once. The engine
+          ran in read only mode first, logging what it <em>would</em> have changed, and we
+          compared that against reality for a week.</p>
+          <p>Then writes were enabled for a single low risk category, then a few more, then the
+          rest. <strong>By the time it owned the full catalogue, it had already been proven
+          correct on a real subset of it</strong>, and the team trusted it, which mattered as
+          much as the code did.</p>
+        </div></div></div>
+      </div>
+
+      <div class="idx" data-acc="dec">
+        <button class="w-full text-left py-8 px-2 flex items-center gap-6">
+          <span class="idx-n meta tnum !text-dim shrink-0">05</span>
+          <span class="flex-1 idx-t text-[1.25rem] sm:text-[1.6rem] font-medium tracking-tight">Migrated the core to Python, in slices</span>
+          <span class="plus text-xl text-dim shrink-0" aria-hidden="true">+</span>
+        </button>
+        <div class="panel"><div><div class="pb-8 px-2 sm:pl-16 pr-8 prose text-[.9375rem] max-w-[70ch]">
+          <p>The first version was Laravel, which shipped fast and proved the model. As the
+          system grew, the data handling and concurrency work fit Python better than PHP did,
+          and the team's centre of gravity was moving that way too.</p>
+          <p>So we moved roughly <strong>80% of the system to Python</strong> a slice at a time,
+          keeping both running against the same database while each piece was cut across.
+          Nothing was rewritten wholesale and the shop never stopped trading. I led that
+          migration and reviewed the work as the junior developers on the team took pieces
+          of it.</p>
+        </div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BEFORE / AFTER ══════════════════════════════════════════════ -->
+  <section class="border-y border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+      <h2 class="disp text-[2rem] sm:text-[2.6rem] mb-12">Before and after</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left min-w-[640px]">
+          <thead>
+            <tr class="meta border-b border-line">
+              <th class="py-4 pr-8 font-normal w-1/3">Measure</th>
+              <th class="py-4 pr-8 font-normal w-1/3">Before</th>
+              <th class="py-4 font-normal w-1/3 !text-brass">After</th>
+            </tr>
+          </thead>
+          <tbody class="text-[.9375rem]">
+            <tr class="border-b border-line">
+              <td class="py-5 pr-8 font-medium">Catalogue update path</td>
+              <td class="py-5 pr-8 text-ash">Edited by hand in both systems</td>
+              <td class="py-5">Edited once in Shopify, propagated automatically</td>
+            </tr>
+            <tr class="border-b border-line">
+              <td class="py-5 pr-8 font-medium">Time to propagate</td>
+              <td class="py-5 pr-8 text-ash">Hours to days, if remembered</td>
+              <td class="py-5 tnum">Under a minute</td>
+            </tr>
+            <tr class="border-b border-line">
+              <td class="py-5 pr-8 font-medium">Weekly reconciliation</td>
+              <td class="py-5 pr-8 text-ash tnum">About 20 hours of one person</td>
+              <td class="py-5">A short exception list, minutes</td>
+            </tr>
+            <tr class="border-b border-line">
+              <td class="py-5 pr-8 font-medium">Overselling</td>
+              <td class="py-5 pr-8 text-ash">Recurring, absorbed by a stock buffer</td>
+              <td class="py-5">Buffer no longer needed</td>
+            </tr>
+            <tr class="border-b border-line">
+              <td class="py-5 pr-8 font-medium">Failure visibility</td>
+              <td class="py-5 pr-8 text-ash">Noticed when a customer complained</td>
+              <td class="py-5">Dead letter queue, reviewed daily</td>
+            </tr>
+            <tr>
+              <td class="py-5 pr-8 font-medium">Listings covered</td>
+              <td class="py-5 pr-8 text-ash">Whatever fit in the week</td>
+              <td class="py-5 tnum">300,000+, continuously</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HINDSIGHT ═══════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8">
+      <div class="lg:col-span-4">
+        <h2 class="disp text-[2rem] sm:text-[2.6rem]">What I'd do<br>differently</h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6 prose text-[1.0625rem]">
+        <p><strong>Build the exception dashboard first.</strong> For the first few weeks the
+        dead letter queue was inspected through database queries, which meant only I could
+        triage it. A simple screen would have handed that to the ops team a month earlier.</p>
+
+        <p><strong>Instrument sooner.</strong> Metrics on queue depth and sync lag were added
+        after the first incident rather than before it. They should have shipped with the
+        first write enabled category. They are cheap up front and expensive to retrofit
+        under pressure.</p>
+
+        <p><strong>Push harder on the attribute mapping.</strong> A chunk of early dead letter
+        volume came from category attributes that were guessable but not agreed. A day
+        with the client's product lead at the start would have removed weeks of noise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEXT ════════════════════════════════════════════════════════ -->
+  <section class="border-t border-line">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <a href="work.html" class="grp card p-8">
+          <div class="meta mb-4">Index</div>
+          <div class="disp text-2xl flex items-center gap-3">All case files <span class="arw">→</span></div>
+        </a>
+        <a href="services.html" class="grp card p-8">
+          <div class="meta mb-4">Next</div>
+          <div class="disp text-2xl flex items-center gap-3">How I'd scope yours <span class="arw">→</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ═════════════════════════════════════════════════════════ -->
+  <section class="border-t border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24 sm:py-32">
+      <h2 class="disp text-[2.6rem] sm:text-[4rem] fade">Got two systems<br>that <span class="text-brass">disagree?</span></h2>
+      <p class="fade mt-8 max-w-[50ch] text-[1.0625rem] leading-[1.7] text-ash">
+        Twenty minutes is usually enough for me to tell you whether the fix is a week
+        or a quarter, and whether it is worth doing at all.
+      </p>
+      <div class="fade mt-11 flex flex-wrap gap-4">
+        <a href="contact.html" class="btn grp">Book 20 minutes <span class="arw">→</span></a>
+        <a href="mailto:contact@moeezrehman.com" class="btn-ghost grp">Email instead <span class="arw arw-d">↗</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line bg-deep relative z-10">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 py-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      <div class="col-span-2 lg:col-span-1">
+        <div class="disp text-2xl">Moeez Rehman</div>
+        <p class="mt-4 text-sm leading-relaxed text-ash max-w-[28ch]">Full Stack AI Engineer. Lahore, Pakistan, UTC+5.</p>
+        <div class="meta mt-6 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brass"></span> Open for work</div>
+      </div>
+      <div>
+        <div class="meta mb-5">Pages</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="ln">Home</a></li>
+          <li><a href="work.html" class="ln">Work</a></li>
+          <li><a href="services.html" class="ln">Services</a></li>
+          <li><a href="about.html" class="ln">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Elsewhere</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="ln">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener" class="ln">LinkedIn</a></li>
+          <li><a href="https://multsaver.com" target="_blank" rel="noopener" class="ln">MultSaver</a></li>
+          <li><a href="../public/Moeez-Rehman-Resume.pdf" class="ln">Résumé (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Direct</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="mailto:contact@moeezrehman.com" class="ln break-all">contact@moeezrehman.com</a></li>
+          <li><a href="tel:+923126622545" class="ln tnum">+92 312 662 2545</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-7 hair flex flex-col sm:flex-row justify-between gap-3 meta">
+      <span>© <span class="tnum">2026</span> Moeez Rehman &middot; moeezrehman.com</span>
+      <span>Set in Archivo &amp; JetBrains Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

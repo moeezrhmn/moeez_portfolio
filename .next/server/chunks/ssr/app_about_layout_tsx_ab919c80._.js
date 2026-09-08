@@ -1,3 +1,0 @@
-module.exports=[32829,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"About Me - Software Engineer | Backend & Infrastructure",description:"Software Engineer with 5+ years experience in Backend, APIs, Automation, VPS & Cloud Deployments. Building scalable systems with Python, Laravel, and React/Next.js.",alternates:{canonical:"https://moeezrehman.quanter.dev/about"},openGraph:{title:"About Moeez Rehman - Software Engineer",description:"Software Engineer specializing in Backend & Infrastructure — Python, Laravel, APIs, Automation, and Cloud Deployments."}}])}];
-
-//# sourceMappingURL=app_about_layout_tsx_ab919c80._.js.map

@@ -1,101 +1,97 @@
-import React from 'react';
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { personalInfo } from '@/lib/data/portfolio-data';
+import { siteConfig } from '@/lib/config';
 
-export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+const PAGES = [
+  { href: '/work', label: 'Work' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
 
-  const socialLinks = [
-    { name: 'GitHub', url: personalInfo.github, icon: FaGithub, handle: '@moeezrhmn' },
-    { name: 'LinkedIn', url: personalInfo.linkedin, icon: FaLinkedin, handle: 'in/moeezrhmn' },
-    { name: 'Email', url: `mailto:${personalInfo.email}`, icon: FaEnvelope, handle: personalInfo.email },
-  ];
-
-  const quickLinks = [
-    { name: 'About', path: '/about' },
-    { name: 'Work', path: '/work' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
-  ];
+export function Footer() {
+  const { contact, social, location, availability, resume } = siteConfig;
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 mt-0">
-      <div className="max-w-7xl mx-auto px-6 py-14 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-
-          {/* Brand */}
-          <div className="space-y-4">
-            <Link href="/" className="text-xl font-bold text-foreground hover:text-accent transition-colors">
-              Moeez Rehman
-            </Link>
-            <p className="text-secondary text-sm leading-relaxed max-w-xs">
-              Software Engineer building complete solutions — from backend APIs to frontend dashboards to the server they run on.
+    <footer className="border-t border-line bg-deep relative z-10">
+      <div className="shell py-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+          <div className="col-span-2 lg:col-span-1">
+            <div className="disp text-2xl">{siteConfig.name}</div>
+            <p className="mt-4 text-sm leading-relaxed text-ash max-w-[28ch]">
+              {siteConfig.title}. {location.city}, {location.country}, {location.timezone}.
             </p>
-            <div className="flex items-center gap-3 pt-1">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target={social.name !== 'Email' ? '_blank' : undefined}
-                  rel={social.name !== 'Email' ? 'noopener noreferrer' : undefined}
-                  aria-label={social.name}
-                  className="w-9 h-9 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-muted hover:text-accent hover:border-accent/40 transition-all"
-                >
-                  <social.icon className="text-base" />
+            {availability.open ? (
+              <div className="meta mt-6 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-brass" />
+                {availability.label}
+              </div>
+            ) : null}
+          </div>
+
+          <div>
+            <div className="meta mb-5">Pages</div>
+            <ul className="space-y-3 text-sm">
+              {PAGES.map((p) => (
+                <li key={p.href}>
+                  <Link href={p.href} className="ln">
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="meta mb-5">Elsewhere</div>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href={social.github} target="_blank" rel="noopener noreferrer" className="ln">
+                  GitHub
                 </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground">Navigation</h4>
-            <nav className="grid grid-cols-2 gap-y-2 gap-x-4">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  href={link.path}
-                  className="text-secondary hover:text-accent transition-colors text-sm"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground">Get in Touch</h4>
-            <div className="space-y-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target={social.name !== 'Email' ? '_blank' : undefined}
-                  rel={social.name !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-3 text-secondary hover:text-accent transition-colors group"
-                >
-                  <social.icon className="text-base text-muted group-hover:text-accent transition-colors shrink-0" />
-                  <span className="text-sm">{social.handle}</span>
+              </li>
+              <li>
+                <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className="ln">
+                  LinkedIn
                 </a>
-              ))}
-            </div>
+              </li>
+              <li>
+                <a href={social.multsaver} target="_blank" rel="noopener noreferrer" className="ln">
+                  MultSaver
+                </a>
+              </li>
+              <li>
+                <a href={resume} className="ln">
+                  Résumé (PDF)
+                </a>
+              </li>
+            </ul>
           </div>
 
+          <div>
+            <div className="meta mb-5">Direct</div>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href={`mailto:${contact.email}`} className="ln break-all">
+                  {contact.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${contact.phone}`} className="ln tnum">
+                  {contact.phoneDisplay}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-muted">
-            © {currentYear} {personalInfo.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-muted">
-            Built with Next.js &amp; Tailwind CSS
-          </p>
+        <div className="mt-14 pt-7 hair flex flex-col sm:flex-row justify-between gap-3 meta">
+          <span>
+            &copy; <span className="tnum">2026</span> {siteConfig.author} &middot;{' '}
+            {siteConfig.url.replace(/^https?:\/\//, '')}
+          </span>
+          <span>Set in Archivo &amp; Literata</span>
         </div>
       </div>
     </footer>
   );
-};
+}

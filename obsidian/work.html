@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Files · Moeez Rehman</title>
+<meta name="description" content="Production AI agents, MCP servers, integration systems and full stack platforms delivered between 2022 and 2026.">
+
+<script>
+(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tw.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .filt{ color:var(--dim); border-bottom:1px solid transparent; transition:.25s; padding-bottom:.35rem }
+  .filt:hover{ color:var(--bone) }
+  .filt[aria-pressed="true"]{ color:var(--brass); border-bottom-color:var(--brass) }
+  .proj[hidden]{ display:none }
+</style>
+</head>
+
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 h-16 flex items-center justify-between gap-6">
+    <a href="index.html" class="meta !text-bone shrink-0">Moeez Rehman</a>
+    <nav class="hidden md:flex items-center gap-8 meta">
+      <a href="index.html" class="nav-a">Home</a>
+      <a href="work.html" class="nav-a" aria-current="page">Work</a>
+      <a href="services.html" class="nav-a">Services</a>
+      <a href="about.html" class="nav-a">About</a>
+      <a href="contact.html" class="nav-a">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="meta tnum hidden lg:flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-brass"></span>
+        <span id="clock">--:--:--</span><span class="text-dim">LHE</span>
+      </div>
+      <button id="theme" class="theme-btn" aria-label="Switch theme">Dark</button>
+      <button id="burger" class="burger md:hidden w-6 h-4 flex flex-col justify-between" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer md:hidden" id="drawer">
+  <nav class="px-6 py-10 flex flex-col">
+    <a href="index.html" class="disp text-4xl py-4 border-b border-line">Home</a>
+    <a href="work.html" class="disp text-4xl py-4 border-b border-line text-brass">Work</a>
+    <a href="services.html" class="disp text-4xl py-4 border-b border-line">Services</a>
+    <a href="about.html" class="disp text-4xl py-4 border-b border-line">About</a>
+    <a href="contact.html" class="disp text-4xl py-4 border-b border-line">Contact</a>
+    <a href="contact.html" class="btn mt-10 self-start">Book 20 minutes <span>→</span></a>
+  </nav>
+</div>
+
+<main class="relative z-10">
+
+  <!-- ══ PAGE HEAD ═══════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pt-40 pb-16">
+    <p class="meta fade mb-8">Case files &middot; 2021 to present</p>
+    <h1 data-reveal class="disp text-[13vw] sm:text-[9vw] lg:text-[7.5vw]">
+      <span class="mask"><span>THE WORK</span></span>
+      <span class="mask"><span class="text-brass">THAT SHIPPED.</span></span>
+    </h1>
+    <p class="fade mt-12 max-w-[54ch] text-[1.0625rem] leading-[1.7] text-ash">
+      Nine systems, each with the problem that justified it and the number it moved.
+      Most were built inside client teams, so the code is not public. Where it is,
+      there is a link.
+    </p>
+  </section>
+
+  <!-- ══ FILTER ══════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-12">
+    <div class="hair pt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <span class="meta !text-dim">Filter</span>
+      <button class="filt meta" data-filter="all" aria-pressed="true">All <span class="tnum">(9)</span></button>
+      <button class="filt meta" data-filter="ai" aria-pressed="false">AI <span class="tnum">(2)</span></button>
+      <button class="filt meta" data-filter="platform" aria-pressed="false">Platform <span class="tnum">(4)</span></button>
+      <button class="filt meta" data-filter="automation" aria-pressed="false">Automation <span class="tnum">(5)</span></button>
+      <button class="filt meta" data-filter="commerce" aria-pressed="false">Commerce <span class="tnum">(2)</span></button>
+      <button class="filt meta" data-filter="live" aria-pressed="false">Live <span class="tnum">(1)</span></button>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ════════════════════════════════════════════════════ -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pb-24">
+    <div id="list" class="border-t border-line">
+
+      <!-- 01 -->
+      <article class="proj" data-cat="ai automation">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="meta tnum !text-dim">Case 01</span>
+              <span class="meta !text-onbrass bg-brass px-2 py-0.5">AI</span>
+            </div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">Voice AI Sales Agent</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">Sales org, via Codiux</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2025-26</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Full stack engineer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Status</dt><dd class="text-sm">Live in production</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Reps spent the first half of every day on outbound calls that mostly did not connect. Qualification was the bottleneck, not closing.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">A production voice agent on Twilio, Retell AI and OpenAI. Real time conversation handling, intent based routing, transcript capture, and CRM write back on every call outcome. Owned from architecture through live deployment.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">First touch qualification runs without a person in the loop. Reps pick up warm conversations only.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Python &middot; FastAPI &middot; Twilio &middot; Retell AI &middot; OpenAI &middot; PostgreSQL</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="proj" data-cat="commerce automation">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="meta tnum !text-dim mb-5">Case 02</div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">Catalogue Sync</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">UK retailer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2024-25</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Backend eng. &amp; team lead</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Scale</dt><dd class="text-sm tnum">300k+ listings</dd></div>
+            </dl>
+            <a href="case-catalogue-sync.html" class="btn grp mt-7">Full case study <span class="arw">→</span></a>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Catalogue and stock maintained by hand across two storefronts. Drift caused oversells, and updates ate a full working day each week.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">A sync engine over both REST APIs with webhook driven deltas, queued reconciliation batches, idempotent writes and a replayable failure log. I led the team building it, then led an 80% migration from Laravel to Python.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash"><span class="text-bone tnum">300,000+</span> listings held in sync. Manual updates down <span class="text-bone tnum">80%</span>, roughly <span class="text-bone tnum">20</span> hours a week returned to the team.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Laravel &middot; Python &middot; MySQL &middot; Shopify API &middot; eBay API &middot; Webhooks &middot; AWS</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="proj" data-cat="platform">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="meta tnum !text-dim mb-5">Case 03</div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">SnowVue</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Sector</dt><dd class="text-sm">Healthcare</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2025-26</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Full stack &amp; infra</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Cloud</dt><dd class="text-sm">AWS, private VPC</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">A healthcare platform needed infrastructure that could hold sensitive data without a later security review turning into a rewrite.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">Built and deployed on AWS ECS with RDS PostgreSQL and ElastiCache Redis, inside a private VPC reached through a bastion host, with every credential held in Secrets Manager rather than the repository.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">A live platform on infrastructure designed for the compliance conversation up front instead of retrofitted for it afterwards.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Python &middot; React / Next.js &middot; PostgreSQL &middot; AWS ECS &middot; RDS &middot; ElastiCache &middot; Secrets Manager</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="proj" data-cat="commerce automation">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="meta tnum !text-dim mb-5">Case 04</div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">Order Dispatch</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">UK retailer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2024-25</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Backend engineer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Throughput</dt><dd class="text-sm tnum">40+ / day</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Every order re-keyed into the courier portal by hand. Address typos became returned parcels, refunds and support time.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">An event driven pipeline running order webhook, address validation, Royal Mail label generation and tracking write back, with retries and a dead letter queue.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash"><span class="text-bone tnum">40+</span> orders a day dispatched with no human in the loop. Ops now touch only the exception queue.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Laravel &middot; Queue workers &middot; Royal Mail API &middot; MySQL</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05
+           TODO: expand this with the specifics of your MCP work. Which
+           tools did the server expose, to which agent, and what did it
+           replace? The more concrete, the stronger it reads. -->
+      <article class="proj" data-cat="ai platform">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="meta tnum !text-dim">Case 05</span>
+              <span class="meta !text-onbrass bg-brass px-2 py-0.5">AI</span>
+            </div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">MCP Servers</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Type</dt><dd class="text-sm">Agent tooling</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2026</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Build, integrate, deploy</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Protocol</dt><dd class="text-sm">Model Context Protocol</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">LLM agents are only as useful as the systems they can reach. Wiring each one in by hand produces bespoke glue that nobody wants to maintain.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">Built MCP servers exposing internal tools and data sources to agents through one standard interface, with scoped permissions on every action, then integrated and deployed them into working agent workflows.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">Agents given real capability against real systems, without a separate integration written for every model or client.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Python &middot; MCP &middot; OpenAI &middot; REST integrations &middot; Docker</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="proj" data-cat="platform">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="meta tnum !text-dim mb-5">Case 06</div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">GPU Investor Portal</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">Infrastructure fund</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2025</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Full stack engineer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Domain</dt><dd class="text-sm">GPU compute</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Investor positions and hardware utilisation tracked in spreadsheets. Reporting was monthly, manual and already stale on arrival.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">A Python service aggregating utilisation and financial events into Postgres, behind a Next.js portal with per investor scoping and live dashboards.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">The monthly spreadsheet cycle replaced by self serve reporting investors read themselves.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Python &middot; Next.js &middot; React &middot; PostgreSQL</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+      <article class="proj" data-cat="live platform">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="meta tnum !text-dim">Case 07</span>
+              <span class="meta !text-onbrass bg-brass px-2 py-0.5">Live</span>
+            </div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">MultSaver</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">Self operated</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Status</dt><dd class="text-sm">In production</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Everything</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Cost</dt><dd class="text-sm">Free, no signup</dd></div>
+            </dl>
+            <a href="https://multsaver.com" target="_blank" rel="noopener" class="btn grp mt-7">Open multsaver.com <span class="arw arw-d">↗</span></a>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Media downloaders rot fast. Platforms change markup and endpoints without notice, and most tools break within weeks.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">A FastAPI service with isolated per platform extractors, Redis cached resolution and an FFmpeg transcode queue. One platform breaking never takes the service down.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">Free, no signup, running in production and serving thousands of users. The one project here you can click and test yourself.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Python &middot; FastAPI &middot; Redis &middot; FFmpeg</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 -->
+      <article class="proj" data-cat="automation">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="meta tnum !text-dim mb-5">Case 08</div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">Social Posting Engine</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">Media brand</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2023</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Backend engineer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Output</dt><dd class="text-sm">Scheduled daily</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Branded daily posts were designed by hand, one at a time, with live data pasted in from a weather site.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">A Laravel service composing branded imagery with ImageMagick from live AccuWeather data, merging YouTube footage and scheduling the output automatically.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">A daily design task removed entirely, with output volume and consistency both up.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Laravel &middot; PHP &middot; ImageMagick &middot; AccuWeather API &middot; YouTube API</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 -->
+      <article class="proj" data-cat="automation">
+        <div class="py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 border-b border-line">
+          <div class="lg:col-span-4">
+            <div class="meta tnum !text-dim mb-5">Case 09</div>
+            <h2 class="disp text-[2rem] sm:text-[2.6rem] leading-none">Discogs Monitor</h2>
+            <dl class="mt-7 gridline border border-line">
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Client</dt><dd class="text-sm">Collector community</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Year</dt><dd class="text-sm tnum">2023</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Role</dt><dd class="text-sm">Backend engineer</dd></div>
+              <div class="p-4 flex justify-between gap-4"><dt class="meta">Mode</dt><dd class="text-sm">Continuous polling</dd></div>
+            </dl>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid sm:grid-cols-3 gap-x-10 gap-y-8">
+              <div><div class="meta mb-3">Problem</div><p class="text-[.9375rem] leading-relaxed text-ash">Rare records sell within minutes of listing. Collectors were refreshing wishlist pages by hand and still missing them.</p></div>
+              <div><div class="meta mb-3">Approach</div><p class="text-[.9375rem] leading-relaxed text-ash">A Playwright scraper against Discogs with MongoDB state, diffing each pass and notifying only on genuinely new matches.</p></div>
+              <div><div class="meta mb-3">Result</div><p class="text-[.9375rem] leading-relaxed text-ash">Users alerted within minutes of a matching listing appearing, with no manual checking.</p></div>
+            </div>
+            <div class="mt-10 pt-6 hair meta">Python &middot; Playwright &middot; MongoDB</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p id="empty" class="py-20 text-center meta" hidden>No case files in that category.</p>
+  </section>
+
+  <!-- ══ CTA ═════════════════════════════════════════════════════════ -->
+  <section class="border-t border-line bg-deep">
+    <div class="max-w-shell mx-auto px-6 sm:px-10 py-24 sm:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 items-end">
+        <div class="lg:col-span-8">
+          <h2 class="disp text-[2.6rem] sm:text-[4rem]">Yours could be<br>case <span class="text-brass tnum">10</span>.</h2>
+          <p class="mt-7 max-w-[48ch] text-[1.0625rem] leading-[1.7] text-ash">
+            Every one of these started as somebody describing a task they were sick of doing.
+            Twenty minutes on a call is enough to know whether yours is worth building.
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex lg:justify-end">
+          <a href="contact.html" class="btn grp">Book 20 minutes <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line bg-deep relative z-10">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 py-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      <div class="col-span-2 lg:col-span-1">
+        <div class="disp text-2xl">Moeez Rehman</div>
+        <p class="mt-4 text-sm leading-relaxed text-ash max-w-[28ch]">Full Stack AI Engineer. Lahore, Pakistan, UTC+5.</p>
+        <div class="meta mt-6 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brass"></span> Open for work</div>
+      </div>
+      <div>
+        <div class="meta mb-5">Pages</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="ln">Home</a></li>
+          <li><a href="services.html" class="ln">Services</a></li>
+          <li><a href="about.html" class="ln">About</a></li>
+          <li><a href="contact.html" class="ln">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Elsewhere</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="ln">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener" class="ln">LinkedIn</a></li>
+          <li><a href="https://multsaver.com" target="_blank" rel="noopener" class="ln">MultSaver</a></li>
+          <li><a href="../public/Moeez-Rehman-Resume.pdf" class="ln">Résumé (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="meta mb-5">Direct</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="mailto:contact@moeezrehman.com" class="ln break-all">contact@moeezrehman.com</a></li>
+          <li><a href="tel:+923126622545" class="ln tnum">+92 312 662 2545</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-7 hair flex flex-col sm:flex-row justify-between gap-3 meta">
+      <span>© <span class="tnum">2026</span> Moeez Rehman &middot; moeezrehman.com</span>
+      <span>Set in Archivo &amp; JetBrains Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+/* Category filter. Purely additive: with JS off, every case is visible. */
+(function () {
+  var btns  = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
+  var projs = Array.prototype.slice.call(document.querySelectorAll('.proj'));
+  var empty = document.getElementById('empty');
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var want = btn.getAttribute('data-filter');
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+
+      var shown = 0;
+      projs.forEach(function (p) {
+        var cats = (p.getAttribute('data-cat') || '').split(' ');
+        var show = want === 'all' || cats.indexOf(want) !== -1;
+        p.hidden = !show;
+        if (show) shown++;
+      });
+      empty.hidden = shown > 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>

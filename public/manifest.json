@@ -1,18 +1,16 @@
 {
-  "name": "Moeez Rehman - Backend Engineer Portfolio",
+  "name": "Moeez Rehman - Full Stack AI Engineer",
   "short_name": "Moeez Rehman",
-  "description": "Backend Engineer specializing in Python, Laravel, API Development, and SaaS Systems",
+  "description": "Full Stack AI Engineer. Production LLM and voice agents, MCP servers, and integration systems that run unattended.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#00ff41",
+  "background_color": "#F4F1EA",
+  "theme_color": "#F4F1EA",
   "orientation": "portrait-primary",
   "icons": [
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

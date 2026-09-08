@@ -1,163 +1,500 @@
-import { personalInfo, cta } from '@/lib/data/portfolio-data';
+import Link from 'next/link';
 import { siteConfig } from '@/lib/config';
-import Script from 'next/script';
-import HomeSections from '@/components/home/HomeSections';
-import { Terminal, BackgroundEffects } from '@/components/home/HeroClient';
-import { Button } from '@/components/ui/Button';
+import { metrics } from '@/lib/data/metrics';
+import { stack, capabilities } from '@/lib/data/stack';
+import { featuredCases } from '@/lib/data/cases';
+import { engagements, process, audiences, offers } from '@/lib/data/services';
+import { homeFaqs } from '@/lib/data/faqs';
+import { experience } from '@/lib/data/experience';
+import { testimonials } from '@/lib/data/testimonials';
+import { stripRich } from '@/lib/rich';
+import { MaskedHeading } from '@/components/ui/MaskedHeading';
+import { fitHeading } from '@/lib/typography';
+import { Marquee } from '@/components/ui/Marquee';
+import { Progress } from '@/components/ui/Progress';
+import { Portrait } from '@/components/ui/Portrait';
+import { Reveal } from '@/components/ui/Reveal';
+import { Accordion } from '@/components/ui/Accordion';
+import { RichText } from '@/components/ui/RichText';
+import { SectionHead, Figures, Offers } from '@/components/ui/Section';
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Moeez Rehman',
-  jobTitle: 'Software Engineer | Backend & Infrastructure',
-  description: 'Software Engineer specializing in Backend, Infrastructure, APIs, Automation, VPS & Cloud Deployments using Python, Laravel, and React/Next.js',
-  url: siteConfig.url,
-  email: 'contact@moeezrehman.quanter.dev',
-  telephone: '+92-322-6622545',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Lahore/Faisalabad',
-    addressCountry: 'Pakistan',
-  },
-  sameAs: ['https://github.com/moeezrhmn', 'https://linkedin.com/in/moeezrhmn'],
-  knowsAbout: ['Python', 'Laravel', 'FastAPI', 'API Development', 'Backend Engineering', 'E-commerce Integration', 'SaaS Development', 'Database Design', 'PostgreSQL', 'MySQL', 'Docker', 'AWS', 'React', 'Next.js', 'JavaScript'],
-};
+const employers = experience.filter((r) => !r.education);
+
+const spec = [
+  { label: 'Discipline', value: 'Full Stack AI Engineer' },
+  { label: 'Experience', value: '5+ years in production', tnum: true },
+  { label: 'Core stack', value: 'Python, Next.js, PostgreSQL, AWS' },
+  { label: 'AI', value: 'OpenAI, Retell AI, MCP servers' },
+  { label: 'Based', value: 'Lahore, PK · UTC+5', tnum: true },
+  { label: 'Replies in', value: siteConfig.contact.responseTime, tnum: true },
+  { label: 'Status', value: siteConfig.availability.label, accent: true },
+];
 
 export default function Home() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: stripRich(f.a) },
+    })),
+  };
+
   return (
     <>
-      <Script
-        id="structured-data"
+      <Progress />
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      {/* Hero / Banner Section */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.035] pointer-events-none">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(234, 88, 12, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(234, 88, 12, 0.4) 1px, transparent 1px)',
-              backgroundSize: '50px 50px',
-            }}
-          />
-        </div>
+      {/* ══ HERO ═══════════════════════════════════════════════════════
+          Statement left, spec block right. The spec answers a recruiter's
+          filter questions before they scroll once. */}
+      <section className="shell pt-32 pb-20">
+        <Reveal as="p" className="meta mb-10">
+          Full Stack AI Engineer &middot; {siteConfig.location.city}, {siteConfig.location.country}
+        </Reveal>
 
-        {/* Decorative effects — lazy loaded, non-blocking */}
-        <BackgroundEffects />
+        <MaskedHeading
+          lines={['SYSTEMS', 'THAT RUN', 'THEMSELVES.']}
+          className="[--h:15vw] sm:[--h:12vw] lg:[--h:9.4vw]"
+        />
 
-        {/* Main content — server-rendered HTML, paints immediately */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-12 mt-16 pt-12 hair">
+          <div className="lg:col-span-6">
+            <Reveal as="p" className="text-[1.125rem] leading-[1.7] text-ash max-w-[46ch]">
+              Five years building full stack products and production AI systems. I ship
+              voice and LLM agents, MCP servers, and the integration plumbing underneath
+              them, then deploy the whole thing on AWS and keep it standing.
+            </Reveal>
 
-            {/* Left side — static hero content */}
-            <div className="lg:col-span-7 text-center lg:text-left order-1">
+            <Reveal className="mt-10 flex flex-wrap gap-4">
+              <Link href="/contact" className="btn grp">
+                Start a project <span className="arw">&rarr;</span>
+              </Link>
+              <Link href="/work" className="btn-ghost grp">
+                See the work <span className="arw">&rarr;</span>
+              </Link>
+            </Reveal>
 
-              {/* Available badge — CSS animate-ping works without JS */}
-              <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-subtle border border-accent/20 mb-6 mt-8 md:mt-0 hero-fade-in"
-                style={{ animationDelay: '0.05s' }}
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-                </span>
-                <span className="text-xs md:text-sm text-accent font-mono">Available for Free Consultation</span>
-              </div>
+            <Reveal as="p" className="meta mt-10 leading-relaxed max-w-[38ch]">
+              {siteConfig.availability.detail} Last engagement ended August 2026.
+            </Reveal>
+          </div>
 
-              {/* LCP element — server-rendered, no JS needed */}
-              <h1
-                className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-6 leading-tight hero-slide-up"
-                style={{ animationDelay: '0.15s' }}
-              >
-                Build Systems that
-                <span className="text-accent glow-text"> Automate and Scale </span>
-                Business
-              </h1>
-
-              <p
-                className="text-base md:text-lg lg:text-xl text-secondary mb-8 max-w-2xl leading-relaxed mx-auto lg:mx-0 hero-slide-up"
-                style={{ animationDelay: '0.25s' }}
-              >
-                I build and deploy complete software solutions - from the backend API to the frontend dashboard to the server it runs on.
-              </p>
-
-              {/* Stats */}
-              <div
-                className="flex flex-wrap gap-4 md:gap-6 mt-2 mb-8 justify-center lg:justify-start hero-fade-in"
-                style={{ animationDelay: '0.35s' }}
-              >
-                <div className="text-center lg:text-left">
-                  <div className="text-xl md:text-2xl font-bold text-accent font-mono">5+ Years</div>
-                  <div className="text-xs text-muted">Experience</div>
+          <Reveal className="lg:col-span-5 lg:col-start-8">
+            <div className="meta mb-5">Specification</div>
+            <dl className="gridline border border-line">
+              {spec.map((row) => (
+                <div key={row.label} className="p-4 flex justify-between gap-4">
+                  <dt className="meta">{row.label}</dt>
+                  <dd
+                    className={`text-sm text-right ${row.tnum ? 'tnum' : ''} ${
+                      row.accent ? 'text-brass' : ''
+                    }`}
+                  >
+                    {row.value}
+                  </dd>
                 </div>
-              </div>
+              ))}
+            </dl>
+          </Reveal>
+        </div>
+      </section>
 
-              {/* CTA buttons — CSS hover, no JS required for basic interaction */}
-              <div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-fade-in"
-                style={{ animationDelay: '0.45s' }}
-              >
-                <Button href="https://cal.com/moeezrhmn" variant="primary" external>{cta.primaryCTA.text}</Button>
-                <Button href="/work" variant="secondary">View My Work →</Button>
-              </div>
+      <Marquee />
 
-              {/* Social links */}
-              <div
-                className="flex flex-wrap gap-4 mt-8 text-sm text-muted justify-center lg:justify-start items-center hero-fade-in"
-                style={{ animationDelay: '0.55s' }}
-              >
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  GitHub
-                </a>
-                <span className="text-accent/30">|</span>
-                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  LinkedIn
-                </a>
-                <span className="text-accent/30">|</span>
-                <a href={`mailto:${personalInfo.email}`} className="hover:text-accent transition-colors">
-                  Email
-                </a>
-                <span className="text-accent/30">|</span>
-                <a
-                  href="/Moeez-Rehman-Resume.pdf"
-                  download="Moeez-Rehman-Resume.pdf"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 border border-accent/30 rounded-md hover:bg-accent/20 hover:border-accent transition-all text-accent font-mono text-xs"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Resume
-                </a>
+      {/* ══ WHAT I BUILD ═══════════════════════════════════════════════
+          Leads with capability. The proof numbers sit further down, after
+          the work that produced them. */}
+      <section className="shell py-24 sm:py-32">
+        <Offers items={offers} />
+      </section>
+
+      {/* ══ TOOLKIT ════════════════════════════════════════════════════ */}
+      <section className="border-t border-line bg-deep">
+        <div className="shell py-24 sm:py-32">
+          <SectionHead
+            title="The toolkit"
+            note="Things I use in production, not a list of everything I have read about"
+            className="mb-14"
+          />
+          <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
+            {stack.map((g, i) => (
+              <Reveal key={g.n} delay={(i % 3) * 70} className="p-8 lg:p-10">
+                <div className="meta tnum text-brass mb-6">{g.n}</div>
+                <h3 className="text-lg font-medium">{g.title}</h3>
+                <p className="mt-4 text-[.9375rem] leading-relaxed text-ash">{g.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CAPABILITIES ═══════════════════════════════════════════════ */}
+      <section className="shell py-24 sm:py-32">
+        <SectionHead
+          title="What I actually do"
+          note="Six things done properly, rather than twenty listed"
+          className="mb-14"
+        />
+        <div className="gridline sm:grid-cols-2 lg:grid-cols-3">
+          {capabilities.map((c, i) => (
+            <Reveal key={c.n} delay={(i % 3) * 70} className="p-8 lg:p-10">
+              <div className="meta tnum text-brass mb-6">{c.n}</div>
+              <h3 className="text-xl font-medium tracking-tight">{c.title}</h3>
+              <p className="mt-4 text-[.9375rem] leading-relaxed text-ash">{c.body}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ══ SELECTED WORK ══════════════════════════════════════════════ */}
+      <section className="border-t border-line bg-deep">
+        <div className="shell py-24 sm:py-32">
+          <SectionHead title="Selected work" note="Tap to expand" className="mb-12" />
+          <Accordion
+            size="lg"
+            items={featuredCases.map((c) => ({
+              index: c.n,
+              title: c.title,
+              sub: c.sub,
+              body: (
+                <>
+                  <div className="pb-8 px-2 sm:px-4 grid sm:grid-cols-3 gap-x-10 gap-y-7">
+                    <div>
+                      <div className="meta mb-3">Problem</div>
+                      <p className="text-[.9375rem] leading-relaxed text-ash">{c.problem}</p>
+                    </div>
+                    <div>
+                      <div className="meta mb-3">Approach</div>
+                      <p className="text-[.9375rem] leading-relaxed text-ash">{c.approach}</p>
+                    </div>
+                    <div>
+                      <div className="meta mb-3">Result</div>
+                      <p className="text-[.9375rem] leading-relaxed text-ash">
+                        <RichText text={c.result} />
+                      </p>
+                    </div>
+                  </div>
+                  <div className="pb-10 px-2 sm:px-4 flex flex-wrap items-center justify-between gap-4">
+                    <span className="meta">{c.stack}</span>
+                    {c.href ? (
+                      <Link href={c.href} className="grp meta !text-brass inline-flex items-center gap-2">
+                        Read the full case study <span className="arw">&rarr;</span>
+                      </Link>
+                    ) : null}
+                  </div>
+                </>
+              ),
+            }))}
+          />
+          <div className="mt-10">
+            <Link href="/work" className="btn-ghost grp">
+              All case files <span className="arw">&rarr;</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ TRACK RECORD ═══════════════════════════════════════════════
+          Numbers earn their place here, after the systems that produced
+          them, rather than as the first thing a visitor reads. */}
+      <section className="shell py-24 sm:py-32">
+        <SectionHead
+          title="Measured outcomes"
+          note="Taken from delivered systems, not estimates"
+          className="mb-14"
+        />
+        <Figures items={metrics} />
+      </section>
+
+      {/* ══ FEATURED PRODUCT ═══════════════════════════════════════════ */}
+      <section className="shell py-24 sm:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+          <div className="lg:col-span-5">
+            <div className="meta text-brass mb-6">Live and public</div>
+            <Reveal as="h2" className="disp text-[2.6rem] sm:text-[3.6rem]">
+              MultSaver
+            </Reveal>
+            <Reveal as="p" className="mt-6 text-[1.0625rem] leading-[1.7] text-ash max-w-[42ch]">
+              The only thing on this site you can click and use right now. A free media
+              downloader I run myself, with no signup and no upsell. It exists because the
+              alternatives break constantly, and keeping it alive is a standing test of the
+              reliability work I sell.
+            </Reveal>
+            <a
+              href={siteConfig.social.multsaver}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn grp mt-9"
+            >
+              Open multsaver.com <span className="arw arw-d">&#8599;</span>
+            </a>
+          </div>
+
+          <div className="lg:col-span-6 lg:col-start-7">
+            <div className="gridline grid-cols-2">
+              <div className="p-7">
+                <div className="meta mb-3">Platforms</div>
+                <p className="text-[.9375rem] text-ash">Instagram, TikTok, Facebook, X</p>
+              </div>
+              <div className="p-7">
+                <div className="meta mb-3">Cost to user</div>
+                <p className="text-[.9375rem] text-ash">Free, no account</p>
+              </div>
+              <div className="p-7">
+                <div className="meta mb-3">Stack</div>
+                <p className="text-[.9375rem] text-ash">FastAPI, Redis, FFmpeg</p>
+              </div>
+              <div className="p-7">
+                <div className="meta mb-3">Uptime work</div>
+                <p className="text-[.9375rem] text-ash">Extractors isolated per platform</p>
               </div>
             </div>
+            <p className="meta mt-6 leading-relaxed">
+              Each platform extractor is isolated, so one breaking never takes the service
+              down. It is the same pattern I use in client integrations.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Right side — Terminal (lazy loaded, non-blocking) */}
-            <div className="lg:col-span-5 order-2">
-              <Terminal />
+      {/* ══ WHO THIS IS FOR ════════════════════════════════════════════ */}
+      <section className="border-t border-line bg-deep">
+        <div className="shell py-24 sm:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+            <div className="lg:col-span-4">
+              <h2 className="disp text-[2.2rem] sm:text-[3rem]">
+                Who this
+                <br />
+                is for
+              </h2>
+            </div>
+            <div className="lg:col-span-8 gridline gridline-deep sm:grid-cols-2">
+              {audiences.map((a, i) => (
+                <Reveal key={a.title} delay={(i % 2) * 70} className="p-7 sm:pl-8">
+                  <h3 className="text-lg font-medium">{a.title}</h3>
+                  <p className="mt-3 text-[.9375rem] leading-relaxed text-ash">{a.body}</p>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Scroll indicator */}
-        <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 hero-fade-in"
-          style={{ animationDelay: '1s' }}
-        >
-          <div className="flex flex-col items-center gap-2 text-muted animate-bounce">
-            <span className="text-xs font-mono">Scroll to explore</span>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+      {/* ══ THE PERSON ═════════════════════════════════════════════════ */}
+      <section className="shell py-24 sm:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-16 items-start">
+          <Reveal as="figure" className="lg:col-span-4">
+            <Portrait />
+            <figcaption className="meta mt-10">
+              {siteConfig.name} &middot; {siteConfig.location.city}, {siteConfig.location.country}
+            </figcaption>
+          </Reveal>
+
+          <div className="lg:col-span-7 lg:col-start-6">
+            <div className="meta mb-6">Who you would actually be working with</div>
+            <h2 className="disp text-[2.2rem] sm:text-[3rem]">
+              No account manager,
+              <br />
+              no handover.
+            </h2>
+            <div className="prose mt-9 text-[1.0625rem] max-w-[52ch]">
+              <p>
+                You talk to me, and I write the code. There is nobody in between translating
+                your problem into a ticket, and nobody junior quietly inheriting the work once
+                the contract is signed.
+              </p>
+              <p>
+                Five years of it, including a stretch leading the developers who built a
+                sync engine holding <strong>300,000 listings</strong> in agreement. Most of that
+                time has been spent inside other people&rsquo;s systems, which is a good
+                school for writing things the next person can actually maintain.
+              </p>
+            </div>
+            <Link href="/about" className="btn-ghost grp mt-10">
+              More about how I work <span className="arw">&rarr;</span>
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Below-fold sections */}
-      <HomeSections />
+      {/* ══ PROCESS ════════════════════════════════════════════════════ */}
+      <section className="border-t border-line bg-deep">
+        <div className="shell py-24 sm:py-32">
+          <SectionHead title="How I work" note="Four steps, no surprises" className="mb-14" />
+          <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-4">
+            {process.map((s, i) => (
+              <Reveal key={s.n} delay={(i % 4) * 70} className="p-8 lg:p-10">
+                <div className="meta tnum text-brass mb-6">Step {s.n}</div>
+                <h3 className="text-lg font-medium">{s.title}</h3>
+                <p className="mt-4 text-[.9375rem] leading-relaxed text-ash">{s.short}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ ENGAGEMENTS ════════════════════════════════════════════════ */}
+      <section className="shell py-24 sm:py-32">
+        <SectionHead
+          title="Engagements"
+          className="mb-14"
+          action={
+            <Link href="/services" className="grp meta !text-brass inline-flex items-center gap-2 pb-3">
+              Full detail <span className="arw">&rarr;</span>
+            </Link>
+          }
+        />
+        <div className="gridline lg:grid-cols-3">
+          {engagements.map((e, i) => {
+            const price = e.terms.find((t) => t.accent);
+            const term = e.terms[0];
+            return (
+              <Reveal key={e.key} delay={(i % 3) * 70} className="p-9 lg:p-11">
+                <div className="meta tnum">{e.label}</div>
+                <p className="mt-7 text-[1.0625rem] leading-[1.65]">{e.teaser}</p>
+                <div className="mt-9 pt-5 hair flex justify-between meta">
+                  <span>{term.value}</span>
+                  <span className="!text-brass">{price?.value}</span>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ══ TESTIMONIALS ═══════════════════════════════════════════════
+          Real Upwork reviews, quoted verbatim and trimmed only at sentence
+          boundaries. The tags are the client's own endorsements. */}
+      <section className="shell py-24 sm:py-32">
+        <SectionHead
+          title="In their words"
+          note="Client reviews, quoted as written"
+          className="mb-14"
+        />
+
+        <div className="gridline lg:grid-cols-2">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.project} as="figure" delay={i * 70} className="p-9 lg:p-12 flex flex-col">
+              <div className="flex items-center gap-3 mb-7">
+                <span className="text-brass tracking-[.2em] text-sm" aria-hidden="true">
+                  {'\u2605'.repeat(t.rating)}
+                </span>
+                <span className="meta tnum">{t.rating.toFixed(1)}</span>
+              </div>
+
+              <blockquote className="text-[1.25rem] leading-[1.6] tracking-tight flex-1">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+
+              <figcaption className="mt-8 pt-6 hair">
+                <p className="text-[.9375rem] text-ash leading-relaxed">{t.project}</p>
+                <p className="meta mt-3">
+                  {t.source} client &middot; {t.date}
+                </p>
+                <p className="meta !text-dim mt-4 leading-relaxed">{t.tags.join('  \u00b7  ')}</p>
+              </figcaption>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ══ WHERE I HAVE WORKED ════════════════════════════════════════
+          Stands in for testimonials until real, attributable quotes exist.
+          Every name here is a role actually held, sourced from the same data
+          the About timeline renders, so it cannot drift out of sync. */}
+      <section className="border-t border-line bg-deep">
+        <div className="shell py-24 sm:py-32">
+          <SectionHead
+            title={
+              <>
+                Teams I have
+                <br />
+                built for
+              </>
+            }
+            note="Recent engagements, one of them as team lead"
+            className="mb-14"
+          />
+
+          <div className="gridline gridline-deep sm:grid-cols-2 lg:grid-cols-3">
+            {employers.map((r, i) => (
+              <Reveal key={r.org} delay={(i % 3) * 70} className="p-8">
+                <div className="meta tnum mb-4">{r.period}</div>
+                <h3 className="disp text-[1.5rem] leading-tight">{r.org}</h3>
+                <p className="mt-3 text-[.9375rem] text-ash">
+                  {r.title}
+                  {r.note ? <span className="text-brass"> &middot; {r.note.replace('Also ', '')}</span> : null}
+                </p>
+                <p className="meta mt-4 pt-4 hair">{r.location}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <p className="meta mt-10 leading-relaxed max-w-[52ch]">
+            References available on request.
+          </p>
+        </div>
+      </section>
+
+      {/* ══ FAQ ════════════════════════════════════════════════════════ */}
+      <section className="shell py-24 sm:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10">
+          <div className="lg:col-span-4">
+            <h2 className="disp text-[2.2rem] sm:text-[3rem]">
+              Common
+              <br />
+              questions
+            </h2>
+            <p className="mt-6 text-[.9375rem] leading-relaxed text-ash max-w-[30ch]">
+              Anything not covered here, ask on the call. It costs nothing.
+            </p>
+          </div>
+          <div className="lg:col-span-8">
+            <Accordion
+              items={homeFaqs.map((f) => ({
+                title: f.q,
+                body: (
+                  <p className="pb-7 px-2 pr-12 text-[.9375rem] leading-relaxed text-ash">
+                    <RichText text={f.a} />
+                  </p>
+                ),
+              }))}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CTA ════════════════════════════════════════════════════════ */}
+      <section className="border-t border-line">
+        <div className="shell py-28 sm:py-40">
+          <p className="meta mb-10">Next step</p>
+          <h2
+            className="disp [--h:13vw] sm:[--h:10vw] lg:[--h:8vw]"
+            style={fitHeading(["LET'S BUILD", 'SOMETHING DULL.'])}
+          >
+            LET&rsquo;S BUILD
+            <br />
+            <span className="text-brass">SOMETHING</span> DULL.
+          </h2>
+          <p className="mt-10 max-w-[52ch] text-[1.0625rem] leading-[1.7] text-ash">
+            The best engineering is boring. It runs, nobody thinks about it, and it pays for
+            itself in returned hours. Tell me what you keep doing by hand.
+          </p>
+          <div className="mt-12 flex flex-wrap gap-4">
+            <Link href="/contact" className="btn grp">
+              Book 20 minutes <span className="arw">&rarr;</span>
+            </Link>
+            <a href={`mailto:${siteConfig.contact.email}`} className="btn-ghost grp">
+              Email instead <span className="arw arw-d">&#8599;</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

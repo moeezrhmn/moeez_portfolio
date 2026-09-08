@@ -1,284 +1,384 @@
 @import "tailwindcss";
 
-/* Light theme — White + Orange */
+/* ══════════════════════════════════════════════════════════════════════
+   OBSIDIAN design system
+   Two committed themes, one palette contract. Light is the default.
+   Flat surfaces, hairline rules, no shadows, no gradients, no radius.
+   Reference implementation: obsidian/assets/site.css
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Palette ───────────────────────────────────────────────────────────
+   Raw values live here so a single attribute on <html> swaps the theme.
+   @theme below maps them into Tailwind utilities. */
 :root {
-  /* Backgrounds */
-  --background-primary: #ffffff;
-  --background-secondary: #f9fafb;
-  --background-card: #ffffff;
-  --background-hover: #f3f4f6;
+  --void: #f4f1ea;      /* page ground */
+  --deep: #eae6dc;      /* alternating band */
+  --raised: #e1dcd0;    /* cards, inputs */
+  --bone: #15140f;      /* primary text */
+  --ash: #5c574c;       /* secondary text */
+  --dim: #6f6a5c;       /* tertiary */
+  --line: #d7d1c1;      /* hairlines */
+  --brass: #8a6620;     /* the single accent */
+  --onbrass: #f4f1ea;   /* text sitting on brass */
+  --head-bg: rgba(244, 241, 234, 0.78);
+  --grain: 0.03;
+}
 
-  /* Accent colors */
-  --accent-primary: #ea580c;
-  --accent-secondary: #c2410c;
-  --accent-glow: rgba(234, 88, 12, 0.25);
-
-  /* Text colors */
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
-
-  /* Borders */
-  --border-default: #e5e7eb;
-  --border-hover: #d1d5db;
+[data-theme="dark"] {
+  --void: #0a0a0b;
+  --deep: #0f0f11;
+  --raised: #141416;
+  --bone: #edeae3;
+  --ash: #8a867e;
+  --dim: #5a564e;
+  --line: #1f1e1c;
+  --brass: #c9a45c;
+  --onbrass: #0a0a0b;
+  --head-bg: rgba(10, 10, 11, 0.72);
+  --grain: 0.032;
 }
 
 @theme {
-  /* Colors */
-  --color-background: #ffffff;
-  --color-foreground: #111827;
-  --color-accent: #ea580c;
-  --color-card: #ffffff;
-  --color-border: #e5e7eb;
-  --color-muted: #9ca3af;
-  --color-secondary: #6b7280;
+  --color-void: var(--void);
+  --color-deep: var(--deep);
+  --color-raised: var(--raised);
+  --color-bone: var(--bone);
+  --color-ash: var(--ash);
+  --color-dim: var(--dim);
+  --color-line: var(--line);
+  --color-brass: var(--brass);
+  --color-onbrass: var(--onbrass);
 
-  /* Fonts */
-  --font-family-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  /* next/font injects the --font-* variables; the literal names are fallbacks. */
+  --font-display: var(--font-archivo), Archivo, system-ui, sans-serif;
+  --font-body: var(--font-literata), Literata, Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
-  margin: 0;
-  padding: 0;
-}
-
+/* ── Base ──────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background-primary);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
+  background: var(--void);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f3f4f6;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
-}
-
-/* Selection */
 ::selection {
-  background: rgba(234, 88, 12, 0.15);
-  color: #111827;
+  background: var(--brass);
+  color: var(--onbrass);
 }
 
-/* Focus outline */
 :focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
 }
 
-/* Smooth transitions */
-a, button, input, textarea {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Page gutter. Simpler than fighting Tailwind's container config. */
+.shell {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 640px) {
+  .shell { padding-inline: 2.5rem; }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* ============================================
-   GLASS / CARD UTILITIES — LIGHT THEME
-   ============================================ */
-
-/* Navigation */
-.glass-nav {
-  position: relative;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(234, 88, 12, 0.15);
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.08),
-    0 1px 0 rgba(255, 255, 255, 1) inset;
-}
-
-.glass-nav::before {
-  content: '';
-  position: absolute;
+/* Film grain. One fixed overlay gives the flat ground some tooth: the
+   difference between a colour and something printed on. */
+.grain {
+  position: fixed;
   inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(234, 88, 12, 0.03) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--grain);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .grain { mix-blend-mode: normal; }
+
+/* ── Type ──────────────────────────────────────────────────────────── */
+.disp {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  /* Display type at viewport scale will always meet a narrow screen it does
+     not fit. Wrapping is an acceptable outcome; being clipped is not. */
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+/* The exception: a masked hero line must never wrap, because the second line
+   would be swallowed by the mask's overflow. MaskedHeading sizes these to
+   fit instead. */
+.mask > span {
+  white-space: nowrap;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
+input, select, textarea, button { font-family: var(--font-display); }
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+.prose p { margin-bottom: 1.2rem; line-height: 1.8; color: var(--ash); }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--bone); font-weight: 500; }
+
+/* ── Links & buttons ───────────────────────────────────────────────── */
+.ln {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: var(--dim);
+  transition: color 0.25s, text-decoration-color 0.25s;
+}
+.ln:hover { color: var(--brass); text-decoration-color: var(--brass); }
+
+/* The one motion motif, reused everywhere. */
+.arw { display: inline-block; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.grp:hover .arw { transform: translateX(0.3rem); }
+.grp:hover .arw-d { transform: translate(0.3rem, -0.3rem); }
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid var(--brass);
+  background: var(--brass);
+  color: var(--onbrass);
+  transition: background-color 0.25s, color 0.25s;
+}
+.btn:hover { background: transparent; color: var(--brass); }
+
+.btn-ghost {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid var(--line);
+  color: var(--bone);
+  transition: border-color 0.25s, color 0.25s;
+}
+.btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
+
+/* ── Motion ────────────────────────────────────────────────────────── */
+/* Masked line reveal: one theatrical moment per page, at the top. */
+.mask { overflow: hidden; display: block; }
+.mask > span {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+.lit .mask > span { transform: none; opacity: 1; }
+.lit .mask:nth-child(2) > span { transition-delay: 0.09s; }
+.lit .mask:nth-child(3) > span { transition-delay: 0.18s; }
+
+.fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade.in { opacity: 1; transform: none; }
+
+/* Marquee: two identical tracks, the second seamless behind the first. */
+.marq { display: flex; width: max-content; animation: slide 46s linear infinite; }
+.marq:hover { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Reading progress: a hairline of brass across the top. */
+.prog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--brass);
+  z-index: 60;
+  transition: width 0.1s linear;
+}
+
+/* ── Header & navigation ───────────────────────────────────────────── */
+.site-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: var(--head-bg);
+  backdrop-filter: blur(14px);
+}
+
+.nav-a { color: var(--ash); transition: color 0.25s; }
+.nav-a:hover { color: var(--bone); }
+.nav-a[aria-current="page"] { color: var(--brass); }
+
+.theme-btn {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ash);
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.6rem;
+  transition: border-color 0.25s, color 0.25s;
+}
+.theme-btn:hover { border-color: var(--brass); color: var(--brass); }
+
+.drawer {
+  position: fixed;
+  inset: 4rem 0 0;
+  z-index: 49;
+  background: var(--void);
+  border-top: 1px solid var(--line);
+  overflow-y: auto;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.drawer.open { transform: none; }
+
+.burger span {
+  display: block;
+  height: 1px;
+  background: var(--bone);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s;
+}
+.burger.on span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.burger.on span:nth-child(2) { opacity: 0; }
+.burger.on span:nth-child(3) { transform: translateY(-4px) rotate(-45deg); }
+
+/* ── Index rows (work list, FAQ, decisions) ────────────────────────── */
+.idx { border-top: 1px solid var(--line); transition: background-color 0.45s ease; }
+.idx:hover { background: var(--deep); }
+.idx-t { transition: color 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+.idx:hover .idx-t { color: var(--brass); transform: translateX(10px); }
+.idx-n { transition: color 0.35s ease; }
+.idx:hover .idx-n { color: var(--bone); }
+
+/* 0fr to 1fr animates height with no hardcoded pixel value. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.panel > div { overflow: hidden; }
+.idx.open .panel { grid-template-rows: 1fr; }
+.idx.open { background: var(--deep); }
+.plus { transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+.idx.open .plus { transform: rotate(45deg); }
+
+/* ── Surfaces ──────────────────────────────────────────────────────── */
+.card {
+  background: var(--deep);
+  border: 1px solid var(--line);
+  transition: border-color 0.35s ease;
+}
+.card:hover { border-color: var(--brass); }
+
+.hair { border-top: 1px solid var(--line); }
+
+/* Hairline grid: children sit on a 1px gap that reads as ruled cells. */
+.gridline { display: grid; gap: 1px; background: var(--line); }
+.gridline > * { background: var(--void); }
+.gridline-deep > * { background: var(--deep); }
+
+/* ── Forms ─────────────────────────────────────────────────────────── */
+.field {
+  width: 100%;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  color: var(--bone);
+  padding: 0.9rem 1rem;
+  font-size: 0.9375rem;
+  transition: border-color 0.25s;
+}
+.field::placeholder { color: var(--dim); }
+.field:focus { outline: none; border-color: var(--brass); }
+
+/* ── Portrait ──────────────────────────────────────────────────────────
+   A hard 1px frame with a brass outline offset behind it. The filter pulls
+   the photograph's saturation down enough to sit inside the palette. */
+.portrait { position: relative; }
+.portrait::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: -16px;
+  bottom: -16px;
+  border: 1px solid var(--brass);
+  opacity: 0.4;
   pointer-events: none;
 }
-
-/* Cards */
-.glass-card {
+.portrait img,
+.portrait-sm img {
   position: relative;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  filter: saturate(0.88) contrast(1.02);
+  transition: filter 0.4s ease;
+}
+[data-theme="dark"] .portrait img,
+[data-theme="dark"] .portrait-sm img {
+  filter: saturate(0.8) brightness(0.9);
+}
+@media (max-width: 640px) {
+  .portrait::before { top: 10px; left: 10px; right: -10px; bottom: -10px; }
 }
 
-.glass-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(234, 88, 12, 0.02) 0%, transparent 100%);
-  pointer-events: none;
-}
+/* ── Architecture diagram ──────────────────────────────────────────────
+   Presentation attributes stay off the SVG so both themes drive it. */
+.d-node    { fill: var(--deep); stroke: var(--bone); stroke-width: 1.5; }
+.d-engine  { fill: var(--deep); stroke: var(--brass); stroke-width: 2.5; }
+.d-dead    { fill: var(--deep); stroke: var(--dim); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.d-path    { stroke: var(--brass); stroke-width: 1.5; fill: none; }
+.d-path-x  { stroke: var(--dim); stroke-width: 1.5; stroke-dasharray: 4 5; fill: none; }
+.d-dim     { stroke: var(--brass); stroke-width: 1; opacity: 0.45; fill: none; }
+.d-mask    { fill: var(--void); }
+.d-txt     { font-family: var(--font-mono); fill: var(--bone); }
+.d-lbl     { font-family: var(--font-mono); fill: var(--ash); }
+.d-sub     { font-family: var(--font-mono); fill: var(--dim); }
+.d-acc     { font-family: var(--font-mono); fill: var(--brass); }
+.d-arrow   { fill: var(--brass); }
+.d-arrow-x { fill: var(--dim); }
+.flow { stroke-dasharray: 7 6; animation: march 1.6s linear infinite; }
+@keyframes march { to { stroke-dashoffset: -26; } }
 
-/* Subtle background panels */
-.glass-subtle {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-}
-
-/* ============================================
-   ORANGE ACCENT EFFECTS
-   ============================================ */
-
-/* Text glow — subtle shadow for light bg */
-.glow-text {
-  text-shadow:
-    0 0 20px rgba(234, 88, 12, 0.35),
-    0 0 40px rgba(234, 88, 12, 0.15);
-}
-
-.glow-text-sm {
-  text-shadow: 0 0 12px rgba(234, 88, 12, 0.3);
-}
-
-/* Border + shadow glow */
-.glow-border {
-  box-shadow:
-    0 4px 20px rgba(234, 88, 12, 0.2),
-    0 0 0 1px rgba(234, 88, 12, 0.15);
-}
-
-.glow-border-strong {
-  box-shadow:
-    0 6px 30px rgba(234, 88, 12, 0.3),
-    0 0 0 2px rgba(234, 88, 12, 0.2);
-}
-
-/* Button/element shadow */
-.glow-element {
-  box-shadow:
-    0 4px 20px rgba(234, 88, 12, 0.25),
-    0 2px 8px rgba(234, 88, 12, 0.15);
-}
-
-.glow-element-strong {
-  box-shadow:
-    0 8px 30px rgba(234, 88, 12, 0.35),
-    0 4px 12px rgba(234, 88, 12, 0.2);
-}
-
-/* Pulse glow animation */
-.glow-pulse {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Accent border */
-.border-glow {
-  border-color: rgba(234, 88, 12, 0.4);
-  box-shadow: 0 0 10px rgba(234, 88, 12, 0.15);
-}
-
-.border-glow-strong {
-  border-color: rgba(234, 88, 12, 0.6);
-  box-shadow: 0 0 20px rgba(234, 88, 12, 0.25);
-}
-
-/* ============================================
-   KEYFRAMES
-   ============================================ */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-/* ============================================
-   TERMINAL STYLES
-   ============================================ */
-
-@keyframes cursor-blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-@keyframes terminal-typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.terminal-glow {
-  text-shadow:
-    0 0 5px rgba(234, 88, 12, 0.5),
-    0 0 10px rgba(234, 88, 12, 0.3);
-}
-
-.font-terminal {
-  font-family: var(--font-family-mono);
-  letter-spacing: 0.025em;
-}
-
-/* ============================================
-   HERO — CSS ANIMATIONS (server-rendered)
-   ============================================ */
-
-.hero-slide-up {
-  opacity: 1;
-}
-
-.hero-fade-in {
-  opacity: 1;
-}
-
-/* Orb animations */
-@keyframes orb-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.2); opacity: 0.6; }
-}
-
-@keyframes orb-pulse-reverse {
-  0%, 100% { transform: scale(1.2); opacity: 0.3; }
-  50% { transform: scale(1); opacity: 0.5; }
-}
-
-/* Floating code snippet animation */
-@keyframes snippet-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+/* ── Reduced motion ────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .mask > span,
+  .fade { transform: none !important; opacity: 1 !important; transition: none; }
+  .marq, .flow { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
 }

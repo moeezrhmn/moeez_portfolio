@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moeez Rehman — Backend & Integrations Engineer</title>
+<meta name="description" content="Backend engineer building integration and automation systems. 300k+ products synced, 40+ orders/day automated, zero manual touch.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        paper:  'var(--paper)',
+        raised: 'var(--raised)',
+        ink:    'var(--ink)',
+        muted:  'var(--muted)',
+        faint:  'var(--faint)',
+        rule:   'var(--rule)',
+        accent: 'var(--accent)',
+      },
+      fontFamily: {
+        sans:  ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"IBM Plex Serif"', 'Georgia', 'serif'],
+        mono:  ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      maxWidth: { shell: '78rem' },
+    }
+  }
+}
+</script>
+
+<style>
+  /* ── Palette ────────────────────────────────────────────────────────────
+     Warm paper + oxide. Deliberately not the dark/neon developer default.
+     Every colour is a variable so the two themes are one system, not two. */
+  :root{
+    --paper:#F4F1E9; --raised:#EDE9DE; --ink:#17150F; --muted:#6C6559;
+    --faint:#9A9284; --rule:#D9D2C2; --accent:#B0391A; --select:#E6DFCB;
+  }
+  [data-theme="dark"]{
+    --paper:#131210; --raised:#1B1917; --ink:#EDE8DC; --muted:#948C7D;
+    --faint:#635D52; --rule:#2C2924; --accent:#E2703F; --select:#2E2A22;
+  }
+
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:5.5rem; }
+  body{
+    background:var(--paper); color:var(--ink);
+    font-feature-settings:"kern","liga","cv05";
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .35s ease, color .35s ease;
+  }
+  ::selection{ background:var(--select); color:var(--ink); }
+
+  /* Numerals must align in columns — this is the whole point of a data page. */
+  .tnum{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
+
+  /* Mono metadata label. Used for every kicker, tag and column header. */
+  .label{
+    font-family:"IBM Plex Mono",monospace; font-size:.6875rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint);
+  }
+
+  /* Hairline rules do the work that cards and shadows do elsewhere. */
+  .rule-t{ border-top:1px solid var(--rule); }
+  .rule-b{ border-bottom:1px solid var(--rule); }
+
+  /* Links: underline sits low and thickens on hover. No colour flash. */
+  .ln{
+    text-decoration:underline; text-decoration-thickness:1px;
+    text-underline-offset:.28em; text-decoration-color:var(--rule);
+    transition:text-decoration-color .2s, color .2s;
+  }
+  .ln:hover{ text-decoration-color:var(--accent); color:var(--accent); }
+
+  /* Arrow nudges on hover — the single interaction motif, reused everywhere. */
+  .arw{ display:inline-block; transition:transform .25s cubic-bezier(.2,.7,.3,1); }
+  .grp:hover .arw{ transform:translateX(.3rem); }
+
+  /* Work rows tint rather than lift. Flat surface, no elevation metaphor. */
+  .row-hl{ transition:background-color .3s ease; }
+  .row-hl:hover{ background:var(--raised); }
+
+  .dot{ width:6px;height:6px;border-radius:50%;background:var(--accent);
+        box-shadow:0 0 0 0 var(--accent); animation:pulse 2.6s infinite; }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}
+    70%{box-shadow:0 0 0 7px transparent} 100%{box-shadow:0 0 0 0 transparent}
+  }
+
+  /* Scroll-spy rail (xl+ only). Ticks grow and ink up for the active section. */
+  .tick{ width:14px;height:1px;background:var(--faint);
+         transition:width .3s cubic-bezier(.2,.7,.3,1), background-color .3s; }
+  .rail-on .tick{ width:30px; background:var(--accent); }
+  .rail-on .tick-n{ color:var(--accent); }
+  .tick-n{ transition:color .3s; }
+
+  /* Entrance: one gentle reveal, once. Respects reduced-motion below. */
+  .rise{ opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
+  .rise.in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rise{opacity:1;transform:none;transition:none}
+    .dot{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased">
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════ -->
+<header class="fixed top-0 inset-x-0 z-50 rule-b" style="background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px)">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 h-16 flex items-center justify-between gap-6">
+
+    <a href="#top" class="flex items-baseline gap-3 shrink-0">
+      <span class="font-serif text-[17px] tracking-tight">Moeez Rehman</span>
+      <span class="label hidden sm:inline">Backend / Integrations</span>
+    </a>
+
+    <div class="flex items-center gap-7">
+      <nav class="hidden md:flex items-center gap-7 label">
+        <a href="#work"       class="hover:text-accent transition-colors">Work</a>
+        <a href="#services"   class="hover:text-accent transition-colors">Services</a>
+        <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
+        <a href="#contact"    class="hover:text-accent transition-colors">Contact</a>
+      </nav>
+
+      <button id="theme" aria-label="Toggle colour theme"
+              class="label border border-rule px-2.5 py-1.5 hover:border-accent hover:text-accent transition-colors">
+        <span id="theme-txt">Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ SCROLL RAIL (xl+) ═══════════════════════════════════════════════ -->
+<aside class="hidden xl:flex fixed left-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-4">
+  <a href="#work"       data-rail="work"       class="rail group flex items-center gap-3"><span class="tick"></span><span class="label tick-n tnum">01</span></a>
+  <a href="#services"   data-rail="services"   class="rail group flex items-center gap-3"><span class="tick"></span><span class="label tick-n tnum">02</span></a>
+  <a href="#experience" data-rail="experience" class="rail group flex items-center gap-3"><span class="tick"></span><span class="label tick-n tnum">03</span></a>
+  <a href="#stack"      data-rail="stack"      class="rail group flex items-center gap-3"><span class="tick"></span><span class="label tick-n tnum">04</span></a>
+  <a href="#process"    data-rail="process"    class="rail group flex items-center gap-3"><span class="tick"></span><span class="label tick-n tnum">05</span></a>
+  <a href="#contact"    data-rail="contact"    class="rail group flex items-center gap-3"><span class="tick"></span><span class="label tick-n tnum">06</span></a>
+</aside>
+
+<main id="top" class="pt-16">
+
+  <!-- ══ HERO ══════════════════════════════════════════════════════════
+       Asymmetric 12-col: statement left, spec block right. The spec block
+       answers a recruiter's four filter questions before they scroll. -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-14 pt-20 pb-16 sm:pt-28 sm:pb-20">
+
+      <div class="lg:col-span-8">
+        <div class="flex items-center gap-2.5 mb-8 rise">
+          <span class="dot"></span>
+          <span class="label" style="color:var(--muted)">Available — freelance &amp; full-time</span>
+        </div>
+
+        <h1 class="rise font-serif font-medium leading-[1.06] tracking-[-0.02em] text-[2.6rem] sm:text-[3.9rem] lg:text-[4.4rem]">
+          I build the systems<br>that move your data<br>while <span style="color:var(--accent)">nobody's watching.</span>
+        </h1>
+
+        <p class="rise mt-9 max-w-[46ch] text-[1.0625rem] leading-[1.75]" style="color:var(--muted)">
+          Backend and integrations engineer. Five years connecting commerce platforms,
+          payment rails and internal tools into pipelines that run unattended —
+          and keep running after handover.
+        </p>
+
+        <div class="rise mt-11 flex flex-wrap items-center gap-x-9 gap-y-4">
+          <a href="#contact" class="grp label flex items-center gap-2.5 border-b pb-1.5" style="color:var(--accent);border-color:var(--accent)">
+            Book a 20-minute call <span class="arw">→</span>
+          </a>
+          <a href="#work" class="grp label flex items-center gap-2.5 border-b border-rule pb-1.5 hover:text-accent transition-colors">
+            See the work <span class="arw">↓</span>
+          </a>
+          <!-- TODO: point this at your actual CV file -->
+          <a href="/resume.pdf" class="grp label flex items-center gap-2.5 border-b border-rule pb-1.5 hover:text-accent transition-colors">
+            Résumé (PDF) <span class="arw">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Spec block: the "datasheet" device that sets the whole tone -->
+      <div class="lg:col-span-4 lg:pt-3 rise">
+        <div class="rule-t pt-5">
+          <dl class="space-y-0">
+            <div class="flex justify-between gap-4 py-3 rule-b">
+              <dt class="label">Based</dt><dd class="text-sm">Lahore, PK · UTC+5</dd>
+            </div>
+            <div class="flex justify-between gap-4 py-3 rule-b">
+              <dt class="label">Core</dt><dd class="text-sm text-right">Python · Laravel · Postgres</dd>
+            </div>
+            <div class="flex justify-between gap-4 py-3 rule-b">
+              <dt class="label">Focus</dt><dd class="text-sm text-right">APIs · Integrations · Automation</dd>
+            </div>
+            <div class="flex justify-between gap-4 py-3 rule-b">
+              <dt class="label">Replies in</dt><dd class="text-sm tnum">&lt; 24 hours</dd>
+            </div>
+            <div class="flex justify-between gap-4 py-3">
+              <dt class="label">Working with</dt><dd class="text-sm">EN — fluent</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ METRICS STRIP ═════════════════════════════════════════════════
+       Four numbers, tabular, above the fold on most laptops. -->
+  <section class="rule-t rule-b" style="background:var(--raised)">
+    <div class="max-w-shell mx-auto px-6 sm:px-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4">
+        <div class="py-9 pr-6 lg:border-r border-rule rise">
+          <div class="font-serif text-[2.4rem] leading-none tnum">300k<span style="color:var(--accent)">+</span></div>
+          <div class="label mt-3.5">Products kept in sync</div>
+          <p class="mt-2 text-[13px] leading-relaxed" style="color:var(--muted)">Shopify ↔ eBay, two-way</p>
+        </div>
+        <div class="py-9 lg:px-8 lg:border-r border-rule rise">
+          <div class="font-serif text-[2.4rem] leading-none tnum">40<span style="color:var(--accent)">/day</span></div>
+          <div class="label mt-3.5">Orders, zero manual touch</div>
+          <p class="mt-2 text-[13px] leading-relaxed" style="color:var(--muted)">Receipt → Royal Mail label</p>
+        </div>
+        <div class="py-9 pr-6 lg:px-8 lg:border-r border-rule rise">
+          <div class="font-serif text-[2.4rem] leading-none tnum">70<span style="color:var(--accent)">%</span></div>
+          <div class="label mt-3.5">Manual work removed</div>
+          <p class="mt-2 text-[13px] leading-relaxed" style="color:var(--muted)">Measured across engagements</p>
+        </div>
+        <div class="py-9 lg:pl-8 rise">
+          <div class="font-serif text-[2.4rem] leading-none tnum">5<span style="color:var(--accent)">yrs</span></div>
+          <div class="label mt-3.5">Shipping to production</div>
+          <p class="mt-2 text-[13px] leading-relaxed" style="color:var(--muted)">Since 2021, five teams</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 01 SELECTED WORK ══════════════════════════════════════════════
+       Case-study rows, not cards. Problem / Approach / Result is the
+       structure both recruiters and clients said they want. -->
+  <section id="work" class="max-w-shell mx-auto px-6 sm:px-10 pt-24 sm:pt-32">
+
+    <div class="flex items-baseline justify-between gap-6 rule-b pb-5 mb-2">
+      <h2 class="font-serif text-[1.75rem] tracking-tight">
+        <span class="label tnum mr-4 align-middle">01</span>Selected work
+      </h2>
+      <span class="label hidden sm:block">Problem · Approach · Result</span>
+    </div>
+
+    <!-- ── Live product first: a URL a stranger can click is the strongest
+         trust signal available, so it gets the widest treatment. ───────── -->
+    <article class="rise row-hl rule-b py-10 -mx-4 px-4 sm:-mx-6 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-6">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="label tnum">01</span>
+            <span class="label px-2 py-0.5 border" style="color:var(--accent);border-color:var(--accent)">Live · public</span>
+          </div>
+          <h3 class="font-serif text-2xl leading-snug tracking-tight">MultSaver</h3>
+          <p class="mt-2 text-sm" style="color:var(--muted)">Consumer product · Self-operated</p>
+          <a href="https://multsaver.com" target="_blank" rel="noopener"
+             class="grp ln label inline-flex items-center gap-2 mt-5" style="color:var(--accent)">
+            multsaver.com <span class="arw">↗</span>
+          </a>
+        </div>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-x-8 gap-y-6">
+          <div>
+            <div class="label mb-2.5">Problem</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Media downloaders break constantly — platforms change markup and endpoints without notice.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Approach</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">FastAPI service with per-platform extractors, Redis-cached resolution and an FFmpeg transcode queue.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Result</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Free, no signup, running in production and serving thousands of users.</p>
+          </div>
+        </div>
+      </div>
+      <div class="label mt-8">Python · FastAPI · Redis · FFmpeg</div>
+    </article>
+
+    <!-- ── 02 ─────────────────────────────────────────────────────────── -->
+    <article class="rise row-hl rule-b py-10 -mx-4 px-4 sm:-mx-6 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-6">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="label tnum">02</span>
+            <span class="label">2024 — 2025</span>
+          </div>
+          <h3 class="font-serif text-2xl leading-snug tracking-tight">Multi-channel catalogue sync</h3>
+          <p class="mt-2 text-sm" style="color:var(--muted)">UK e-commerce retailer · via Maxenius</p>
+        </div>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-x-8 gap-y-6">
+          <div>
+            <div class="label mb-2.5">Problem</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Catalogue and stock maintained by hand in two storefronts. Drift caused oversells; updates ate a full working day each week.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Approach</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Laravel sync engine over both REST APIs — webhook-driven deltas, queued reconciliation batches, idempotent writes and a replayable failure log.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Result</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)"><span class="tnum" style="color:var(--ink)">300,000+</span> listings held in sync. Manual updates down <span class="tnum" style="color:var(--ink)">80%</span> — roughly <span class="tnum" style="color:var(--ink)">20</span> hours a week returned to the team.</p>
+          </div>
+        </div>
+      </div>
+      <div class="label mt-8">Laravel · MySQL · Shopify API · eBay API · Webhooks · AWS</div>
+    </article>
+
+    <!-- ── 03 ─────────────────────────────────────────────────────────── -->
+    <article class="rise row-hl rule-b py-10 -mx-4 px-4 sm:-mx-6 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-6">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="label tnum">03</span>
+            <span class="label">2024 — 2025</span>
+          </div>
+          <h3 class="font-serif text-2xl leading-snug tracking-tight">Order-to-dispatch automation</h3>
+          <p class="mt-2 text-sm" style="color:var(--muted)">UK e-commerce retailer · via Maxenius</p>
+        </div>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-x-8 gap-y-6">
+          <div>
+            <div class="label mb-2.5">Problem</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Every order was re-keyed into the courier portal by hand. Address typos became returned parcels and refunds.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Approach</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Event-driven pipeline: order webhook → validation → Royal Mail label generation → tracking write-back, with retries and a dead-letter queue for exceptions.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Result</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)"><span class="tnum" style="color:var(--ink)">40+</span> orders a day dispatched with no human in the loop. Ops touch only the exception queue.</p>
+          </div>
+        </div>
+      </div>
+      <div class="label mt-8">Laravel · Queue workers · Royal Mail API · MySQL</div>
+    </article>
+
+    <!-- ── 04 ─────────────────────────────────────────────────────────── -->
+    <article class="rise row-hl rule-b py-10 -mx-4 px-4 sm:-mx-6 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-6">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="label tnum">04</span>
+            <span class="label">2025 — present</span>
+          </div>
+          <h3 class="font-serif text-2xl leading-snug tracking-tight">GPU investor portal</h3>
+          <p class="mt-2 text-sm" style="color:var(--muted)">Infrastructure fund · via Codiux</p>
+        </div>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-x-8 gap-y-6">
+          <div>
+            <div class="label mb-2.5">Problem</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Investor positions and hardware utilisation tracked in spreadsheets. Reporting was monthly, manual and already stale on arrival.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Approach</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Python service aggregating utilisation and financial events into Postgres, behind a Next.js portal with per-investor scoping and live dashboards.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Result</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Monthly spreadsheet cycle replaced by self-serve reporting investors read themselves.</p>
+          </div>
+        </div>
+      </div>
+      <div class="label mt-8">Python · Next.js · React · PostgreSQL</div>
+    </article>
+
+    <!-- ── 05 ─────────────────────────────────────────────────────────── -->
+    <article class="rise row-hl rule-b py-10 -mx-4 px-4 sm:-mx-6 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-6">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="label tnum">05</span>
+            <span class="label">2025</span>
+          </div>
+          <h3 class="font-serif text-2xl leading-snug tracking-tight">AI sales-call agent</h3>
+          <p class="mt-2 text-sm" style="color:var(--muted)">Sales org · via Codiux</p>
+        </div>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-x-8 gap-y-6">
+          <div>
+            <div class="label mb-2.5">Problem</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Reps spent the first half of every day on cold outreach that mostly did not connect.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Approach</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">Twilio + Vocode voice pipeline with intent-based routing, transcript capture and CRM write-back on every call outcome.</p>
+          </div>
+          <div>
+            <div class="label mb-2.5">Result</div>
+            <p class="text-[.9375rem] leading-relaxed" style="color:var(--muted)">First-touch qualification handled automatically; reps pick up warm conversations only.</p>
+          </div>
+        </div>
+      </div>
+      <div class="label mt-8">Python · FastAPI · Twilio · Vocode · PostgreSQL</div>
+    </article>
+
+    <div class="pt-8">
+      <a href="https://github.com/moeezrhmn" target="_blank" rel="noopener" class="grp ln label inline-flex items-center gap-2">
+        Further work on GitHub <span class="arw">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ 02 SERVICES / ENGAGEMENTS ═════════════════════════════════════
+       Named engagement shapes + a range. Research: ballpark pricing filters
+       tyre-kickers and raises lead quality. Ranges are placeholders. -->
+  <section id="services" class="max-w-shell mx-auto px-6 sm:px-10 pt-24 sm:pt-32">
+
+    <div class="flex items-baseline justify-between gap-6 rule-b pb-5">
+      <h2 class="font-serif text-[1.75rem] tracking-tight">
+        <span class="label tnum mr-4 align-middle">02</span>How we can work together
+      </h2>
+      <span class="label hidden sm:block">Three shapes</span>
+    </div>
+
+    <!-- TODO: replace every "Typical range" figure with your real numbers,
+         or delete the <dd> lines if you would rather quote privately. -->
+    <div class="grid grid-cols-1 lg:grid-cols-3">
+      <div class="rise rule-b lg:border-b-0 lg:border-r border-rule py-10 lg:pr-10">
+        <div class="label tnum mb-5">A</div>
+        <h3 class="font-serif text-xl tracking-tight">Integration build</h3>
+        <p class="mt-4 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          Two or more systems that need to talk — storefront, ERP, courier, payment, warehouse.
+          Fixed scope, fixed price, handover docs included.
+        </p>
+        <dl class="mt-7 space-y-3">
+          <div class="flex justify-between gap-4 rule-t pt-3"><dt class="label">Typical</dt><dd class="text-sm tnum">3 — 6 weeks</dd></div>
+          <div class="flex justify-between gap-4 rule-t pt-3"><dt class="label">Range</dt><dd class="text-sm tnum">$3,500 — $9,000</dd></div>
+        </dl>
+      </div>
+
+      <div class="rise rule-b lg:border-b-0 lg:border-r border-rule py-10 lg:px-10">
+        <div class="label tnum mb-5">B</div>
+        <h3 class="font-serif text-xl tracking-tight">Automation sprint</h3>
+        <p class="mt-4 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          One expensive manual process, removed. We map the workflow in week one and ship the
+          replacement — jobs, schedules, alerting, the exception path.
+        </p>
+        <dl class="mt-7 space-y-3">
+          <div class="flex justify-between gap-4 rule-t pt-3"><dt class="label">Typical</dt><dd class="text-sm tnum">2 — 4 weeks</dd></div>
+          <div class="flex justify-between gap-4 rule-t pt-3"><dt class="label">Range</dt><dd class="text-sm tnum">$2,000 — $6,000</dd></div>
+        </dl>
+      </div>
+
+      <div class="rise py-10 lg:pl-10">
+        <div class="label tnum mb-5">C</div>
+        <h3 class="font-serif text-xl tracking-tight">Backend retainer</h3>
+        <p class="mt-4 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          Ongoing capacity for teams without a backend hire — new endpoints, dashboards,
+          data pipelines, and someone on call when an integration breaks.
+        </p>
+        <dl class="mt-7 space-y-3">
+          <div class="flex justify-between gap-4 rule-t pt-3"><dt class="label">Typical</dt><dd class="text-sm">Monthly, rolling</dd></div>
+          <div class="flex justify-between gap-4 rule-t pt-3"><dt class="label">Range</dt><dd class="text-sm tnum">from $2,500 / mo</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <p class="rise rule-t pt-6 mt-2 text-sm max-w-[62ch]" style="color:var(--muted)">
+      Not sure which fits? Describe the process that is costing you the most time —
+      I will tell you whether it is worth automating before either of us talks scope.
+    </p>
+  </section>
+
+  <!-- ══ 03 EXPERIENCE ═════════════════════════════════════════════════
+       Table-shaped so a recruiter can read progression in one pass. -->
+  <section id="experience" class="max-w-shell mx-auto px-6 sm:px-10 pt-24 sm:pt-32">
+
+    <div class="flex items-baseline justify-between gap-6 rule-b pb-5">
+      <h2 class="font-serif text-[1.75rem] tracking-tight">
+        <span class="label tnum mr-4 align-middle">03</span>Experience
+      </h2>
+      <span class="label hidden sm:block tnum">2021 — present</span>
+    </div>
+
+    <div>
+      <article class="rise row-hl rule-b py-8 -mx-4 px-4 sm:-mx-6 sm:px-6 grid grid-cols-1 sm:grid-cols-12 gap-x-8 gap-y-3">
+        <div class="sm:col-span-3 label tnum pt-1">2025 — Present</div>
+        <div class="sm:col-span-4">
+          <h3 class="text-[1.0625rem] font-medium">Full Stack Engineer</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">Codiux · Lahore</p>
+        </div>
+        <ul class="sm:col-span-5 space-y-2 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          <li>Investor portal with real-time analytics over Postgres</li>
+          <li>AI voice-agent pipeline on Twilio and Vocode</li>
+          <li>Financial-operations services and resource scheduling</li>
+        </ul>
+      </article>
+
+      <article class="rise row-hl rule-b py-8 -mx-4 px-4 sm:-mx-6 sm:px-6 grid grid-cols-1 sm:grid-cols-12 gap-x-8 gap-y-3">
+        <div class="sm:col-span-3 label tnum pt-1">2024 — 2025</div>
+        <div class="sm:col-span-4">
+          <h3 class="text-[1.0625rem] font-medium">Backend Engineer</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">Maxenius Solutions · Faisalabad</p>
+        </div>
+        <ul class="sm:col-span-5 space-y-2 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          <li>Shopify ↔ eBay integration at 300k+ product scale</li>
+          <li>Automated 40+ daily orders incl. Royal Mail dispatch</li>
+          <li>Cut job runtimes via queue tuning, caching and SQL work</li>
+        </ul>
+      </article>
+
+      <article class="rise row-hl rule-b py-8 -mx-4 px-4 sm:-mx-6 sm:px-6 grid grid-cols-1 sm:grid-cols-12 gap-x-8 gap-y-3">
+        <div class="sm:col-span-3 label tnum pt-1">2023 — 2024</div>
+        <div class="sm:col-span-4">
+          <h3 class="text-[1.0625rem] font-medium">Backend Engineer</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">XLogic Solution · Faisalabad</p>
+        </div>
+        <ul class="sm:col-span-5 space-y-2 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          <li>Custom automation workflows and REST APIs</li>
+          <li>Maintained production Laravel and Python services</li>
+        </ul>
+      </article>
+
+      <article class="rise row-hl rule-b py-8 -mx-4 px-4 sm:-mx-6 sm:px-6 grid grid-cols-1 sm:grid-cols-12 gap-x-8 gap-y-3">
+        <div class="sm:col-span-3 label tnum pt-1">2022 — 2023</div>
+        <div class="sm:col-span-4">
+          <h3 class="text-[1.0625rem] font-medium">PHP Developer</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">BrightWithUs · Faisalabad</p>
+        </div>
+        <ul class="sm:col-span-5 space-y-2 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          <li>Backend features for e-commerce and CMS platforms</li>
+          <li>Third-party API integrations and performance work</li>
+        </ul>
+      </article>
+
+      <article class="rise row-hl rule-b py-8 -mx-4 px-4 sm:-mx-6 sm:px-6 grid grid-cols-1 sm:grid-cols-12 gap-x-8 gap-y-3">
+        <div class="sm:col-span-3 label tnum pt-1">2021 — 2022</div>
+        <div class="sm:col-span-4">
+          <h3 class="text-[1.0625rem] font-medium">PHP Developer</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">OOP Tech · Faisalabad</p>
+        </div>
+        <ul class="sm:col-span-5 space-y-2 text-[.9375rem] leading-relaxed" style="color:var(--muted)">
+          <li>Backend modules and database query optimisation</li>
+        </ul>
+      </article>
+
+      <article class="rise rule-b py-8 grid grid-cols-1 sm:grid-cols-12 gap-x-8 gap-y-3">
+        <div class="sm:col-span-3 label tnum pt-1">2021 — 2025</div>
+        <div class="sm:col-span-4">
+          <h3 class="text-[1.0625rem] font-medium">BSc Information Technology</h3>
+          <p class="text-sm mt-1" style="color:var(--muted)">University of Agriculture, Faisalabad</p>
+        </div>
+        <div class="sm:col-span-5 label pt-1">Education</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ 04 STACK ══════════════════════════════════════════════════════
+       Plain text, grouped. No logo wall, no skill percentage bars — both
+       read as template filler and neither survives a technical reader. -->
+  <section id="stack" class="max-w-shell mx-auto px-6 sm:px-10 pt-24 sm:pt-32">
+
+    <div class="flex items-baseline justify-between gap-6 rule-b pb-5">
+      <h2 class="font-serif text-[1.75rem] tracking-tight">
+        <span class="label tnum mr-4 align-middle">04</span>Stack
+      </h2>
+      <span class="label hidden sm:block">Daily use, not a wishlist</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12">
+      <div class="rise rule-b py-6"><div class="label mb-3">Languages &amp; frameworks</div>
+        <p class="text-[.9375rem] leading-relaxed">Python — FastAPI, Flask, Django · PHP — Laravel · TypeScript</p></div>
+      <div class="rise rule-b py-6"><div class="label mb-3">Data</div>
+        <p class="text-[.9375rem] leading-relaxed">PostgreSQL · MySQL / MariaDB · MongoDB · Redis</p></div>
+      <div class="rise rule-b py-6"><div class="label mb-3">Integrations</div>
+        <p class="text-[.9375rem] leading-relaxed">Shopify · eBay · Royal Mail · Twilio · Webhooks · REST design</p></div>
+      <div class="rise rule-b py-6"><div class="label mb-3">Async &amp; scheduling</div>
+        <p class="text-[.9375rem] leading-relaxed">Queue workers · Cron · Background jobs · Retry &amp; dead-letter handling</p></div>
+      <div class="rise rule-b py-6"><div class="label mb-3">Frontend</div>
+        <p class="text-[.9375rem] leading-relaxed">React · Next.js · Vue · Tailwind CSS</p></div>
+      <div class="rise rule-b py-6"><div class="label mb-3">Infrastructure</div>
+        <p class="text-[.9375rem] leading-relaxed">Docker · AWS EC2 · Linux VPS · Nginx · Git</p></div>
+    </div>
+  </section>
+
+  <!-- ══ 05 PROCESS ════════════════════════════════════════════════════
+       Named as risk reduction, because that is what a client is buying. -->
+  <section id="process" class="max-w-shell mx-auto px-6 sm:px-10 pt-24 sm:pt-32">
+
+    <div class="flex items-baseline justify-between gap-6 rule-b pb-5">
+      <h2 class="font-serif text-[1.75rem] tracking-tight">
+        <span class="label tnum mr-4 align-middle">05</span>How I work
+      </h2>
+      <span class="label hidden sm:block">Four steps, no surprises</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rise rule-b lg:border-b-0 lg:border-r border-rule py-9 lg:pr-8">
+        <div class="label tnum mb-4">Step 01</div>
+        <h3 class="font-serif text-lg">Map the process</h3>
+        <p class="mt-3 text-[.9375rem] leading-relaxed" style="color:var(--muted)">A call where you walk me through the manual work. I write down each step and what it costs you per week.</p>
+      </div>
+      <div class="rise rule-b lg:border-b-0 lg:border-r border-rule py-9 lg:px-8">
+        <div class="label tnum mb-4">Step 02</div>
+        <h3 class="font-serif text-lg">Scope in writing</h3>
+        <p class="mt-3 text-[.9375rem] leading-relaxed" style="color:var(--muted)">What gets built, what does not, the price and the date. You approve it before any code exists.</p>
+      </div>
+      <div class="rise rule-b sm:border-b-0 lg:border-r border-rule py-9 lg:px-8">
+        <div class="label tnum mb-4">Step 03</div>
+        <h3 class="font-serif text-lg">Build in the open</h3>
+        <p class="mt-3 text-[.9375rem] leading-relaxed" style="color:var(--muted)">Weekly demo on a staging environment you can click through. No month of silence ending in a surprise.</p>
+      </div>
+      <div class="rise py-9 lg:pl-8">
+        <div class="label tnum mb-4">Step 04</div>
+        <h3 class="font-serif text-lg">Hand over properly</h3>
+        <p class="mt-3 text-[.9375rem] leading-relaxed" style="color:var(--muted)">Deployed, documented, with alerting wired up — plus 30 days of support so it survives contact with reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CLIENT WORDS ══════════════════════════════════════════════════
+       PLACEHOLDER SLOTS — do not publish until these are real quotes from
+       real, nameable people. Fabricated testimonials are trivially checked
+       and are the single fastest way to lose a serious client. -->
+  <section class="max-w-shell mx-auto px-6 sm:px-10 pt-24 sm:pt-32">
+    <div class="rule-b pb-5">
+      <h2 class="font-serif text-[1.75rem] tracking-tight">In their words</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <figure class="rise rule-b lg:border-r border-rule py-10 lg:pr-12">
+        <blockquote class="font-serif text-[1.3125rem] leading-[1.6] tracking-tight" style="color:var(--faint)">
+          “Replace this with a real quote from a client or lead — ideally one that names the
+          outcome, not your personality.”
+        </blockquote>
+        <figcaption class="label mt-6">Name · Role, Company</figcaption>
+      </figure>
+
+      <figure class="rise rule-b py-10 lg:pl-12">
+        <blockquote class="font-serif text-[1.3125rem] leading-[1.6] tracking-tight" style="color:var(--faint)">
+          “Two real testimonials beat six invented ones. Ask your last two clients or
+          managers by email today; most say yes.”
+        </blockquote>
+        <figcaption class="label mt-6">Name · Role, Company</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══ 06 CONTACT ════════════════════════════════════════════════════ -->
+  <section id="contact" class="pt-24 sm:pt-32">
+    <div class="rule-t" style="background:var(--raised)">
+      <div class="max-w-shell mx-auto px-6 sm:px-10 py-20 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-12">
+
+          <div class="lg:col-span-7">
+            <div class="label tnum mb-6">06 — Contact</div>
+            <h2 class="rise font-serif font-medium text-[2.1rem] sm:text-[2.9rem] leading-[1.1] tracking-[-0.02em]">
+              Tell me the task you<br>keep doing by hand.
+            </h2>
+            <p class="rise mt-7 max-w-[46ch] text-[1.0625rem] leading-[1.75]" style="color:var(--muted)">
+              Twenty minutes, no pitch. If automating it is not worth the money,
+              I will say so — that answer is free and saves us both the week.
+            </p>
+
+            <div class="rise mt-10 flex flex-wrap items-center gap-x-9 gap-y-4">
+              <!-- TODO: swap in your Calendly / Cal.com link -->
+              <a href="#" class="grp label flex items-center gap-2.5 border-b pb-1.5" style="color:var(--accent);border-color:var(--accent)">
+                Book a 20-minute call <span class="arw">→</span>
+              </a>
+              <a href="mailto:contact@moeezrehman.quanter.dev" class="grp label flex items-center gap-2.5 border-b border-rule pb-1.5 hover:text-accent transition-colors">
+                Email instead <span class="arw">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 lg:pt-14">
+            <dl class="rule-t">
+              <div class="flex justify-between gap-4 py-3.5 rule-b">
+                <dt class="label">Email</dt>
+                <dd class="text-sm"><a class="ln" href="mailto:contact@moeezrehman.quanter.dev">contact@moeezrehman.quanter.dev</a></dd>
+              </div>
+              <div class="flex justify-between gap-4 py-3.5 rule-b">
+                <dt class="label">Phone</dt>
+                <dd class="text-sm tnum"><a class="ln" href="tel:+923226622545">+92 322 662 2545</a></dd>
+              </div>
+              <div class="flex justify-between gap-4 py-3.5 rule-b">
+                <dt class="label">GitHub</dt>
+                <dd class="text-sm"><a class="ln" href="https://github.com/moeezrhmn" target="_blank" rel="noopener">moeezrhmn</a></dd>
+              </div>
+              <div class="flex justify-between gap-4 py-3.5 rule-b">
+                <dt class="label">LinkedIn</dt>
+                <dd class="text-sm"><a class="ln" href="https://linkedin.com/in/moeezrhmn" target="_blank" rel="noopener">in/moeezrhmn</a></dd>
+              </div>
+              <div class="flex justify-between gap-4 py-3.5">
+                <dt class="label">Response time</dt>
+                <dd class="text-sm tnum">&lt; 24 hours</dd>
+              </div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+<footer class="rule-t">
+  <div class="max-w-shell mx-auto px-6 sm:px-10 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <p class="label">© <span class="tnum">2026</span> Moeez Rehman — Lahore, Pakistan</p>
+    <p class="label">Set in IBM Plex · Built by hand</p>
+  </div>
+</footer>
+
+<script>
+/* ── Theme ─────────────────────────────────────────────────────────────
+   Explicit choice wins and persists; otherwise follow the OS. */
+(function () {
+  var root = document.documentElement,
+      btn  = document.getElementById('theme'),
+      txt  = document.getElementById('theme-txt'),
+      saved;
+
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+
+  function apply(t) {
+    root.setAttribute('data-theme', t);
+    txt.textContent = t === 'dark' ? 'Light' : 'Dark';
+  }
+
+  apply(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+
+  btn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+
+/* ── Reveal on scroll ─────────────────────────────────────────────────── */
+(function () {
+  var els = document.querySelectorAll('.rise');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+  els.forEach(function (el, i) {
+    el.style.transitionDelay = Math.min(i % 4, 3) * 60 + 'ms';
+    io.observe(el);
+  });
+})();
+
+/* ── Scroll-spy rail ──────────────────────────────────────────────────── */
+(function () {
+  var rails = Array.prototype.slice.call(document.querySelectorAll('.rail'));
+  if (!rails.length || !('IntersectionObserver' in window)) return;
+
+  var byId = {};
+  rails.forEach(function (r) { byId[r.dataset.rail] = r; });
+
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      rails.forEach(function (r) { r.classList.remove('rail-on'); });
+      var hit = byId[e.target.id];
+      if (hit) hit.classList.add('rail-on');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  ['work', 'services', 'experience', 'stack', 'process', 'contact'].forEach(function (id) {
+    var s = document.getElementById(id);
+    if (s) spy.observe(s);
+  });
+})();
+</script>
+
+</body>
+</html>
